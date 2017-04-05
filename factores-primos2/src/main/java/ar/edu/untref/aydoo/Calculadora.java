@@ -20,7 +20,7 @@ public class Calculadora {
 					numero = numero/divisor;
 				}
 			}
-			//Collections.sort(this.factoresPrimos);
+			Collections.sort(this.factoresPrimos);
 			return this.factoresPrimos;
 		}else{
 			System.out.println("El valor ingresado es invalido. Por favor inserte un numero natural mayor a 0");
