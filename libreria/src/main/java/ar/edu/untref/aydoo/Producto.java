@@ -2,10 +2,10 @@ package ar.edu.untref.aydoo;
 
 public class Producto{
 
-	public double precio;
-	public String nombre;
-	public String mes;
-	public int cantidad;
+	private double precio;
+	private String nombre;
+	private String mes;
+	private int cantidad;
 
 	public Producto(String nombre, double precio, String mes, int cantidad){
 		this.precio = precio;

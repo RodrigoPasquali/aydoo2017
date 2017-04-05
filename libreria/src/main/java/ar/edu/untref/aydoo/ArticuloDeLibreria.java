@@ -1,4 +1,4 @@
-package src.main.java.ar.edu.untref.aydoo;
+package ar.edu.untref.aydoo;
 
 public class ArticuloDeLibreria extends Producto{
 

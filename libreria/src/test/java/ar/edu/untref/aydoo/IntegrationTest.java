@@ -13,6 +13,16 @@ public class IntegrationTest {
 		Assert.assertEquals(valorEsperado, hobbit.obtenerPrecio(), 0.01);
 	}
 	
+	@Test 
+	public void nombreDeLibroDebeSerHobbit(){
+		Producto hobbit = new Libro("El Hobbit", 50, "Enero",1);
+		String valorEsperado = "El Hobbit";
+		
+		String valorActual = hobbit.obtenerNombre();
+		
+		Assert.assertEquals(valorEsperado, valorActual);
+	}
+	
 	
 	@Test
 	public void precioDeRevistaDebeDar50(){
@@ -101,6 +111,7 @@ public class IntegrationTest {
 	public void gastoTotalJuanEnAgostoDebeSer92con01(){
 		Libreria libreria = new Libreria();
 		Cliente juan = new Cliente("Juan", "Ayacucho 554", 55555555);
+		libreria.agregarCliente(juan);
 		Producto hobbit = new Libro("El Hobbit", 50, "Agosto",1);
 		Producto lapicera = new ArticuloDeLibreria("Lapicera", 5, "Agosto",2);
 		Producto elGrafico = new Revista("El Grafico", 30, 1, false, "Agosto",1);
@@ -118,6 +129,7 @@ public class IntegrationTest {
 	public void gastoTotalMariaEnEneroDebeSer44(){
 		Libreria libreria = new Libreria();
 		Cliente maria = new Cliente("Maria", "Corrientes 441", 444444444);
+		libreria.agregarCliente(maria);
 		Producto barcelona = new Revista("Barcelona", 20, 2, true, "Enero", 1);
 		Producto pagina12 = new Periodico("Pagina 12", 12, 30, false, "Enero", 1);
 		maria.comprarProducto(pagina12);

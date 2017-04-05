@@ -1,11 +1,11 @@
-package src.main.java.ar.edu.untref.aydoo;
+package ar.edu.untref.aydoo;
 
 public abstract class ArticuloConSuscripcion extends Producto {
 	
-	public int frecuenciaPublicacionMensual;
-	public boolean suscripcionAnual;
-	public double precioConDescuento;
-	public double precio;
+	private int frecuenciaPublicacionMensual;
+	private boolean suscripcionAnual;
+	private double precioConDescuento;
+	private double precio;
 
 	public ArticuloConSuscripcion(String nombre, double precio, int frecuenciaPublicacionMensual, boolean suscripcionAnual, String mes, int cantidad){
 		super(nombre, precio, mes, cantidad);
