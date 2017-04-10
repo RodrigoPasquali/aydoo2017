@@ -1,1 +1,6 @@
-/target/
+$ cat .gitignore
+.project
+.classpath
+.setting/*
+target/*
+factores-primos.jar
