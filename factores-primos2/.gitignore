@@ -1,6 +1,6 @@
 $ cat .gitignore
 .project
 .classpath
-.setting/*
+.settings/*
 target/*
 factores-primos.jar
