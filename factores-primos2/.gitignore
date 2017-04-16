@@ -4,3 +4,4 @@ $ cat .gitignore
 .settings/*
 target/*
 factores-primos.jar
+/target/

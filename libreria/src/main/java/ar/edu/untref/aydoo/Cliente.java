@@ -3,6 +3,7 @@ package ar.edu.untref.aydoo;
 import java.util.LinkedList;
 import java.util.List;
 
+//Tipo de objeto: Entitie
 public class Cliente {
 	
 	private String nombre;

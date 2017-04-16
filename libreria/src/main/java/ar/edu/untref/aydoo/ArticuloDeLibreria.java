@@ -1,5 +1,6 @@
 package ar.edu.untref.aydoo;
 
+//Tipo de objeto: Value Object
 public class ArticuloDeLibreria extends Producto{
 
 	private double precio;

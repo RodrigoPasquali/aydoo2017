@@ -1,5 +1,6 @@
 package ar.edu.untref.aydoo;
 
+//Tipo de objeto: Entitie
 import java.util.LinkedList;
 import java.util.List;
 
