@@ -15,6 +15,7 @@ public class Establecimiento {
 	private Tarjeta tarjetaClassic;
 	private Tarjeta tarjetaPremium;
 	private Sucursal sucursalConMasBeneficiosOtorgados;
+	private int beneficiosOtorgados;
 
     public Establecimiento(String nombre) {
         this.nombre = nombre;
@@ -56,6 +57,14 @@ public class Establecimiento {
     		}
     	}
     	return this.sucursalConMasBeneficiosOtorgados;
+    }
+    
+    public int getCantidadDeBeneficiosOtorgados(){
+    	this.beneficiosOtorgados = 0;
+    	for(int i = 0; i < this.listaSucursales.size(); i++){
+    		this.beneficiosOtorgados = this.listaSucursales.get(i).getCantidadBeneficiosOtorgados() + this.beneficiosOtorgados;
+    	}
+    	return this.beneficiosOtorgados;
     }
 
 }
