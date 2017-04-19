@@ -4,6 +4,12 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Club {
+	
+	private String nombreDelClub;
+	
+	public Club(String nombre){
+		this.nombreDelClub = nombre;
+	}
 
 	List<Establecimiento> listaDeEstablecimientos = new LinkedList<Establecimiento>();
 	Establecimiento establecimientoConMasBeneficios;
@@ -24,6 +30,10 @@ public class Club {
 			}
 		}
 		return this.establecimientoConMasBeneficios;
+	}
+	
+	public void enviarMaildeFelicitaciones(Establecimiento establecimiento, MailDeFelicitaciones mail){
+		this.establecimientoConMasBeneficios.setMailDeFelicitaciones(mail);
 	}
 	
 }

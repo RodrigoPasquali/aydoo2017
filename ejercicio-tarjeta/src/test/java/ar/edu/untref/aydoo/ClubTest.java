@@ -8,7 +8,7 @@ public class ClubTest {
 
 	@Test
 	public void EstablecimientoQueOtorgoMasBeneficiosDeberiaSerRestaurantB(){
-		Club club = new Club();
+		Club club = new Club("Club de Beneficios");
 		Establecimiento heladeriaA = new Establecimiento("Heladeria A");
 		Sucursal sucursalS1 = new Sucursal("S1", heladeriaA);
 		Sucursal sucursalS2 = new Sucursal("S2", heladeriaA);
@@ -38,6 +38,26 @@ public class ClubTest {
 		sucursalS5.registrarCompra();
 		
 		Establecimiento valorActual = club.getEstablecimientoQueOtorgoMasBeneficios();
+		
+		assertEquals(valorEsperado, valorActual);
+	}
+	
+	@Test
+	public void MailDeFelicitacionesDeberiaLlegarARestaurantB(){
+		Club club = new Club("Club de Beneficios");
+		Establecimiento restaurantB = new Establecimiento("Restaurant B");	
+		Establecimiento heladeriaA = new Establecimiento("Heladeria A");
+		Sucursal sucursalS1 = new Sucursal("S1", restaurantB);
+		MailDeFelicitaciones mail = new MailDeFelicitaciones(restaurantB);
+		mail.setTexto("Felicitaciones Restaurant B");
+		MailDeFelicitaciones valorEsperado = mail;
+		
+		club.agregarEstablecimientos(restaurantB);
+		restaurantB.agregarSucursales(sucursalS1);
+		sucursalS1.registrarCompra();
+		club.getEstablecimientoQueOtorgoMasBeneficios();
+		club.enviarMaildeFelicitaciones(restaurantB, mail);
+		MailDeFelicitaciones valorActual = restaurantB.getMailDeFelicitacion();
 		
 		assertEquals(valorEsperado, valorActual);
 	}

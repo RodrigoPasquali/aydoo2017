@@ -16,6 +16,7 @@ public class Establecimiento {
 	private Tarjeta tarjetaPremium;
 	private Sucursal sucursalConMasBeneficiosOtorgados;
 	private int beneficiosOtorgados;
+	private MailDeFelicitaciones mailDeFelicitaciones;
 
     public Establecimiento(String nombre) {
         this.nombre = nombre;
@@ -65,6 +66,14 @@ public class Establecimiento {
     		this.beneficiosOtorgados = this.listaSucursales.get(i).getCantidadBeneficiosOtorgados() + this.beneficiosOtorgados;
     	}
     	return this.beneficiosOtorgados;
+    }
+    
+    public void setMailDeFelicitaciones(MailDeFelicitaciones mail){
+    	this.mailDeFelicitaciones = mail;
+    }
+    
+    public MailDeFelicitaciones getMailDeFelicitacion(){
+    	return this.mailDeFelicitaciones;
     }
 
 }
