@@ -22,7 +22,9 @@ public class Compra {
         return cantidad * producto.getPrecio();
     }
 
+    /*
     public int calcularMontoNeto() {
         return sucursal.aplicarDescuento(calcularMontoBruto(), tarjeta);
     }
+    */
 }

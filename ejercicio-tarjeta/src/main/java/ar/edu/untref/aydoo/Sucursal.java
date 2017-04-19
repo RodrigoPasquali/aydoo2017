@@ -21,10 +21,12 @@ public class Sucursal {
         return cantidadBeneficiosOtorgados;
     }
 
+    /*
     public double aplicarDescuento(int valorBruto, Tarjeta tarjeta) {
         DescuentoParaTarjetaPremium descuento = establecimiento.getDescuentoPremium();
         return  descuento.aplicarDescuento(valorBruto);
     }
+    */
 
     public void registrarCompra(Compra compra) {
         cantidadBeneficiosOtorgados++;
