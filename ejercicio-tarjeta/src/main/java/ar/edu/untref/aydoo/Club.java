@@ -47,4 +47,8 @@ public class Club {
 		return this.sucursalQueOtorgoMasBeneficios;
 	}
 	
+	public void enviarRegalo(Regalo regalo){
+		this.sucursalQueOtorgoMasBeneficios.setRegalo(regalo);
+	}
+	
 }
