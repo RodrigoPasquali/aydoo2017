@@ -37,7 +37,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>foo-program</finalName>
+        <finalName>ejercicio_tarjeta</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -102,7 +102,7 @@
                   <archive>
                     <manifest>
                       <addClasspath>true</addClasspath>
-                      <mainClass>ar.edu.untref.aydoo.Program</mainClass>
+                       <!--<mainClass>ar.edu.untref.aydoo.Program</mainClass>-->
                     </manifest>
                   </archive>
                 </configuration>
