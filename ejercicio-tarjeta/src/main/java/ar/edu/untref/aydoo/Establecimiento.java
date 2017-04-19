@@ -14,6 +14,7 @@ public class Establecimiento {
 	private List<Sucursal> listaSucursales = new LinkedList<Sucursal>();
 	private Tarjeta tarjetaClassic;
 	private Tarjeta tarjetaPremium;
+	private Sucursal sucursalConMasBeneficiosOtorgados;
 
     public Establecimiento(String nombre) {
         this.nombre = nombre;
@@ -43,8 +44,18 @@ public class Establecimiento {
     	this.listaSucursales.add(sucursal);
     }
     
-    public List<Sucursal> obtenerListaDeSucursales(){
+    public List<Sucursal> getListaDeSucursales(){
     	return this.listaSucursales;
+    }
+    
+    public Sucursal getSucursalQueOtorgoMasBeneficios(){
+    	this.sucursalConMasBeneficiosOtorgados = this.listaSucursales.get(0);
+    	for (int i = 1; i < this.listaSucursales.size(); i++){
+    		if(this.sucursalConMasBeneficiosOtorgados.getCantidadBeneficiosOtorgados() < this.listaSucursales.get(i).getCantidadBeneficiosOtorgados()){
+    			this.sucursalConMasBeneficiosOtorgados = this.listaSucursales.get(i);
+    		}
+    	}
+    	return this.sucursalConMasBeneficiosOtorgados;
     }
 
 }

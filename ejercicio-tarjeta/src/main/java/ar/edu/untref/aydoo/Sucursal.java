@@ -28,7 +28,7 @@ public class Sucursal {
     }
     */
 
-    public void registrarCompra(Compra compra) {
+    public void registrarCompra() {
         cantidadBeneficiosOtorgados++;
     }
 }

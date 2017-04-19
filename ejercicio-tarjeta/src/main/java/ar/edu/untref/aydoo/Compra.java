@@ -15,7 +15,7 @@ public class Compra {
         this.producto = producto;
         this.sucursal = sucursal;
         this.tarjeta = tarjeta;
-        sucursal.registrarCompra(this);
+        sucursal.registrarCompra();
     }
 
     public int calcularMontoBruto() {
