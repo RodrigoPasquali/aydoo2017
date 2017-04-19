@@ -3,15 +3,16 @@ package ar.edu.untref.aydoo;
 /**
  * Created by nicopaez on 4/12/17.
  */
-public class DescuentoParaTarjetaPremium {
-    private int porcentajeDescuento;
+public class DescuentoParaTarjetaPremium extends Descuento {
 
     public DescuentoParaTarjetaPremium(int porcentajeDescuento, Establecimiento establecimiento) {
-        this.porcentajeDescuento = porcentajeDescuento;
+		super(porcentajeDescuento, establecimiento);
         establecimiento.setDescuentoPremium(this);
     }
 
-    public int aplicar(int valorBruto) {
-        return (int) valorBruto - valorBruto * porcentajeDescuento / 100;
+    /*
+    public double aplicarDescuento(int valorBruto) {
+        return valorBruto - valorBruto * porcentajeDescuento / 100;
     }
+    */
 }
