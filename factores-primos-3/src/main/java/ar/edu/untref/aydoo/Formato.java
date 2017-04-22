@@ -10,9 +10,9 @@ public class Formato {
 		String formatoAplicado;
 		String formatoMiniscula = formato.toLowerCase();
 		if(formatoMiniscula.equals("--format=pretty") || formatoMiniscula.equals("")){
-			formatoAplicado = this.formatoPretty(formatoMiniscula, factoresPrimos, numero);
+			formatoAplicado = this.formatoPretty(factoresPrimos, numero);
 		}else if(formatoMiniscula.equals("--format=quiet")){
-			formatoAplicado = this.formatoQuiet(formatoMiniscula, factoresPrimos, numero);
+			formatoAplicado = this.formatoQuiet(factoresPrimos, numero);
 		}else{
 			formatoAplicado = "Formato no aceptado. Las opciones posibles son: pretty o quiet.";
 		}
@@ -32,7 +32,7 @@ public class Formato {
 	* -List<Integer> factoresPrimos: lista que contiene los factores primos a los que se aplicar el formato.
 	* -int numero: numero que se factoriza.
 	***************************************************/
-	public String formatoPretty(String formato, List<Integer> factoresPrimos, int numero){
+	public String formatoPretty(List<Integer> factoresPrimos, int numero){
 		Collections.sort(factoresPrimos);
 		String stringFP = "";
 		for(int i = 0; i <= factoresPrimos.size()-1; i++ ) {
@@ -42,7 +42,7 @@ public class Formato {
 		return cadenaFormatoPretty;
 	}
 	
-	private String formatoQuiet(String formato, List<Integer> factoresPrimos, int numero){
+	private String formatoQuiet(List<Integer> factoresPrimos, int numero){
 		Collections.sort(factoresPrimos, Collections.reverseOrder());
 		String stringFP = "";
 		for(int i = 0; i <= factoresPrimos.size()-1; i++ ) {
