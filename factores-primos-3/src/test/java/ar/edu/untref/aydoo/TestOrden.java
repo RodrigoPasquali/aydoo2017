@@ -66,5 +66,25 @@ public class TestOrden {
 		
 		assertEquals(listaEsperada, listaActual);
 	}
+	
+	@Test
+	public void ordenarNumerosDeberiaDevolverListaDeNumerosDeFormaDescendente(){
+		Orden ordenarNumeros = new Orden();
+		List<Integer> listaNumeros = new LinkedList<Integer>();
+		listaNumeros.add(25);
+		listaNumeros.add(3);
+		listaNumeros.add(50);
+		listaNumeros.add(10);
+		List<Integer> listaEsperada = new LinkedList<Integer>();
+		listaEsperada.add(0, 50);
+		listaEsperada.add(1, 25);
+		listaEsperada.add(2, 10);
+		listaEsperada.add(3, 3);
+		String orden = "--sort:des";
+
+		List<Integer> listaActual = ordenarNumeros.ordenarNumeros(listaNumeros, orden);
+		
+		assertEquals(listaEsperada, listaActual);
+	}
 
 }
