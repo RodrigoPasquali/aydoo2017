@@ -1,8 +1,6 @@
 package ar.edu.untref.aydoo;
 
-import java.io.File;
 import java.io.FileWriter;
-import java.io.PrintWriter;
 
 public class EscrituraDeArchivos {
 	
