@@ -20,12 +20,13 @@ public class Orden {
 
 	public List<Integer> ordenAscendente(List<Integer> factoresPrimosIngresados){
 		this.factoresPrimos = factoresPrimosIngresados;
+		Collections.sort(this.factoresPrimos);
 		return this.factoresPrimos;
 	}
 	
 	public List<Integer> ordenDescendente(List<Integer> factoresPrimosIngresados){
 		this.factoresPrimos = factoresPrimosIngresados;
-		Collections.sort(factoresPrimos, Collections.reverseOrder());
+		Collections.sort(this.factoresPrimos, Collections.reverseOrder());
 		return this.factoresPrimos;
 	}
 	

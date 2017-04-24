@@ -24,13 +24,12 @@ public class Programa {
     		calculadora.calcularFactoresPrimos(numero);
 			listaDeFactoresPrimos = calculadora.obtenerFactoresPrimos();
 			/*
-			List<Integer> listaDeFactoresPrimosOrdenados = ordenador.ordenarNumeros(listaDeFactoresPrimos, ordenIngresado);
+			 * Asi deberia funcionar para aplciar orden.
 			List<Integer> listaDeFactoresPrimosOrdenados2 = ordenador.getOrdenDeNumeros();
-			System.out.println("lista 1 " + listaDeFactoresPrimosOrdenados);
-			System.out.println("lista 2 " + listaDeFactoresPrimosOrdenados2);
+			String salidaObtenida = formateador.aplicarFormato(formatoIngresado, listaDeFactoresPrimosOrdenados2, numero);
 			*/
-			String salidaObtenida = formateador.aplicarFormato(formatoIngresado, listaDeFactoresPrimos, numero);
-    		if(outPutFile != null){
+			String salidaObtenida = formateador.aplicarFormato(formatoIngresado, listaDeFactoresPrimos, numero, ordenIngresado);
+			if(outPutFile != null){
     			escritor = new EscrituraDeArchivos();
     			escritor.escribirArchivo(outPutFile, salidaObtenida);
     		}else{
