@@ -29,7 +29,7 @@ public class VerificadorDeArgumentos {
 					this.formato = "--format=quiet";
 				}else{
 					//devuelve la expecion por formato invalido
-				}
+					this.formato = "Formato Invalido";				}
 	        }
 		}
 	}

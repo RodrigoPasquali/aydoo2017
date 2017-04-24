@@ -30,4 +30,28 @@ public class TestVerificadorDeArgumentos {
 		assertEquals(valorEsperado,valorActual);
 	}
 	
+	@Test
+	public void siNoSeIndicaFormatoDeberiaDevolverPretty(){
+		VerificadorDeArgumentos verificador = new VerificadorDeArgumentos();
+		String[] cadena = {"360", "--output-file=salida.txt"};
+		String valorEsperado = "--format=pretty";
+		
+		verificador.verificarFormato(cadena);
+		String valorActual = verificador.getFormato();
+		
+		assertEquals(valorEsperado,valorActual);
+	}
+	
+	@Test
+	public void siPongoFormatIgualYerbaDeberiaDevolverExpecionFormatoInvalido(){
+		VerificadorDeArgumentos verificador = new VerificadorDeArgumentos();
+		String[] cadena = {"360", "--format=yerba", "--output-file=salida.txt"};
+		String valorEsperado = "Formato Invalido";
+		
+		verificador.verificarFormato(cadena);
+		String valorActual = verificador.getFormato();
+		
+		assertEquals(valorEsperado,valorActual);
+	}
+	
 }
