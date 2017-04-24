@@ -40,5 +40,6 @@ public class Calculadora {
 		return this.factoresPrimos;
 	}
 	
+	
 }
 

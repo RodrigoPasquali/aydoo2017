@@ -4,46 +4,41 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Programa {
-	    
-    public boolean verificarSiArgumentosEsNumero(String cadena){
-    		try{
-    			Integer.parseInt(cadena);
-    			return true;
-        	} catch (NumberFormatException nfe){
-        		System.out.println("El 1 elemento debe ser un numero natural");
-        		return false;
-    		}
-    }
-
-    public static final void main(String arg[]){
-    	Programa lectorDeArgumentos = new Programa();
-    	
-    	if((arg.length == 3)){
-    		try{
-    			if(lectorDeArgumentos.verificarSiArgumentosEsNumero(arg[0])){
-					int numero = Integer.parseInt(arg[0]);
-					Calculadora calculadora = new Calculadora();
-					Formato formato = new Formato();
-					List<Integer> listaDeFactoresPrimos = new LinkedList<Integer>();
-					listaDeFactoresPrimos = calculadora.calcularFactoresPrimos(numero);
-					formato.aplicarFormato(arg[1], listaDeFactoresPrimos, numero);
-					System.out.println(formato.aplicarFormato(arg[1], listaDeFactoresPrimos, numero));
-    			}
-    		}catch (NumberFormatException nfe){
-    			System.out.println("El 1 elemento debe ser un numero natural");
-    		}
-    	}else if(arg.length == 1){
-    		if(lectorDeArgumentos.verificarSiArgumentosEsNumero(arg[0])){
-				int numero = Integer.parseInt(arg[0]);
-				Calculadora calculadora = new Calculadora();
-				Formato formato = new Formato();
-				calculadora.calcularFactoresPrimos(numero);
-				formato.formatoPretty(calculadora.obtenerFactoresPrimos(), numero);
-				System.out.println(formato.formatoPretty( calculadora.obtenerFactoresPrimos(), numero));
+	
+	public static final void main(String arg[]){
+    	VerificadorDeArgumentos verificador = new VerificadorDeArgumentos();
+    	Calculadora calculadora = new Calculadora();
+    	Formato formateador = new Formato();
+    	Orden ordenador = new Orden();
+    	EscrituraDeArchivos escritor;
+    	List<Integer> listaDeFactoresPrimos = new LinkedList<Integer>();
+    	if(verificador.verificarSiArgumentosEsNumero(arg[0])){
+    		int numero = Integer.parseInt(arg[0]);
+    		verificador.verificarFormato(arg);
+    		String formatoIngresado = verificador.getFormato();
+    		verificador.verificarOrden(arg);
+    		String ordenIngresado = verificador.getOrden();
+    		verificador.verificarOutputFile(arg);
+    		String outPutFile = verificador.getOutPutFile();
+    		
+    		calculadora.calcularFactoresPrimos(numero);
+			listaDeFactoresPrimos = calculadora.obtenerFactoresPrimos();
+			/*
+			List<Integer> listaDeFactoresPrimosOrdenados = ordenador.ordenarNumeros(listaDeFactoresPrimos, ordenIngresado);
+			List<Integer> listaDeFactoresPrimosOrdenados2 = ordenador.getOrdenDeNumeros();
+			System.out.println("lista 1 " + listaDeFactoresPrimosOrdenados);
+			System.out.println("lista 2 " + listaDeFactoresPrimosOrdenados2);
+			*/
+			String salidaObtenida = formateador.aplicarFormato(formatoIngresado, listaDeFactoresPrimos, numero);
+    		if(outPutFile != null){
+    			escritor = new EscrituraDeArchivos();
+    			escritor.escribirArchivo(outPutFile, salidaObtenida);
+    		}else{
+    			System.out.println(salidaObtenida);
     		}
     	}else{
-    		System.out.println("Cantidad de argumentos invalidos");
-    		}
+    		System.err.println("El primer argumento debe ser un numero");
+    	}
     }
- 
+      
  }

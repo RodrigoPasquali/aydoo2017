@@ -114,11 +114,25 @@ public class TestVerificadorDeArgumentos {
 		assertEquals(valorEsperado,valorActual);
 	}
 	
+	/*
 	@Test
 	public void siIndicoOutPutFileIgualYerbaDeberiaDevolverExcepcionOutPutFileInvalido(){
 		VerificadorDeArgumentos verificador = new VerificadorDeArgumentos();
 		String[] cadena = {"360", "--format=yerba", "--output-file=yerba", "--sort=yerba"};
 		String valorEsperado = "File OutPut Invalido";
+		
+		verificador.verificarOutputFile(cadena);
+		String valorActual = verificador.getOutPutFile();
+		
+		assertEquals(valorEsperado,valorActual);
+	}
+	*/
+	
+	@Test
+	public void siNoSeIndicaOutPutFileDeberiaDevolverNull(){
+		VerificadorDeArgumentos verificador = new VerificadorDeArgumentos();
+		String[] cadena = {"360", "--format=yerba", "--sort=yerba"};
+		String valorEsperado = null;
 		
 		verificador.verificarOutputFile(cadena);
 		String valorActual = verificador.getOutPutFile();

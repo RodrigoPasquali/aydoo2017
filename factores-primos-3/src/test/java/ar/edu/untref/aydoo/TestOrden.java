@@ -62,7 +62,8 @@ public class TestOrden {
 		listaEsperada.add(3, 50);
 		String orden = "--sort:asc";
 		
-		List<Integer> listaActual = ordenarNumeros.ordenarNumeros(listaNumeros, orden);
+		ordenarNumeros.ordenarNumeros(listaNumeros, orden);
+		List<Integer> listaActual = ordenarNumeros.getOrdenDeNumeros();
 		
 		assertEquals(listaEsperada, listaActual);
 	}
@@ -80,9 +81,10 @@ public class TestOrden {
 		listaEsperada.add(1, 25);
 		listaEsperada.add(2, 10);
 		listaEsperada.add(3, 3);
-		String orden = "--sort:des";
+		String orden = "--sort:desc";
 
-		List<Integer> listaActual = ordenarNumeros.ordenarNumeros(listaNumeros, orden);
+		ordenarNumeros.ordenarNumeros(listaNumeros, orden);
+		List<Integer> listaActual = ordenarNumeros.getOrdenDeNumeros();
 		
 		assertEquals(listaEsperada, listaActual);
 	}

@@ -4,28 +4,25 @@ public class VerificadorDeArgumentos {
 	
 	private String formato;
 	private String orden;
-	private String outPutFile;
+	private String outPutFile = null;
+	//private String[] verificarCadena
 	
-	/*nose si voy a usar esto
-	public void verificar(String[] argumentos){
-		if(this.verificarSiArgumentosEsNumero(argumentos[0])){			
-				//}
-		}
-			//debe lanzar excepcion que primer argumento debe ser un numero natural
+	/*
+	public VerificadorDeArgumentos(String[] cadena){
+		this.verificarCadena = cadena;
 	}
 	*/
 	
-	
-	//falta poner lo que pasa cuando no lo encuentra
 	public void verificarFormato(String[] cadena){
 		this.formato = "--format=pretty";
+		String aux;
 		for (int i = 0; i<cadena.length; i++){
 			int resultado = cadena[i].indexOf("--format=");        
 	        if(resultado != -1) {
-				cadena[i].toLowerCase();
-				if(cadena[i].equals("--format=pretty")){
+	        	aux = cadena[i].toLowerCase();
+				if(aux.equals("--format=pretty")){
 					this.formato = "--format=pretty";
-				}else if(cadena[i].equals("--format=quiet")){
+				}else if(aux.equals("--format=quiet")){
 					this.formato = "--format=quiet";
 				}else{
 					//devuelve la expecion por formato invalido
@@ -36,12 +33,14 @@ public class VerificadorDeArgumentos {
 	
 	public void verificarOrden(String[] cadena){
 		this.orden = "--sort=asc";
+		String aux;
 		for (int i = 0; i<cadena.length; i++){
 			int resultado = cadena[i].indexOf("--sort=");        
 	        if(resultado != -1) {
-				if(cadena[i].equals("--sort=asc")){
+	        	aux = cadena[i];
+				if(aux.equals("--sort=asc")){
 					this.orden = "--sort=asc";
-				}else if(cadena[i].equals("--sort=desc")){
+				}else if(aux.equals("--sort=desc")){
 					this.orden = "--sort=desc";
 				}else{
 					//devuelve exepcion por orden invalido
@@ -58,9 +57,11 @@ public class VerificadorDeArgumentos {
 	        	String aux = cadena[i].substring(14);
 	        	if(aux.endsWith(".txt")){
 					this.outPutFile = aux;
+				/*
 				}else{
 					//devuelve exepcion por outPut invalido
 					this.outPutFile = "File OutPut Invalido";
+				*/
 				}
 	        }
 		}

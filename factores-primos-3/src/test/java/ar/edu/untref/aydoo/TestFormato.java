@@ -53,7 +53,7 @@ public class TestFormato {
 		int numero = 360;
 		String formato = "--format=quiet";
 		List<Integer> factoresPrimos = new ArrayList<Integer>();
-		factoresPrimos.add(2);
+		factoresPrimos.add(5);
 		factoresPrimos.add(5);
 		factoresPrimos.add(2);
 		factoresPrimos.add(3);
@@ -61,12 +61,12 @@ public class TestFormato {
 		factoresPrimos.add(3);
 		Collections.sort(factoresPrimos);
 		Formato formatear = new Formato();
-		String valorEsperando = "5\n" + 
-								"3\n" + 
-								"3\n" + 
-								"2\n" + 
-								"2\n" + 
-								"2\n" ;
+		String valorEsperando = "2\r\n" + 
+								"2\r\n" + 
+								"3\r\n" + 
+								"3\r\n" + 
+								"5\r\n" + 
+								"5\r\n" ;
 		
 		String valorActual = formatear.aplicarFormato(formato, factoresPrimos, numero);
 		
@@ -84,8 +84,8 @@ public class TestFormato {
 		factoresPrimos.add(5);
 		Collections.sort(factoresPrimos);
 		Formato formatear = new Formato();
-		String valorEsperado = "5\n" + 
-								"3\n";
+		String valorEsperado = "3\r\n" + 
+								"5\r\n";
 		
 		String valorAcutal = formatear.aplicarFormato(formato, factoresPrimos, numero);
 		

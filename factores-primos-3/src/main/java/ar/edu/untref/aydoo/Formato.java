@@ -1,6 +1,6 @@
 package ar.edu.untref.aydoo;
 
-import java.util.Collections;
+//import java.util.Collections;
 import java.util.List;
 
 public class Formato {
@@ -33,7 +33,7 @@ public class Formato {
 	* -int numero: numero que se factoriza.
 	***************************************************/
 	public String formatoPretty(List<Integer> factoresPrimos, int numero){
-		Collections.sort(factoresPrimos);
+		//Collections.sort(factoresPrimos);
 		String stringFP = "";
 		for(int i = 0; i <= factoresPrimos.size()-1; i++ ) {
 			stringFP = stringFP + factoresPrimos.get(i).toString() + " ";
@@ -43,10 +43,10 @@ public class Formato {
 	}
 	
 	private String formatoQuiet(List<Integer> factoresPrimos, int numero){
-		Collections.sort(factoresPrimos, Collections.reverseOrder());
+		//Collections.sort(factoresPrimos, Collections.reverseOrder());
 		String stringFP = "";
 		for(int i = 0; i <= factoresPrimos.size()-1; i++ ) {
-			stringFP = stringFP + factoresPrimos.get(i).toString() + "\n";
+			stringFP = stringFP + factoresPrimos.get(i).toString() + "\r\n";
 		}
 		return stringFP;
 	}
