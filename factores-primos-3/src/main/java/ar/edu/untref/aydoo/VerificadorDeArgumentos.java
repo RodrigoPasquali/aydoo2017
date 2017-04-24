@@ -18,13 +18,13 @@ public class VerificadorDeArgumentos {
 	
 	//falta poner lo que pasa cuando no lo encuentra
 	public void verificarFormato(String[] cadena){
-		this.formato = "--format=quiet";
+		this.formato = "--format=pretty";
 		for (int i = 0; i<cadena.length; i++){
 			int resultado = cadena[i].indexOf("--format=");        
 	        if(resultado != -1) {
 				cadena[i].toLowerCase();
-				if(cadena[i].equals("--format=quiet")){
-					this.formato = "--format=quiet";
+				if(cadena[i].equals("--format=pretty")){
+					this.formato = "--format=pretty";
 				}else if(cadena[i].equals("--format=quiet")){
 					this.formato = "--format=quiet";
 				}else{
