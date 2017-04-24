@@ -4,13 +4,16 @@ public class VerificadorDeArgumentos {
 	
 	private String formato;
 	private String orden;
+	private String outPutFile;
 	
+	/*nose si voy a usar esto
 	public void verificar(String[] argumentos){
 		if(this.verificarSiArgumentosEsNumero(argumentos[0])){			
 				//}
 		}
 			//debe lanzar excepcion que primer argumento debe ser un numero natural
 	}
+	*/
 	
 	
 	//falta poner lo que pasa cuando no lo encuentra
@@ -42,6 +45,20 @@ public class VerificadorDeArgumentos {
 					this.orden = "--sort=desc";
 				}else{
 					//devuelve exepcion por orden invalido
+				}
+	        }
+		}
+	}
+	
+	public void verificarOutputFile(String[] cadena){
+		for (int i = 0; i<cadena.length; i++){
+			int resultado = cadena[i].indexOf("--output-file=");        
+	        if(resultado != -1) {
+	        	String aux = cadena[i].substring(14);
+	        	if(aux.endsWith(".txt")){
+					this.outPutFile = aux;
+				}else{
+					//devuelve exepcion por outPut invalido
 				}
 	        }
 		}
