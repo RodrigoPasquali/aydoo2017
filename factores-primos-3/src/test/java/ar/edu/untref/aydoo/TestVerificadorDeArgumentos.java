@@ -7,7 +7,7 @@ import org.junit.Test;
 public class TestVerificadorDeArgumentos {
 
 	@Test
-	public void verificarFormatoDeberiaDevolverPretty(){
+	public void verificarFormatoDeberiaDevolverFormatoPretty(){
 		VerificadorDeArgumentos verificador = new VerificadorDeArgumentos();
 		String[] cadena = {"360", "--format=pretty", "--output-file=salida.txt"};
 		String valorEsperado = "--format=pretty";
@@ -19,7 +19,7 @@ public class TestVerificadorDeArgumentos {
 	}
 	
 	@Test
-	public void verificarFormatoDeberiaDevolverQuiet(){
+	public void verificarFormatoDeberiaDevolverFormatoQuiet(){
 		VerificadorDeArgumentos verificador = new VerificadorDeArgumentos();
 		String[] cadena = {"360", "--format=quiet", "--output-file=salida.txt"};
 		String valorEsperado = "--format=quiet";
@@ -31,7 +31,7 @@ public class TestVerificadorDeArgumentos {
 	}
 	
 	@Test
-	public void siNoSeIndicaFormatoDeberiaDevolverPretty(){
+	public void siNoSeIndicaFormatoDeberiaDevolverFormatoPretty(){
 		VerificadorDeArgumentos verificador = new VerificadorDeArgumentos();
 		String[] cadena = {"360", "--output-file=salida.txt"};
 		String valorEsperado = "--format=pretty";
@@ -54,4 +54,51 @@ public class TestVerificadorDeArgumentos {
 		assertEquals(valorEsperado,valorActual);
 	}
 	
+	@Test
+	public void verificarOrdenDeberiaDevolverOrdenAsc(){
+		VerificadorDeArgumentos verificador = new VerificadorDeArgumentos();
+		String[] cadena = {"360", "--format=yerba", "--output-file=salida.txt", "--sort=asc"};
+		String valorEsperado = "--sort=asc";
+		
+		verificador.verificarOrden(cadena);
+		String valorActual = verificador.getOrden();
+		
+		assertEquals(valorEsperado,valorActual);
+	}
+	
+	@Test
+	public void verificarOrdenDeberiaDevolverOrdenDesc(){
+		VerificadorDeArgumentos verificador = new VerificadorDeArgumentos();
+		String[] cadena = {"360", "--format=yerba", "--output-file=salida.txt", "--sort=desc"};
+		String valorEsperado = "--sort=desc";
+		
+		verificador.verificarOrden(cadena);
+		String valorActual = verificador.getOrden();
+		
+		assertEquals(valorEsperado,valorActual);
+	}
+	
+	@Test
+	public void siNoIndicoOrdenDeberiaDevolverOrdenAsc(){
+		VerificadorDeArgumentos verificador = new VerificadorDeArgumentos();
+		String[] cadena = {"360", "--format=yerba", "--output-file=salida.txt"};
+		String valorEsperado = "--sort=asc";
+		
+		verificador.verificarOrden(cadena);
+		String valorActual = verificador.getOrden();
+		
+		assertEquals(valorEsperado,valorActual);
+	}
+	
+	@Test
+	public void siIndicoOrdenIgualYerbaDeberiaVolverExcepcionOrdenInvalido(){
+		VerificadorDeArgumentos verificador = new VerificadorDeArgumentos();
+		String[] cadena = {"360", "--format=yerba", "--output-file=salida.txt", "--sort=yerba"};
+		String valorEsperado = "Orden Invalido";
+		
+		verificador.verificarOrden(cadena);
+		String valorActual = verificador.getOrden();
+		
+		assertEquals(valorEsperado,valorActual);
+	}
 }

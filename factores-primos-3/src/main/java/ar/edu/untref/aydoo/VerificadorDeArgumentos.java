@@ -45,6 +45,7 @@ public class VerificadorDeArgumentos {
 					this.orden = "--sort=desc";
 				}else{
 					//devuelve exepcion por orden invalido
+					this.orden = "Orden Invalido";
 				}
 	        }
 		}
@@ -59,6 +60,7 @@ public class VerificadorDeArgumentos {
 					this.outPutFile = aux;
 				}else{
 					//devuelve exepcion por outPut invalido
+					this.outPutFile = "File OutPut Invalido";
 				}
 	        }
 		}
