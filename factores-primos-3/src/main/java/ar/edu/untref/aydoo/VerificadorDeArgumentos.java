@@ -73,5 +73,17 @@ public class VerificadorDeArgumentos {
        		return false;
    		}
    }
+	
+	public String getFormato(){
+		return this.formato;
+	}
+	
+	public String getOrden(){
+		return this.orden;
+	}
 
+	public String getOutPutFile(){
+		return this.outPutFile;
+	}
+	
 }
