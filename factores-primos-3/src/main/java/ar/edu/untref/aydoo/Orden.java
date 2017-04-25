@@ -12,7 +12,7 @@ public class Orden {
 		this.factoresPrimos = new LinkedList<Integer>();
 		if(orden.equals("--sort=asc") || orden.equals("")){
 			this.factoresPrimos = this.ordenAscendente(factoresPrimosIngresados);
-		}else if(orden.equals("--sort=desc"))	{
+		}else if(orden.equals("--sort=desc")){
 			this.factoresPrimos = this.ordenDescendente(factoresPrimosIngresados);
 		}
 		return this.factoresPrimos;
