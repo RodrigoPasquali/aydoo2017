@@ -61,8 +61,7 @@ public class VerificadorDeArgumentos {
    			Integer.parseInt(cadena);
    			return true;
        	} catch (NumberFormatException nfe){
-       		System.out.println("El 1 elemento debe ser un numero natural");
-       		return false;
+       		throw new ExcepcionNumeroInvalido();
    		}
    }
 	

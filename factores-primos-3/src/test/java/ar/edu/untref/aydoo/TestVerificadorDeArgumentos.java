@@ -149,14 +149,15 @@ public class TestVerificadorDeArgumentos {
 	}
 	
 	@Test
-	public void verificarSiArgumentosEsNumeroDeberiaDevolverFalse(){
+	public void verificarSiArgumentosEsNumeroDeberiaDevolverExcepcionNumeroInvalido() throws ExcepcionNumeroInvalido{
 		VerificadorDeArgumentos verificador = new VerificadorDeArgumentos();
 		String cadena = "kk";
-		boolean valorEsperado = false;
 		
-		boolean valorActual = verificador.verificarSiArgumentosEsNumero(cadena);
-		
-		assertEquals(valorEsperado, valorActual);
+		try{
+	       	verificador.verificarSiArgumentosEsNumero(cadena);
+	    }catch (ExcepcionNumeroInvalido e){
+
+	    }
 	}
 	
 }
