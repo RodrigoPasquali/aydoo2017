@@ -36,8 +36,7 @@ public class VerificadorDeArgumentos {
 				}else if(aux.equals("--sort=desc")){
 					this.orden = "--sort=desc";
 				}else{
-					//devuelve exepcion por orden invalido
-					this.orden = "Orden Invalido";
+					throw new ExcepcionOrdenInvalido();
 				}
 	        }
 		}

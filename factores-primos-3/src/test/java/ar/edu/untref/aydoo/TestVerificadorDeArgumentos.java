@@ -42,7 +42,7 @@ public class TestVerificadorDeArgumentos {
 	}
 	
     @Test
-    public void siIndicoFormatoInvalidoDeberiaLanzarExcepcion() throws ExcepcionFormatoInvalido {
+    public void siIndicoFormatoInvalidoDeberiaLanzarExcepcionFormatoInvalido() throws ExcepcionFormatoInvalido {
     	VerificadorDeArgumentos verificador = new VerificadorDeArgumentos();
 		String[] cadena = {"360", "--format=yerba", "--output-file=salida.txt"};
 		
@@ -90,15 +90,15 @@ public class TestVerificadorDeArgumentos {
 	}
 	
 	@Test
-	public void siIndicoOrdenIgualYerbaDeberiaVolverExcepcionOrdenInvalido(){
+	public void siIndicoOrdenInvalidoDeberiaLanzarExcepcionOrdenInvalido() throws ExcepcionFormatoInvalido {
 		VerificadorDeArgumentos verificador = new VerificadorDeArgumentos();
-		String[] cadena = {"360", "--format=yerba", "--output-file=salida.txt", "--sort=yerba"};
-		String valorEsperado = "Orden Invalido";
+		String[] cadena = {"360", "--format=pretty", "--output-file=salida.txt", "--sort=yerba"};
 		
-		verificador.verificarOrden(cadena);
-		String valorActual = verificador.getOrden();
-		
-		assertEquals(valorEsperado,valorActual);
+		try{
+	       	verificador.verificarFormato(cadena);
+	    }catch (ExcepcionOrdenInvalido e){
+
+	    }
 	}
 	
 	@Test
