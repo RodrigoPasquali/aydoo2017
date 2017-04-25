@@ -20,15 +20,11 @@ public class Programa {
     		String ordenIngresado = verificador.getOrden();
     		verificador.verificarOutputFile(arg);
     		String outPutFile = verificador.getOutPutFile();
-    		
     		calculadora.calcularFactoresPrimos(numero);
 			listaDeFactoresPrimos = calculadora.obtenerFactoresPrimos();
-			/*
-			 * Asi deberia funcionar para aplciar orden.
+			ordenador.ordenarNumeros(listaDeFactoresPrimos, ordenIngresado);
 			List<Integer> listaDeFactoresPrimosOrdenados2 = ordenador.getOrdenDeNumeros();
 			String salidaObtenida = formateador.aplicarFormato(formatoIngresado, listaDeFactoresPrimosOrdenados2, numero);
-			*/
-			String salidaObtenida = formateador.aplicarFormato(formatoIngresado, listaDeFactoresPrimos, numero, ordenIngresado);
 			if(outPutFile != null){
     			escritor = new EscrituraDeArchivos();
     			escritor.escribirArchivo(outPutFile, salidaObtenida);

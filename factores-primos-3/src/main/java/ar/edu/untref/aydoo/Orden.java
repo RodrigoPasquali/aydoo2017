@@ -10,9 +10,9 @@ public class Orden {
 	
 	public List<Integer> ordenarNumeros(List<Integer> factoresPrimosIngresados, String orden){
 		this.factoresPrimos = new LinkedList<Integer>();
-		if(orden.equals("--sort:asc") || orden.equals("")){
+		if(orden.equals("--sort=asc") || orden.equals("")){
 			this.factoresPrimos = this.ordenAscendente(factoresPrimosIngresados);
-		}else if(orden.equals("--sort:desc"))	{
+		}else if(orden.equals("--sort=desc"))	{
 			this.factoresPrimos = this.ordenDescendente(factoresPrimosIngresados);
 		}
 		return this.factoresPrimos;

@@ -37,7 +37,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>factores-primos3</finalName>
+        <finalName>libreria</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -86,7 +86,7 @@
                   <archive>
                     <manifest>
                       <addClasspath>true</addClasspath>
-                      <mainClass>ar.edu.untref.aydoo.Programa</mainClass>
+                      <mainClass></mainClass>
                     </manifest>
                   </archive>
                 </configuration>

@@ -1,35 +1,10 @@
 package ar.edu.untref.aydoo;
 
-import java.util.Collections;
-//import java.util.Collections;
 import java.util.List;
 
 public class Formato {
-	
-	/*
-	 * Este seria codigo que me gustaria utilizar
-	 * 
+
 	public String aplicarFormato(String formato, List<Integer> factoresPrimos, int numero){
-		String formatoAplicado;
-		String formatoMiniscula = formato.toLowerCase();
-		if(formatoMiniscula.equals("--format=pretty") || formatoMiniscula.equals("")){
-			formatoAplicado = this.formatoPretty(factoresPrimos, numero);
-		}else if(formatoMiniscula.equals("--format=quiet")){
-			formatoAplicado = this.formatoQuiet(factoresPrimos, numero);
-		}else{
-			formatoAplicado = "Formato no aceptado. Las opciones posibles son: pretty o quiet.";
-		}
-		return formatoAplicado;
-	}
-	*/
-	
-	
-	public String aplicarFormato(String formato, List<Integer> factoresPrimos, int numero, String orden){
-		if(orden.equals("--sort=asc")){
-			Collections.sort(factoresPrimos);
-		}else if(orden.equals("--sort=desc")){
-			Collections.sort(factoresPrimos, Collections.reverseOrder());
-		}
 		String formatoAplicado;
 		String formatoMiniscula = formato.toLowerCase();
 		if(formatoMiniscula.equals("--format=pretty") || formatoMiniscula.equals("")){

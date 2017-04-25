@@ -5,13 +5,6 @@ public class VerificadorDeArgumentos {
 	private String formato;
 	private String orden;
 	private String outPutFile = null;
-	//private String[] verificarCadena
-	
-	/*
-	public VerificadorDeArgumentos(String[] cadena){
-		this.verificarCadena = cadena;
-	}
-	*/
 	
 	public void verificarFormato(String[] cadena){
 		this.formato = "--format=pretty";
