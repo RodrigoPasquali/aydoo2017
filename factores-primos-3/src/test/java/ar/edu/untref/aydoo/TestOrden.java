@@ -60,7 +60,7 @@ public class TestOrden {
 		listaEsperada.add(1, 10);
 		listaEsperada.add(2, 25);
 		listaEsperada.add(3, 50);
-		String orden = "--sort:asc";
+		String orden = "--sort=asc";
 		
 		ordenarNumeros.ordenarNumeros(listaNumeros, orden);
 		List<Integer> listaActual = ordenarNumeros.getOrdenDeNumeros();
@@ -81,7 +81,7 @@ public class TestOrden {
 		listaEsperada.add(1, 25);
 		listaEsperada.add(2, 10);
 		listaEsperada.add(3, 3);
-		String orden = "--sort:desc";
+		String orden = "--sort=desc";
 
 		ordenarNumeros.ordenarNumeros(listaNumeros, orden);
 		List<Integer> listaActual = ordenarNumeros.getOrdenDeNumeros();
