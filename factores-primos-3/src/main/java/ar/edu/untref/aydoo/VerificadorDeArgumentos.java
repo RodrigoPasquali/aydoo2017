@@ -49,11 +49,8 @@ public class VerificadorDeArgumentos {
 	        	String aux = cadena[i].substring(14);
 	        	if(aux.endsWith(".txt")){
 					this.outPutFile = aux;
-				/*
 				}else{
-					//devuelve exepcion por outPut invalido
-					this.outPutFile = "File OutPut Invalido";
-				*/
+					throw new ExcepcionOutPutFileInvalido();
 				}
 	        }
 		}
