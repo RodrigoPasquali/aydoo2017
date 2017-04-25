@@ -18,8 +18,8 @@ public class VerificadorDeArgumentos {
 				}else if(aux.equals("--format=quiet")){
 					this.formato = "--format=quiet";
 				}else{
-					//devuelve la expecion por formato invalido
-					this.formato = "Formato Invalido";				}
+					throw new ExcepcionFormatoInvalido();
+				}
 	        }
 		}
 	}

@@ -41,17 +41,17 @@ public class TestVerificadorDeArgumentos {
 		assertEquals(valorEsperado,valorActual);
 	}
 	
-	@Test
-	public void siPongoFormatIgualYerbaDeberiaDevolverExpecionFormatoInvalido(){
-		VerificadorDeArgumentos verificador = new VerificadorDeArgumentos();
+    @Test
+    public void siIndicoFormatoInvalidoDeberiaLanzarExcepcion() throws ExcepcionFormatoInvalido {
+    	VerificadorDeArgumentos verificador = new VerificadorDeArgumentos();
 		String[] cadena = {"360", "--format=yerba", "--output-file=salida.txt"};
-		String valorEsperado = "Formato Invalido";
 		
-		verificador.verificarFormato(cadena);
-		String valorActual = verificador.getFormato();
-		
-		assertEquals(valorEsperado,valorActual);
-	}
+        try{
+        	verificador.verificarFormato(cadena);
+        }catch (ExcepcionFormatoInvalido e){
+
+        }
+    }
 	
 	@Test
 	public void verificarOrdenDeberiaDevolverOrdenAsc(){
