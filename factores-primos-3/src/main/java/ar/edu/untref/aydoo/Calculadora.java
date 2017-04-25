@@ -17,10 +17,10 @@ public class Calculadora {
 	* @Param numero: Numero del que se quiere obtener sus factores primos.
 	*
 	***************************************************/
-	public List<Integer> calcularFactoresPrimos(int numero){
+	public void calcularFactoresPrimos(int numero){
 		if(numero == 1){
 			this.factoresPrimos.add(0, 1);
-			return this.factoresPrimos;
+			//return this.factoresPrimos;
 		}else if(numero>=2){
 			for(int divisor = 2; divisor<= numero; divisor++){
 				while(numero%divisor == 0){
@@ -28,18 +28,17 @@ public class Calculadora {
 					numero = numero/divisor;
 				}
 			}
-			Collections.sort(this.factoresPrimos);
-			return this.factoresPrimos;
+			//Collections.sort(this.factoresPrimos);
+			//return this.factoresPrimos;
 		}else{
 			this.factoresPrimos.add(-1);
-			return this.factoresPrimos;
+			//return this.factoresPrimos;
 		}
 	}
 	
 	public List<Integer> obtenerFactoresPrimos(){
 		return this.factoresPrimos;
-	}
-	
+	}	
 	
 }
 

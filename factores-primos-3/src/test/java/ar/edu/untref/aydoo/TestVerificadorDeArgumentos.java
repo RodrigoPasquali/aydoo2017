@@ -1,7 +1,6 @@
 package ar.edu.untref.aydoo;
 
 import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
 
 public class TestVerificadorDeArgumentos {
@@ -138,6 +137,28 @@ public class TestVerificadorDeArgumentos {
 		String valorActual = verificador.getOutPutFile();
 		
 		assertEquals(valorEsperado,valorActual);
+	}
+	
+	@Test
+	public void verificarSiArgumentosEsNumeroDeberiaDevolverTrue(){
+		VerificadorDeArgumentos verificador = new VerificadorDeArgumentos();
+		String cadena = "360";
+		boolean valorEsperado = true;
+		
+		boolean valorActual = verificador.verificarSiArgumentosEsNumero(cadena);
+		
+		assertEquals(valorEsperado, valorActual);
+	}
+	
+	@Test
+	public void verificarSiArgumentosEsNumeroDeberiaDevolverFalse(){
+		VerificadorDeArgumentos verificador = new VerificadorDeArgumentos();
+		String cadena = "kk";
+		boolean valorEsperado = false;
+		
+		boolean valorActual = verificador.verificarSiArgumentosEsNumero(cadena);
+		
+		assertEquals(valorEsperado, valorActual);
 	}
 	
 }

@@ -93,6 +93,24 @@ public class TestFormato {
 	}
 	
 	@Test
+	public void formatoIgualYerbaDevuelveMensajeDeError(){
+		int numero = 90;
+		String formato = "--format=yerba";
+		List<Integer> factoresPrimos = new ArrayList<Integer>();
+		factoresPrimos.add(2);
+		factoresPrimos.add(3);
+		factoresPrimos.add(5);
+		factoresPrimos.add(3);
+		Collections.sort(factoresPrimos);
+		Formato formatear = new Formato();
+		String valorEsperado = "Formato no aceptado. Las opciones posibles son: pretty o quiet.";
+		
+		String valorActual = formatear.aplicarFormato(formato, factoresPrimos, numero);
+		
+		Assert.assertEquals(valorEsperado, valorActual);
+	}
+	
+	@Test
 	public void formatoSinEspecificarDevuelveFormatoPretty(){
 		int numero = 90;
 		String formato = "";

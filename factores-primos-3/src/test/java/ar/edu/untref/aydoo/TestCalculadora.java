@@ -16,7 +16,8 @@ public class TestCalculadora {
 		List<Integer> valorObtenido = new ArrayList<Integer>();
 
 		Calculadora calculadora = new Calculadora();
-		valorObtenido = calculadora.calcularFactoresPrimos(numero);
+		calculadora.calcularFactoresPrimos(numero);
+		valorObtenido = calculadora.obtenerFactoresPrimos();
 		
 		Assert.assertEquals(valorEsperado, valorObtenido);
 	}
@@ -35,8 +36,9 @@ public class TestCalculadora {
 		List<Integer> valorObtenido = new ArrayList<Integer>();
 
 		Calculadora calculadora = new Calculadora();
-		valorObtenido = calculadora.calcularFactoresPrimos(numero);
-		
+		calculadora.calcularFactoresPrimos(numero);
+		valorObtenido = calculadora.obtenerFactoresPrimos();
+
 		Assert.assertEquals(valorEsperado, valorObtenido);
 	}
 	
@@ -51,8 +53,9 @@ public class TestCalculadora {
 		List<Integer> valorObtenido = new ArrayList<Integer>();
 
 		Calculadora calculadora = new Calculadora();
-		valorObtenido = calculadora.calcularFactoresPrimos(numero);
-		
+		calculadora.calcularFactoresPrimos(numero);
+		valorObtenido = calculadora.obtenerFactoresPrimos();
+
 		Assert.assertEquals(valorEsperado, valorObtenido);
 	}
 	
@@ -65,10 +68,10 @@ public class TestCalculadora {
 		List<Integer> valorObtenido = new ArrayList<Integer>();
 
 		Calculadora calculadora = new Calculadora();
-		valorObtenido = calculadora.calcularFactoresPrimos(numero);
+		calculadora.calcularFactoresPrimos(numero);
+		valorObtenido = calculadora.obtenerFactoresPrimos();
 		
 		Assert.assertEquals(valorEsperado, valorObtenido);
-		
 	}
 	
 	@Test
@@ -80,10 +83,10 @@ public class TestCalculadora {
 		List<Integer> valorObtenido = new ArrayList<Integer>();
 
 		Calculadora calculadora = new Calculadora();	
-		valorObtenido = calculadora.calcularFactoresPrimos(numero);
+		calculadora.calcularFactoresPrimos(numero);
+		valorObtenido = calculadora.obtenerFactoresPrimos();
 		
-		Assert.assertEquals(valorEsperado, valorObtenido);
-		
+		Assert.assertEquals(valorEsperado, valorObtenido);	
 	}
 
 }
