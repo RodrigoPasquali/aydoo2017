@@ -24,15 +24,15 @@ public class TestEjecutador {
 	}
 	
 	@Test
-	public void siPrimerArgumentoNoEsNumeroDeberiaDevolverMensajeDeError(){
+	public void siPrimerArgumentoNoEsNumeroDeberiaDevolverExcepcionNumeroInvalido() throws ExcepcionNumeroInvalido{
 		String[] entrada = {"kk", "--format=quiet", "--sort=desc"};
-		String valorEsperado = "El primer argumento debe ser un numero";
 		Ejecutador ejecutador = new Ejecutador();
-		
-		ejecutador.ejecutarPeticion(entrada);
-		String valorActual = ejecutador.getSalida();
-		
-		assertEquals(valorEsperado, valorActual);
+				
+		try{
+			ejecutador.ejecutarPeticion(entrada);
+	    }catch (ExcepcionNumeroInvalido e){
+	    	
+	    }
 	}
 
 	@Test
