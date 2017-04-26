@@ -5,39 +5,45 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Ejecutador {
+private String salidaObtenida;
+private VerificadorDeArgumentos verificador;
+private Calculadora calculadora;
+private Formato formateador;
+private Orden ordenador;
+private EscrituraDeArchivos escritor;
+private List<Integer> listaDeFactoresPrimos;
 
-String salidaObtenida;
+	public Ejecutador(){
+		this.verificador = new VerificadorDeArgumentos();
+		this.calculadora = new Calculadora();
+		this.formateador = new Formato();
+		this.ordenador = new Orden();
+		this.listaDeFactoresPrimos = new LinkedList<Integer>();
+	}
 	
-	public void ejecutarPeticion(String[] arg) throws IOException{
-		VerificadorDeArgumentos verificador = new VerificadorDeArgumentos();
-    	Calculadora calculadora = new Calculadora();
-    	Formato formateador = new Formato();
-    	Orden ordenador = new Orden();
-    	EscrituraDeArchivos escritor;
-    	List<Integer> listaDeFactoresPrimos = new LinkedList<Integer>();
-    	verificador.verificarSiArgumentosEsNumero(arg[0]);
+	public void ejecutarPeticion(String[] arg) throws IOException {
+    	this.verificador.verificarSiArgumentosEsNumero(arg[0]);
     	int numero = Integer.parseInt(arg[0]);
-    	verificador.verificarFormato(arg);
-    	String formatoIngresado = verificador.getFormato();
-    	verificador.verificarOrden(arg);
-    	String ordenIngresado = verificador.getOrden();
-    	verificador.verificarOutputFile(arg);
-    	String outPutFile = verificador.getOutPutFile();
-    	calculadora.calcularFactoresPrimos(numero);
-		listaDeFactoresPrimos = calculadora.obtenerFactoresPrimos();
-		ordenador.ordenarNumeros(listaDeFactoresPrimos, ordenIngresado);
-		List<Integer> listaDeFactoresPrimosOrdenados2 = ordenador.getOrdenDeNumeros();
-		this.salidaObtenida = formateador.aplicarFormato(formatoIngresado, listaDeFactoresPrimosOrdenados2, numero);
-		if(outPutFile != null){
-    		escritor = new EscrituraDeArchivos();
-    		escritor.escribirArchivo(outPutFile, this.salidaObtenida);
-    	}else{
+    	this.verificador.verificarFormato(arg);
+    	String formatoIngresado = this.verificador.getFormato();
+    	this.verificador.verificarOrden(arg);
+    	String ordenIngresado = this.verificador.getOrden();
+    	this.verificador.verificarOutputFile(arg);
+    	String outPutFile = this.verificador.getOutPutFile();
+    	this.calculadora.calcularFactoresPrimos(numero);
+    	this.listaDeFactoresPrimos = this.calculadora.obtenerFactoresPrimos();
+    	this.ordenador.ordenarNumeros(this.listaDeFactoresPrimos, ordenIngresado);
+		List<Integer> listaDeFactoresPrimosOrdenados = this.ordenador.getOrdenDeNumeros();
+		this.salidaObtenida = this.formateador.aplicarFormato(formatoIngresado, listaDeFactoresPrimosOrdenados, numero);
+		if (outPutFile != null) {
+    		this.escritor = new EscrituraDeArchivos();
+    		this.escritor.escribirArchivo(outPutFile, this.salidaObtenida);
+    	} else {
     		System.out.println(this.salidaObtenida);
     	}
 	}
 	
-	public String getSalida(){
+	public String getSalida() {
 		return this.salidaObtenida;
-	}
-	
+	}	
 }
