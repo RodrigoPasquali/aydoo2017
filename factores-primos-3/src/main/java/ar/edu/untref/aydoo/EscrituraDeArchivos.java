@@ -1,26 +1,18 @@
 package ar.edu.untref.aydoo;
 
 import java.io.FileWriter;
+import java.io.IOException;
 
 public class EscrituraDeArchivos {
 	
-	public void escribirArchivo(String directorio, String texto){
+	public void escribirArchivo(String directorio, String texto) throws IOException{
 	
 		FileWriter fichero = null;
-        try
-        {
-            fichero = new FileWriter(directorio);
-            fichero.write(texto);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-           try {
-	           if (null != fichero)
-	              fichero.close();
-	           } catch (Exception e2) {
-	              e2.printStackTrace();
-	           }
-        }
+        fichero = new FileWriter(directorio);
+        fichero.write(texto);
+	    fichero.close();
+	    
 	}
+	
 
 }

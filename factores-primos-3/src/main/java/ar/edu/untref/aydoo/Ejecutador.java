@@ -1,5 +1,6 @@
 package ar.edu.untref.aydoo;
 
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -7,7 +8,7 @@ public class Ejecutador {
 
 String salidaObtenida;
 	
-	public void ejecutarPeticion(String[] arg){
+	public void ejecutarPeticion(String[] arg) throws IOException{
 		VerificadorDeArgumentos verificador = new VerificadorDeArgumentos();
     	Calculadora calculadora = new Calculadora();
     	Formato formateador = new Formato();
