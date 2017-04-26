@@ -90,12 +90,12 @@ public class TestVerificadorDeArgumentos {
 	}
 	
 	@Test
-	public void siIndicoOrdenInvalidoDeberiaLanzarExcepcionOrdenInvalido() throws ExcepcionFormatoInvalido {
+	public void siIndicoOrdenInvalidoDeberiaLanzarExcepcionOrdenInvalido() throws ExcepcionOrdenInvalido {
 		VerificadorDeArgumentos verificador = new VerificadorDeArgumentos();
 		String[] cadena = {"360", "--format=pretty", "--output-file=salida.txt", "--sort=yerba"};
 		
 		try{
-	       	verificador.verificarFormato(cadena);
+	       	verificador.verificarOrden(cadena);
 	    }catch (ExcepcionOrdenInvalido e){
 
 	    }
