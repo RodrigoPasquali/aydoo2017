@@ -22,6 +22,10 @@ public class JuntaElectoral {
 		this.listaDePartidos.add(partido);
 	}
 	
+	public void agregarCandidato(Candidato candidato) {
+		this.listaDeCandidatos.add(candidato);
+	}
+	
 	public List<Partido> getPartidos(){
 		return this.listaDePartidos;
 	}
