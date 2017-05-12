@@ -22,6 +22,17 @@ public class JuntaElectoral {
 		this.listaDePartidos.add(partido);
 	}
 	
+	public List<Partido> getPartidos(){
+		return this.listaDePartidos;
+	}
+	
+	public List<Candidato> getCandidatos(){
+		return this.listaDeCandidatos;
+	}
+	public List<Provincia> getPronvincias(){
+		return this.listaDeProvincias;
+	}
+	
 	public void agregarProvincia(Provincia provincia) {
 		this.listaDeProvincias.add(provincia);
 	}
