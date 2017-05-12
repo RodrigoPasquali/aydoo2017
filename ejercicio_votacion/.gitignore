@@ -12,3 +12,4 @@ pom.xml
 !/.mvn/wrapper/maven-wrapper.jar
 
 # End
+/target/
