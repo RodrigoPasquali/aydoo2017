@@ -4,9 +4,9 @@ public class Provincia {
 	
 	String nombre;
 	int votos = 0;
-	int votosJ = 0;
-	int votosM = 0;
-	String partidoGanador;
+	//int votosJ = 0;
+	//int votosM = 0;
+	//String partidoGanador;
 
 	
 	public Provincia(String provincia){
@@ -26,6 +26,7 @@ public class Provincia {
 		return this.nombre;
 	}
 	
+	/*
 	public void sumarVotoAPartido(Partido partido){
 		if(partido.getNombre() == "J"){
 			this.votosJ++;
@@ -33,7 +34,9 @@ public class Provincia {
 			this.votosM++;
 		}
 	}
+	*/
 	
+	/*
 	public String partidoGanadorEnlaProvincia(){
 		this.partidoGanador = "J";
 		if(this.votosJ < this.votosM){
@@ -42,5 +45,5 @@ public class Provincia {
 		System.out.println("En la provincia de " + this.nombre + " es " + this.partidoGanador);
 		return this.partidoGanador;
 	}
-	
+	*/
 }
