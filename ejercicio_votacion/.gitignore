@@ -1,11 +1,9 @@
-#.gitignore
-
+$ cat .gitignore
 
 #Eclipse
 .project
 .classpath
 .settings/
-
 bin/*
 *
 
