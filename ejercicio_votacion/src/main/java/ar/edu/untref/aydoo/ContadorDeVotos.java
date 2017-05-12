@@ -2,7 +2,7 @@ package ar.edu.untref.aydoo;
 
 import java.util.LinkedList;
 import java.util.List;
-
+/*
 public class ContadorDeVotos {
 	
 	Partido partidoJ;
@@ -159,6 +159,9 @@ public class ContadorDeVotos {
 		return partidoGanador;
 	}
 	
+}
+*/
+	
 	/*
 	public String partidoGanadorEnUnaProvincia(String nombreProvincia, List<Voto> listaVotos){
 		this.partidoGanadorEnLaProvincia = this.listaPartidos.get(0).getNombre();
@@ -181,5 +184,4 @@ public class ContadorDeVotos {
 	 */
 	
 	
-	
-}
+

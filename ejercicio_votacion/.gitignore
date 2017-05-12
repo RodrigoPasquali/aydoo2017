@@ -5,3 +5,4 @@ $ cat .gitignore
 target/*
 factores-primos.jar
 bin/*
+/target/

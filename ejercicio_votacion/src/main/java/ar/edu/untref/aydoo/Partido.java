@@ -1,9 +1,12 @@
 package ar.edu.untref.aydoo;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Partido {
-	
-	int votos = 0;
-	String nombre;
+	private int votos = 0;
+	private String nombre;
+	private List<Candidato> listaDeCandidatos = new LinkedList<Candidato>();
 	
 	public Partido(String nombre){
 		this.nombre = nombre;
@@ -20,6 +23,14 @@ public class Partido {
 	
 	public String getNombre(){
 		return this.nombre;
+	}
+	
+	public void agregarCandidato(Candidato candidato){
+		this.listaDeCandidatos.add(candidato);
+	}
+	
+	public List<Candidato> getListaCandidato(){
+		return this.listaDeCandidatos;
 	}
 
 }
