@@ -1,8 +1,13 @@
-$ cat .gitignore
+#.gitignore
+
+
+#Eclipse
 .project
 .classpath
-.settings/*
-target/*
-factores-primos.jar
+.settings/
+
 bin/*
-/target/
+*
+
+#Maven
+target/*
