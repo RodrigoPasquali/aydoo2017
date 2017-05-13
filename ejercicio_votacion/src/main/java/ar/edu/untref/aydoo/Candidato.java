@@ -14,7 +14,6 @@ public class Candidato {
 	}
 		
 	public int getVotos(){
-		System.out.println("Cantidad votos de Candidato : " + this.nombre+ " " +this.votos);
 		return this.votos;
 	}
 	

@@ -1,49 +1,35 @@
 package ar.edu.untref.aydoo;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Provincia {
-	
 	String nombre;
 	int votos = 0;
-	//int votosJ = 0;
-	//int votosM = 0;
-	//String partidoGanador;
-
+	List<Partido> listaDePartidos = new LinkedList<Partido>();
 	
-	public Provincia(String provincia){
+	public Provincia(String provincia) {
 		this.nombre = provincia;
 	}
 	
-	public void sumarVoto(){
+	public void sumarVoto() {
 		this.votos++;
 	}
 	
-	public int getVotos(){
+	public int getVotos() {
 		System.out.println("Cantidad de votos de Provincia : " + this.nombre + " " +this.votos);
 		return this.votos;
-	}
+	}	
 	
-	public String getNombre(){
-		return this.nombre;
-	}
-	
-	/*
-	public void sumarVotoAPartido(Partido partido){
-		if(partido.getNombre() == "J"){
-			this.votosJ++;
-		}else if(partido.getNombre() == "M"){
-			this.votosM++;
+	public void sumarVotoAPartido(Partido partido) {
+		int i = 0;
+		while(!this.listaDePartidos.equals(partido)) {
+			i++;
 		}
+		this.listaDePartidos.get(i).sumarVoto();
 	}
-	*/
 	
-	/*
-	public String partidoGanadorEnlaProvincia(){
-		this.partidoGanador = "J";
-		if(this.votosJ < this.votosM){
-			this.partidoGanador = "M";
-		}
-		System.out.println("En la provincia de " + this.nombre + " es " + this.partidoGanador);
-		return this.partidoGanador;
+	public List<Partido> getListaDePartidos(){
+		return this.listaDePartidos;
 	}
-	*/
 }

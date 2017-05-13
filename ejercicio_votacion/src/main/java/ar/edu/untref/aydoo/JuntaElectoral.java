@@ -11,15 +11,14 @@ public class JuntaElectoral {
 	private List<Candidato> listaDeCandidatos;
 	private List<Provincia> listaDeProvincias;
 	private Candidato candidatoNacional;
-	private Partido partidoGanador;
-	Map<Candidato, Integer> votosDeCandidatosNacional;
+	Map<Provincia, List<Candidato>> votosDePartidosPorProvincia;
 	
 	public JuntaElectoral(){
 		this.votos = new LinkedList<Voto>();
 		this.listaDeCandidatos = new LinkedList<Candidato>();
 		this.listaDePartidos = new LinkedList<Partido>();
 		this.listaDeProvincias = new LinkedList<Provincia>();
-		this.votosDeCandidatosNacional = new HashMap<>();
+		this.votosDePartidosPorProvincia = new HashMap<>();
 	}
 	
 	public void agregarVoto(Voto voto) {
@@ -75,5 +74,28 @@ public class JuntaElectoral {
 			}
 		}
 		return this.candidatoNacional;
-	}	
+	}
+	
+	public void contarVotosDePartidosPorProvincia(){
+		for(int v = 0; v < this.votos.size(); v++){
+			Provincia provinciaActual = this.votos.get(v).getProvincia();
+			Partido partidoActual = this.votos.get(v).getPartido();
+			provinciaActual.sumarVotoAPartido(partidoActual);
+		}
+	}
+	
+	public Partido getPartidoGanadorEnProvincia(Provincia provincia){
+		Partido partidoGanador;
+		int i = 0;
+		while(!this.votos.get(i).getProvincia().equals(provincia)){
+			i++;
+		}
+		partidoGanador = this.votos.get(i).getProvincia().getListaDePartidos().get(0);
+		for(int p = 0; p < this.votos.get(i).getProvincia().getListaDePartidos().size(); p++){
+			if(partidoGanador.getVotos() < this.votos.get(i).getProvincia().getListaDePartidos().get(p).getVotos()){
+				partidoGanador = this.votos.get(i).getProvincia().getListaDePartidos().get(p);
+			}
+		}
+		return partidoGanador;
+	}
 }

@@ -21,10 +21,6 @@ public class Partido {
 		return this.votos;
 	}
 	
-	public String getNombre(){
-		return this.nombre;
-	}
-	
 	public void agregarCandidato(Candidato candidato){
 		this.listaDeCandidatos.add(candidato);
 	}
