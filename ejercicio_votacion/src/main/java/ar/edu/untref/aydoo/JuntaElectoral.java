@@ -1,14 +1,26 @@
 package ar.edu.untref.aydoo;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class JuntaElectoral {
-	private List<Voto> votos = new LinkedList<Voto>();
-	private List<Partido> listaDePartidos = new LinkedList<Partido>();
-	private List<Candidato> listaDeCandidatos = new LinkedList<Candidato>();
-	private List<Provincia> listaDeProvincias = new LinkedList<Provincia>();
+	private List<Voto> votos;
+	private List<Partido> listaDePartidos;
+	private List<Candidato> listaDeCandidatos;
+	private List<Provincia> listaDeProvincias;
 	private Candidato candidatoNacional;
+	private Partido partidoGanador;
+	Map<Candidato, Integer> votosDeCandidatosNacional;
+	
+	public JuntaElectoral(){
+		this.votos = new LinkedList<Voto>();
+		this.listaDeCandidatos = new LinkedList<Candidato>();
+		this.listaDePartidos = new LinkedList<Partido>();
+		this.listaDeProvincias = new LinkedList<Provincia>();
+		this.votosDeCandidatosNacional = new HashMap<>();
+	}
 	
 	public void agregarVoto(Voto voto) {
 		this.votos.add(voto);
@@ -26,6 +38,10 @@ public class JuntaElectoral {
 		this.listaDeCandidatos.add(candidato);
 	}
 	
+	public void agregarProvincia(Provincia provincia) {
+		this.listaDeProvincias.add(provincia);
+	}
+	
 	public List<Partido> getPartidos(){
 		return this.listaDePartidos;
 	}
@@ -37,38 +53,27 @@ public class JuntaElectoral {
 		return this.listaDeProvincias;
 	}
 	
-	public void agregarProvincia(Provincia provincia) {
-		this.listaDeProvincias.add(provincia);
+	public void contarVotosDeCandidatos(){
+		for(int v = 0; v < this.votos.size(); v++){
+			this.votos.get(v).getCandidato().sumarVoto();
+		}
 	}
 	
-	public Candidato obtenerCandidatoConMasVotosNacional() {
-		return this.candidatoNacional;
+	public int getVotosDeCandidato(Candidato candidato){
+		int i = 0;
+		while(!this.votos.get(i).getCandidato().equals(candidato)){
+			i++;
+		}
+		return this.votos.get(i).getCandidato().getVotos();
 	}
 	
-	public void calcularCandidatoConMasVotosNacional() {
+	public Candidato getcandidatoGanadorNacional(){
 		this.candidatoNacional = this.votos.get(0).getCandidato();
-		for(int i = 1; i < this.votos.size(); i++) {
-			
-		}
-	}
-	
-	public void contarVotos(){
-		for(int i = 0; i < this.votos.size(); i++){
-			for(int c = 0; c < this.votos.size(); i++){
-				
+		for(int c = 0; c < this.votos.size(); c++){
+			if(this.candidatoNacional.getVotos() < this.votos.get(c).getCandidato().getVotos()){
+				this.candidatoNacional = this.votos.get(c).getCandidato();
 			}
 		}
-	}
-	
-	private void contarVotosDeCandidatos(){
-		for(int c = 0; c < this.listaDeCandidatos.size(); c++){
-			for(int v = 0; v < this.votos.size(); v++){
-				if(this.listaDeCandidatos.get(c).equals(this.votos.get(v).getCandidato())){
-					this.listaDeCandidatos.get(c).sumarVoto();
-				}
-			}
-		}
-			
-	}
-
+		return this.candidatoNacional;
+	}	
 }

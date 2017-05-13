@@ -1,5 +1,8 @@
 package ar.edu.untref.aydoo;
 
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Assert;
 import org.junit.Test;
 
 public class IntegracionTest {
@@ -16,9 +19,9 @@ public class IntegracionTest {
 		partidoJ.agregarCandidato(candidatoJuan);
 		partidoM.agregarCandidato(candidatoMartin);
 		partidoM.agregarCandidato(candidatoMauro);
-		Provincia BuenosAires = new Provincia("Buenos Aires");
-		Provincia Salta = new Provincia("Salta");
-		Provincia Jujuy = new Provincia("Jujuy");
+		Provincia buenosAires = new Provincia("Buenos Aires");
+		Provincia salta = new Provincia("Salta");
+		Provincia jujuy = new Provincia("Jujuy");
 		JuntaElectoral junta = new JuntaElectoral();
 		
 	}
