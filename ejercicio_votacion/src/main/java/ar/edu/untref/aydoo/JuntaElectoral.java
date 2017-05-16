@@ -1,101 +1,103 @@
 package ar.edu.untref.aydoo;
 
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 public class JuntaElectoral {
 	private List<Voto> votos;
 	private List<Partido> listaDePartidos;
 	private List<Candidato> listaDeCandidatos;
 	private List<Provincia> listaDeProvincias;
-	private Candidato candidatoNacional;
-	Map<Provincia, List<Candidato>> votosDePartidosPorProvincia;
 	
-	public JuntaElectoral(){
+	public JuntaElectoral() {
 		this.votos = new LinkedList<Voto>();
 		this.listaDeCandidatos = new LinkedList<Candidato>();
 		this.listaDePartidos = new LinkedList<Partido>();
 		this.listaDeProvincias = new LinkedList<Provincia>();
-		this.votosDePartidosPorProvincia = new HashMap<>();
 	}
 	
 	public void agregarVoto(Voto voto) {
 		this.votos.add(voto);
 	}
 	
-	public int getCantidadDeVotos(){
+	public int getCantidadDeVotos() {
 		return this.votos.size();
-	}
-	
-	public void agregarPartido(Partido partido) {
-		this.listaDePartidos.add(partido);
 	}
 	
 	public void agregarCandidato(Candidato candidato) {
 		this.listaDeCandidatos.add(candidato);
 	}
 	
+	public void agregarPartido(Partido partido) {
+		this.listaDePartidos.add(partido);
+	}
+	
 	public void agregarProvincia(Provincia provincia) {
 		this.listaDeProvincias.add(provincia);
 	}
 	
-	public List<Partido> getPartidos(){
+	public List<Partido> getPartidos() {
 		return this.listaDePartidos;
 	}
 	
-	public List<Candidato> getCandidatos(){
+	public List<Candidato> getCandidatos() {
 		return this.listaDeCandidatos;
 	}
-	public List<Provincia> getPronvincias(){
+	
+	public List<Provincia> getPronvincias() {
 		return this.listaDeProvincias;
 	}
-	
-	public void contarVotosDeCandidatos(){
-		for(int v = 0; v < this.votos.size(); v++){
-			this.votos.get(v).getCandidato().sumarVoto();
-		}
-	}
-	
-	public int getVotosDeCandidato(Candidato candidato){
-		int i = 0;
-		while(!this.votos.get(i).getCandidato().equals(candidato)){
-			i++;
-		}
-		return this.votos.get(i).getCandidato().getVotos();
-	}
-	
-	public Candidato getcandidatoGanadorNacional(){
-		this.candidatoNacional = this.votos.get(0).getCandidato();
-		for(int c = 0; c < this.votos.size(); c++){
-			if(this.candidatoNacional.getVotos() < this.votos.get(c).getCandidato().getVotos()){
-				this.candidatoNacional = this.votos.get(c).getCandidato();
+		
+	public int contarVotosCandidato(Candidato candidato) {
+		int cantidadVotos = 0;
+		for(int i = 0; i < this.votos.size(); i++){
+			Candidato candidatoActual = this.votos.get(i).getCandidato();
+			if(candidatoActual.equals(candidato)) {
+				cantidadVotos++;
 			}
 		}
-		return this.candidatoNacional;
+		return cantidadVotos;
 	}
 	
-	public void contarVotosDePartidosPorProvincia(){
-		for(int v = 0; v < this.votos.size(); v++){
-			Provincia provinciaActual = this.votos.get(v).getProvincia();
-			Partido partidoActual = this.votos.get(v).getPartido();
-			provinciaActual.sumarVotoAPartido(partidoActual);
+	public Candidato candidatoGanadorNacional() {
+		Candidato candidatoGanador = this.votos.get(0).getCandidato();
+		int cantidadVotosCandidatoGanador = contarVotosCandidato(candidatoGanador);
+		for(int i = 1; i < this.votos.size(); i++) {
+			Candidato candidatoActual = this.votos.get(i).getCandidato();
+			int cantidadVotosCandidatoActual = contarVotosCandidato(candidatoActual);
+			if(cantidadVotosCandidatoGanador < cantidadVotosCandidatoActual) {
+				candidatoGanador = candidatoActual;
+			}
 		}
+		return candidatoGanador;
 	}
 	
-	public Partido getPartidoGanadorEnProvincia(Provincia provincia){
-		Partido partidoGanador;
-		int i = 0;
-		while(!this.votos.get(i).getProvincia().equals(provincia)){
-			i++;
+	public int contarVotosPartidoEnProvincia(Provincia provincia, Partido partido) {
+		int cantidadVotos = 0;
+		Provincia provinciaActual;
+		Partido partidoActual;
+		for(int i = 0; i < this.votos.size(); i++) {
+			provinciaActual = this.votos.get(i).getProvincia();
+			partidoActual = this.votos.get(i).getPartido();
+			if(provincia.equals(provinciaActual)  && partido.equals(partidoActual)) {
+				cantidadVotos++;
+			}
 		}
-		partidoGanador = this.votos.get(i).getProvincia().getListaDePartidos().get(0);
-		for(int p = 0; p < this.votos.get(i).getProvincia().getListaDePartidos().size(); p++){
-			if(partidoGanador.getVotos() < this.votos.get(i).getProvincia().getListaDePartidos().get(p).getVotos()){
-				partidoGanador = this.votos.get(i).getProvincia().getListaDePartidos().get(p);
+		return cantidadVotos;
+	}
+	
+	public Partido partidoGanadorEnProvincia(Provincia provincia) {
+		Partido partidoGanador = provincia.getListaDePartidos().get(0);
+		int votosPartidoGanador = contarVotosPartidoEnProvincia(provincia, partidoGanador);
+		Partido partidoActual;
+		int votosPartidoActual;
+		for(int i = 1; i < provincia.getListaDePartidos().size(); i++) {
+			partidoActual = provincia.getListaDePartidos().get(i);
+			votosPartidoActual = contarVotosPartidoEnProvincia(provincia, partidoActual);
+			if(votosPartidoGanador < votosPartidoActual) {
+				partidoGanador = partidoActual;
 			}
 		}
 		return partidoGanador;
-	}
+	}	
 }

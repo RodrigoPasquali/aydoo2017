@@ -1,13 +1,10 @@
 package ar.edu.untref.aydoo;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class IntegracionTest {
-	
+public class IntegracionTest {	
 	Candidato candidatoJuan;
 	Candidato candidatoJose;
 	Partido partidoJ;
@@ -20,7 +17,7 @@ public class IntegracionTest {
 	Provincia salta;
 	
 	@Before
-	public void inicializar(){
+	public void inicializar() {
 		candidatoJuan = new Candidato("Juan");
 		candidatoJose = new Candidato("Jose");
 		candidatoMartin = new Candidato("Martin");
@@ -32,9 +29,24 @@ public class IntegracionTest {
 		partidoM.agregarCandidato(candidatoMartin);
 		partidoM.agregarCandidato(candidatoMauro);
 		junta = new JuntaElectoral();
+		junta.agregarCandidato(candidatoJose);
+		junta.agregarCandidato(candidatoJuan);
+		junta.agregarCandidato(candidatoMartin);
+		junta.agregarCandidato(candidatoMauro);
+		junta.agregarPartido(partidoJ);
+		junta.agregarPartido(partidoM);
 		buenosAires = new Provincia("Buenos Aires");
 		jujuy = new Provincia("Jujuy");
 		salta = new Provincia("Salta");
+		buenosAires.agregarPartido(partidoJ);
+		buenosAires.agregarPartido(partidoM);
+		jujuy.agregarPartido(partidoJ);
+		jujuy.agregarPartido(partidoM);
+		salta.agregarPartido(partidoJ);
+		salta.agregarPartido(partidoM);
+		junta.agregarProvincia(buenosAires);
+		junta.agregarProvincia(jujuy);
+		junta.agregarProvincia(salta);
 		Voto voto1 = new Voto(candidatoJuan, partidoJ, buenosAires);
 		Voto voto2 = new Voto(candidatoJuan, partidoJ, buenosAires);
 		Voto voto3 = new Voto(candidatoJuan, partidoJ, buenosAires);
@@ -85,20 +97,85 @@ public class IntegracionTest {
 		junta.agregarVoto(voto23);
 		junta.agregarVoto(voto24);
 		junta.agregarVoto(voto25);
-		
 	}
 	
 	@Test
-	public void juanDeberiaSerCandidatoGanadorNacional(){
-		Candidato valorEsperado = candidatoJuan;
-		junta.contarVotosDeCandidatos();
-		Candidato valorObtenido = junta.getcandidatoGanadorNacional();
+	public void cantidadDeVotosDeberiaSer25() {
+		int valorEsperado = 25;
+		int valorObtenido = junta.getCantidadDeVotos();
+		
+		Assert.assertEquals(valorEsperado, valorObtenido);
+	}
+		
+	@Test
+	public void candidatoMartinDeberiaTener7Votos() {
+		int valorEsperado = 7;
+		
+		int valorObtenido = junta.contarVotosCandidato(candidatoMartin);
 		
 		Assert.assertEquals(valorEsperado, valorObtenido);
 	}
 	
 	@Test
-	public void partidoDeberiaTenerMasVotosEnJujuy(){
+	public void juanDeberiaSerCandidatoGanadorNacional() {
+		Candidato valorEsperado = candidatoJuan;
 		
+		Candidato valorObtenido = junta.candidatoGanadorNacional();
+		
+		Assert.assertEquals(valorEsperado, valorObtenido);
+	}
+	
+	@Test
+	public void partidoJenJujuyDeberiaTener4Votos() {
+		int valorEsperado = 4;
+		
+		int valorObtenido = junta.contarVotosPartidoEnProvincia(jujuy, partidoJ);
+		
+		Assert.assertEquals(valorEsperado, valorObtenido);
+	}
+	
+	@Test
+	public void partidoMenSaltaDeberiaTener2Votos() {
+		int valorEsperado = 2;
+		
+		int valorObtenido = junta.contarVotosPartidoEnProvincia(salta, partidoM);
+		
+		Assert.assertEquals(valorEsperado, valorObtenido);
+	}
+	
+	@Test
+	public void partidoJenSaltaDeberiaTener5Votos() {
+		int valorEsperado = 5;
+		
+		int valorObtenido = junta.contarVotosPartidoEnProvincia(salta, partidoJ);
+		
+		Assert.assertEquals(valorEsperado, valorObtenido);
+	}
+	
+	@Test
+	public void partidoJDeberiaGanarEnSalta() {
+		Partido valorEsperado = partidoJ;
+		
+		Partido valorObtenido = junta.partidoGanadorEnProvincia(salta);
+		
+		Assert.assertEquals(valorEsperado, valorObtenido);
+	}
+	
+	@Test
+	public void partidoMDeberiaGanarEnJujuy() {
+		Partido valorEsperado = partidoM;
+		
+		Partido valorObtenido = junta.partidoGanadorEnProvincia(jujuy);
+		
+		Assert.assertEquals(valorEsperado, valorObtenido);
+	}
+	
+	@Test
+	public void partidoJDeberiaGanarEnBuenosAires() {
+		Partido valorEsperado = partidoJ;
+		
+		Partido valorObtenido = junta.partidoGanadorEnProvincia(buenosAires);
+		
+		Assert.assertEquals(valorEsperado, valorObtenido);
 	}
 }
