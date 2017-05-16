@@ -1,7 +1,7 @@
 package ar.edu.untref.aydoo;
 
 public class Candidato {
-	String nombre;
+	private String nombre;
 
 	public Candidato(String nombre) {
 		this.nombre = nombre;

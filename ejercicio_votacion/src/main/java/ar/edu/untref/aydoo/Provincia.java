@@ -4,8 +4,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Provincia {
-	String nombre;
-	List<Partido> listaDePartidos = new LinkedList<Partido>();
+	private String nombre;
+	private List<Partido> listaDePartidos = new LinkedList<Partido>();
 	
 	public Provincia(String provincia) {
 		this.nombre = provincia;
