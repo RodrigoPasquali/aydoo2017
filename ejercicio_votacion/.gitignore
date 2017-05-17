@@ -1,11 +1,7 @@
 $ cat .gitignore
-
-#Eclipse
-.project
-.classpath
-.settings/
+.settings/*
 bin/*
-*
-
-#Maven
 target/*
+.classpath
+.project
+/target/
