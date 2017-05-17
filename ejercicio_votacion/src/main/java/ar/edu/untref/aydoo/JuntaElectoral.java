@@ -34,9 +34,21 @@ public class JuntaElectoral {
 		}
 	}
 	
+	public void agregarPartidos(){
+		Partido partidoAgregado;
+		for(int i = 0; i < this.votos.size(); i++){
+			partidoAgregado = this.votos.get(i).getPartido();
+			if(!this.listaDePartidos.contains(partidoAgregado)){
+				this.listaDePartidos.add(partidoAgregado);
+			}
+		}
+	}
+	
+	/*
 	public void agregarPartido(Partido partido) {
 		this.listaDePartidos.add(partido);
 	}
+	*/
 	
 	public void agregarProvincia(Provincia provincia) {
 		this.listaDeProvincias.add(provincia);

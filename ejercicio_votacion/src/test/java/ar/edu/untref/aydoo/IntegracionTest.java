@@ -29,14 +29,11 @@ public class IntegracionTest {
 		partidoM.agregarCandidato(candidatoMartin);
 		partidoM.agregarCandidato(candidatoMauro);
 		junta = new JuntaElectoral();
+		junta.agregarCandidatos();
 		/*
-		junta.agregarCandidato(candidatoJose);
-		junta.agregarCandidato(candidatoJuan);
-		junta.agregarCandidato(candidatoMartin);
-		junta.agregarCandidato(candidatoMauro);
-		*/
 		junta.agregarPartido(partidoJ);
 		junta.agregarPartido(partidoM);
+		*/
 		buenosAires = new Provincia("Buenos Aires");
 		jujuy = new Provincia("Jujuy");
 		salta = new Provincia("Salta");
