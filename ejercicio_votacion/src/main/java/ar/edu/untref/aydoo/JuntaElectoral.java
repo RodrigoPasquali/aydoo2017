@@ -24,8 +24,14 @@ public class JuntaElectoral {
 		return this.votos.size();
 	}
 	
-	public void agregarCandidato(Candidato candidato) {
-		this.listaDeCandidatos.add(candidato);
+	public void agregarCandidatos(){
+		Candidato candidatoAgregado;
+		for(int i = 0; i < this.votos.size(); i++){
+			candidatoAgregado = this.votos.get(i).getCandidato();
+			if(!this.listaDeCandidatos.contains(candidatoAgregado)){
+				this.listaDeCandidatos.add(candidatoAgregado);
+			}
+		}
 	}
 	
 	public void agregarPartido(Partido partido) {
@@ -58,7 +64,7 @@ public class JuntaElectoral {
 		}
 		return cantidadVotos;
 	}
-	
+
 	public Candidato candidatoGanadorNacional() {
 		Candidato candidatoGanador = this.votos.get(0).getCandidato();
 		int cantidadVotosCandidatoGanador = contarVotosCandidato(candidatoGanador);
