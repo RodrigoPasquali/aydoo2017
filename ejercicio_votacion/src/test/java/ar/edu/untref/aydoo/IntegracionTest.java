@@ -38,9 +38,6 @@ public class IntegracionTest {
 		jujuy.agregarPartido(partidoM);
 		salta.agregarPartido(partidoJ);
 		salta.agregarPartido(partidoM);
-		junta.agregarProvincia(buenosAires);
-		junta.agregarProvincia(jujuy);
-		junta.agregarProvincia(salta);
 		Voto voto1 = new Voto(candidatoJuan, partidoJ, buenosAires);
 		Voto voto2 = new Voto(candidatoJuan, partidoJ, buenosAires);
 		Voto voto3 = new Voto(candidatoJuan, partidoJ, buenosAires);
@@ -93,6 +90,7 @@ public class IntegracionTest {
 		junta.agregarVoto(voto25);
 		junta.agregarCandidatos();
 		junta.agregarPartidos();
+		junta.agregarProvincias();
 	}
 	
 	@Test
