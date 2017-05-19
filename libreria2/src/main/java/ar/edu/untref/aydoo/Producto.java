@@ -1,9 +1,8 @@
 package ar.edu.untref.aydoo;
 
 //Tipo de objeto: Value Object
-public abstract class Producto{
+public class Producto{
 	private int cantidad;
-	private boolean iva;
 	private double precio;
 	private String nombre;
 	private String tipoDeProducto;
@@ -23,23 +22,9 @@ public abstract class Producto{
 		return this.tipoDeProducto;
 	}
 	
-	public void setIVa(boolean iva){
-		this.iva = iva;
-	}
-	
-	public boolean poseeIva(){
-		return this.iva;
-	}
-	
 	public void setPrecio(double precio){
 		this.precio = precio;
 	}
-	
-	public double getPrecio(){
-		return this.precio;
-	}
-
-	public abstract double obtenerPrecioFinal();
 	
 	public void setCantidad(int cantidad){
 		this.cantidad = cantidad;
@@ -47,6 +32,10 @@ public abstract class Producto{
 	
 	public int getCantidad() {
 		return cantidad;
+	}
+	
+	public double obtenerPrecio(){
+		return this.precio;
 	}
 	
 }

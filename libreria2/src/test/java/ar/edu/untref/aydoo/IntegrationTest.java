@@ -19,7 +19,7 @@ public class IntegrationTest {
 	@Before
 	public void inicializar(){
 		libreria = new Libreria();
-		elHobbit = new ProductoSinIva("El Hobbit", "Libro", 50);
+		elHobbit = new Producto("El Hobbit", "Libro", 50);
 		lapicera = new ProductoConIva("Lapicera", "Articulo de libreria", 5);
 		juan = new Cliente("Juan", "xxxxx", 55555555);
 		maria = new Cliente("Maria", "zzzzzzzz", 8888888);

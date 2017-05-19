@@ -2,21 +2,22 @@ package ar.edu.untref.aydoo;
 
 //Tipo de objeto: Value Object
 public class ProductoConIva extends Producto{
-	private double precio;
 	private double precioConIva;
-
+	private double precioSinIva;
+	
 	public ProductoConIva(String nombre, String tipoDeProducto, double precio){
-		super(nombre, nombre, precio);
-		this.precio = precio;
+		super(nombre, tipoDeProducto, precio);
+		this.precioSinIva = precio;
 	}
 	
-	public double obtenerPrecioFinal(){
+	@Override
+	public double obtenerPrecio(){
 		this.precioConIva = calcularPrecio();
 		return this.precioConIva;
 	}
 	
 	private double calcularPrecio(){
-		return this.precio*1.21;
+		return this.precioSinIva*1.21;
 	}
 
 }
