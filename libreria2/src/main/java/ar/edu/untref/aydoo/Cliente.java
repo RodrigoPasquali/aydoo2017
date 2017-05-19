@@ -9,13 +9,13 @@ public class Cliente {
 	private String nombre;
 	private String direccion;
 	private int telefono;
-	List<Producto> listaProductos;
+	List<Compra> listaDeCompras;
 
 	public Cliente(String nombre, String direccion, int telefono){
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.telefono = telefono;
-		this.listaProductos = new LinkedList<Producto>();
+		this.listaDeCompras = new LinkedList<Compra>();
 	}
 
 	public String obtenerNombre() {
@@ -43,12 +43,12 @@ public class Cliente {
 	}
 
 	
-	public void comprarProducto(Producto producto){
-		this.listaProductos.add(producto);
+	public void comprar(Compra compra){
+		this.listaDeCompras.add(compra);
 	}
 	
-	public List<Producto> obtenerListaProductos(){
-		return this.listaProductos;
+	public List<Compra> obtenerListaDeCompras(){
+		return this.listaDeCompras;
 	}
 	
 }
