@@ -2,7 +2,7 @@ package ar.edu.untref.aydoo;
 
 //Tipo de objeto: Value Object
 public class Producto{
-	private int cantidad;
+	//private int cantidad;
 	private double precio;
 	private String nombre;
 	private String tipoDeProducto;
@@ -12,6 +12,7 @@ public class Producto{
 		this.precio = precio;
 		this.nombre = nombre;
 		this.tipoDeProducto = tipoDeProducto;
+		//this.cantidad = 1;
 	}
 	
 	public String getNombre(){
@@ -26,6 +27,7 @@ public class Producto{
 		this.precio = precio;
 	}
 	
+	/*
 	public void setCantidad(int cantidad){
 		this.cantidad = cantidad;
 	}
@@ -33,6 +35,7 @@ public class Producto{
 	public int getCantidad() {
 		return cantidad;
 	}
+	*/
 	
 	public double obtenerPrecio(){
 		return this.precio;

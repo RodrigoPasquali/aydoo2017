@@ -25,6 +25,9 @@ public class MesEnero extends Mes{
 			this.mesSiguiente.agregarCompra(nombreMes, compra);
 		}
 	}
-	
 
+	@Override
+	public List<Compra> getListaDeCompras() {
+		return this.listaDeCompra;
+	}
 }

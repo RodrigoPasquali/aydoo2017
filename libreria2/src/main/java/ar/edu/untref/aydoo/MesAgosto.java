@@ -25,4 +25,9 @@ public class MesAgosto extends Mes{
 	public String getNombreMes() {
 		return this.mes;
 	}
+
+	@Override
+	public List<Compra> getListaDeCompras() {
+		return this.listaDeCompra;
+	}
 }

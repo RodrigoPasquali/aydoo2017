@@ -10,12 +10,14 @@ public class Cliente {
 	private String direccion;
 	private int telefono;
 	List<Compra> listaDeCompras;
+	List<Mes> meses;
 
 	public Cliente(String nombre, String direccion, int telefono){
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.telefono = telefono;
 		this.listaDeCompras = new LinkedList<Compra>();
+		this.meses = new LinkedList<Mes>();
 	}
 
 	public String obtenerNombre() {
@@ -43,14 +45,43 @@ public class Cliente {
 	}
 
 	
-	public void comprar(Producto producto, Mes mes){
-		Compra compra = new Compra(producto, mes);
-		this.listaDeCompras.add(compra);
+	public void agregarCompra(Compra compra, Mes mes){
+		//agregarMes(mes);
+		for(int i = 0; i < this.meses.size(); i++){
+			Mes mesActual = this.meses.get(i);
+			if(mes.getNombreMes().equals(mesActual.getNombreMes())){
+				this.meses.get(i).agregarCompra(mes.getNombreMes(), compra);
+			}
+		}
 		mes.agregarCompra(mes.getNombreMes(), compra);
 	}
 	
-	public List<Compra> obtenerListaDeCompras(){
+	public void agregarMes(Mes mes){
+		if(!this.meses.contains(mes)){
+			this.meses.add(mes);
+		}
+	}
+	
+	public List<Mes> getMeses(){
+		return this.meses;
+	}
+	
+	public List<Compra> obtenerComprasDeMes(Mes mes){
+		List<Compra> listaDeCompras = new LinkedList<Compra>();
+		for(int i = 0; i < this.meses.size(); i++){
+			Mes mesActual = this.meses.get(i);
+			if(mes.equals(mesActual)){
+				listaDeCompras = mesActual.getListaDeCompras();
+			}
+		}
+		return listaDeCompras;
+	}
+	
+	/*
+	public List<Compra> obtenerListaDeComprasDeMes(Mes mes){
+		for(int i = 0; i < this.l)
 		return this.listaDeCompras;
 	}
+	*/
 	
 }

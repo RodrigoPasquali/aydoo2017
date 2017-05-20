@@ -1,6 +1,5 @@
 package ar.edu.untref.aydoo;
 
-import java.util.LinkedList;
 import java.util.List;
 
 public abstract class Mes {
@@ -24,4 +23,6 @@ public abstract class Mes {
 	}
 
 	public abstract void agregarCompra(String nombreMes, Compra compra);
+	
+	public abstract List<Compra> getListaDeCompras();
 }
