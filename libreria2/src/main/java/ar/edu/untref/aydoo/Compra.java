@@ -10,7 +10,8 @@ public class Compra {
 		this.cantidad = cantidad;
 	}
 	
-	public void calcularPrecioCompra(){
+	public double calcularPrecioCompra(){
 		precioDeCompra = this.producto.obtenerPrecio() * this.cantidad;
+		return precioDeCompra;
 	}
 }

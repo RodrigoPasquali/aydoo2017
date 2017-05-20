@@ -115,16 +115,34 @@ public class IntegrationTest {
 		Assert.assertEquals(resultadoEsperado, resultadoObtenido);
 	}
 	
-	/*
 	@Test
 	public void montoGastadoPorJuanEnEneroDeberiaSerDe112con10(){
+		//enero.inicializarListaDeComprasDeMes("enero");
+		juan.agregarMes(enero);
 		Compra compraJuanLibros = new Compra(elHobbit, 2);
+		Compra compraJuanLapiceras = new Compra(lapicera, 2);
+		juan.agregarCompra(compraJuanLibros, enero);
+		juan.agregarCompra(compraJuanLapiceras, enero);
+		double resultadoEsperado = (50 * 2) + (5 * 1.21 * 2);
+		
+		double resultadoObtenido = libreria.calcularMontoACobrar(enero, juan);
+		
+		Assert.assertEquals(resultadoEsperado, resultadoObtenido, 0.1);
+	}
+	
+	@Test
+	public void montoGastadoPorJuanEnAgostoDeberiaSerDe62con10(){
+		//agosto.inicializarListaDeComprasDeMes("agosto");
+		juan.agregarMes(agosto);
+		Compra compraJuanLibros = new Compra(elHobbit, 1);
 		Compra compraJuanLapiceras = new Compra(lapicera, 2);
 		juan.agregarCompra(compraJuanLibros, agosto);
 		juan.agregarCompra(compraJuanLapiceras, agosto);
-		juan.agregarMes(agosto);
+		double resultadoEsperado = (50) + (5 * 1.21 * 2);
 		
+		double resultadoObtenido = libreria.calcularMontoACobrar(agosto, juan);
+		
+		Assert.assertEquals(resultadoEsperado, resultadoObtenido, 0.1);
 	}
-	*/
 
 }
