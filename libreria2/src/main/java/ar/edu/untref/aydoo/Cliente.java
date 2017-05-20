@@ -46,14 +46,12 @@ public class Cliente {
 
 	
 	public void agregarCompra(Compra compra, Mes mes){
-		//agregarMes(mes);
 		for(int i = 0; i < this.meses.size(); i++){
 			Mes mesActual = this.meses.get(i);
 			if(mes.getNombreMes().equals(mesActual.getNombreMes())){
-				this.meses.get(i).agregarCompra(mes.getNombreMes(), compra);
+				mesActual.agregarCompra(compra);
 			}
 		}
-		mes.agregarCompra(mes.getNombreMes(), compra);
 	}
 	
 	public void agregarMes(Mes mes){
@@ -71,17 +69,10 @@ public class Cliente {
 		for(int i = 0; i < this.meses.size(); i++){
 			Mes mesActual = this.meses.get(i);
 			if(mes.equals(mesActual)){
+			//if(mes.getNombreMes() == this.meses.get(i).getNombreMes()){
 				listaDeCompras = mesActual.getListaDeCompras();
 			}
 		}
 		return listaDeCompras;
 	}
-	
-	/*
-	public List<Compra> obtenerListaDeComprasDeMes(Mes mes){
-		for(int i = 0; i < this.l)
-		return this.listaDeCompras;
-	}
-	*/
-	
 }

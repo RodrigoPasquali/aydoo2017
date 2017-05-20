@@ -7,27 +7,33 @@ import javax.annotation.processing.SupportedSourceVersion;
 
 public class MesEnero extends Mes{
 	private String mes = "enero";
-	private List<Compra> listaDeCompra;
+	private List<Compra> listaDeCompraEnero;
 	private MesAgosto mesAgosto;
 	
 	public MesEnero(String nombre){
 		super(nombre);
-		this.listaDeCompra = new LinkedList<Compra>();
+		this.listaDeCompraEnero = new LinkedList<Compra>();
 		this.mesAgosto = new MesAgosto(this.getNombreMes());
 	}
-
+	
 	@Override
-	public void agregarCompra(String nombreMes, Compra compra) {
-		this.setMesSiguiente(this.mesAgosto);
+	public void inicializarListaDeComprasDeMes(String nombreMes) {
+		setMesSiguiente(this.mesAgosto);
 		if(this.mes == nombreMes) {
-			this.listaDeCompra.add(compra);
+			System.out.println("Enero inicializado");
 		} else {
-			this.mesSiguiente.agregarCompra(nombreMes, compra);
+			getMesSiguiente().inicializarListaDeComprasDeMes(nombreMes);
 		}
 	}
 
 	@Override
-	public List<Compra> getListaDeCompras() {
-		return this.listaDeCompra;
+	public void agregarCompra(Compra compra) {
+		this.listaDeCompraEnero.add(compra);
 	}
+
+	@Override
+	public List<Compra> getListaDeCompras() {
+		return this.listaDeCompraEnero;
+	}
+
 }

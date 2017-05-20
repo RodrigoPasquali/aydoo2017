@@ -46,19 +46,85 @@ public class IntegrationTest {
 	}
 	
 	@Test
-	public void deberiaDevolverListaDeCompraDeMesDeEnero(){
+	public void deberiaDevolverListaDeCompraDeMesDeEneroDeJuan(){
 		Compra compraJuanElHobbit = new Compra(elHobbit, 1);
 		Compra compraJuanLapicera = new Compra(lapicera, 1);
+		juan.agregarMes(enero);
 		juan.agregarCompra(compraJuanElHobbit, enero);
 		juan.agregarCompra(compraJuanLapicera, enero);
-		juan.agregarMes(enero);
 		List<Compra> resultadoEsperado = new LinkedList<Compra>();
 		resultadoEsperado.add(compraJuanElHobbit);
 		resultadoEsperado.add(compraJuanLapicera);
+		System.out.println(juan.getMeses());
+
+		List<Compra> resultadoObtenido = juan.obtenerComprasDeMes(enero);
+		
+		Assert.assertEquals(resultadoEsperado, resultadoObtenido);
+	}
+	
+	@Test
+	public void deberiaDevolverComprasDeAgostoCuandoSeCompraEn2Meses(){
+		Compra compraJuanElHobbit = new Compra(elHobbit, 1);
+		Compra compraJuanLapicera = new Compra(lapicera, 1);
+		Compra compraJuanLibrox3 = new Compra(elHobbit, 3);
+		juan.agregarMes(agosto);
+		juan.agregarCompra(compraJuanElHobbit, agosto);
+		juan.agregarCompra(compraJuanLapicera, agosto);
+		juan.agregarMes(enero);
+		juan.agregarCompra(compraJuanLibrox3, enero);
+		List<Compra> resultadoEsperado = new LinkedList<Compra>();
+		resultadoEsperado.add(compraJuanElHobbit);
+		resultadoEsperado.add(compraJuanLapicera);
+		
+		List<Compra> resultadoObtenido = juan.obtenerComprasDeMes(agosto);
+		
+		Assert.assertEquals(resultadoEsperado, resultadoObtenido);
+	}
+	
+	@Test
+	public void debriaDevolverComprasEneroCuandoSeCompraEn2Meses(){
+		Compra compraJuanElHobbit = new Compra(elHobbit, 1);
+		Compra compraJuanLapicera = new Compra(lapicera, 1);
+		Compra compraJuanLibrox3 = new Compra(elHobbit, 3);
+		juan.agregarMes(agosto);
+		juan.agregarMes(enero);
+		juan.agregarCompra(compraJuanElHobbit, agosto);
+		juan.agregarCompra(compraJuanLapicera, agosto);
+		juan.agregarCompra(compraJuanLibrox3, enero);
+		List<Compra> resultadoEsperado = new LinkedList<Compra>();
+		resultadoEsperado.add(compraJuanLibrox3);
 		
 		List<Compra> resultadoObtenido = juan.obtenerComprasDeMes(enero);
 		
 		Assert.assertEquals(resultadoEsperado, resultadoObtenido);
 	}
+	
+	@Test
+	public void deberiaDevolverListaDeCompraDeMesDeAgostoDeMaria(){
+		Compra compraMariaElHobbit = new Compra(elHobbit, 1);
+		Compra compraMariaLapicera = new Compra(lapicera, 1);
+		maria.agregarMes(agosto);
+		maria.agregarCompra(compraMariaElHobbit, agosto);
+		maria.agregarCompra(compraMariaLapicera, agosto);
+		List<Compra> resultadoEsperado = new LinkedList<Compra>();
+		resultadoEsperado.add(compraMariaElHobbit);
+		resultadoEsperado.add(compraMariaLapicera);
+				
+		List<Compra> resultadoObtenido = maria.obtenerComprasDeMes(agosto);
+		
+		Assert.assertEquals(resultadoEsperado, resultadoObtenido);
+	}
+	
+	/*
+	@Test
+	public void montoGastadoPorJuanEnEneroDeberiaSerDe112con10(){
+		Compra compraJuanLibros = new Compra(elHobbit, 2);
+		Compra compraJuanLapiceras = new Compra(lapicera, 2);
+		juan.agregarCompra(compraJuanLibros, agosto);
+		juan.agregarCompra(compraJuanLapiceras, agosto);
+		juan.agregarMes(agosto);
+		
+	}
+	*/
 
 }

@@ -26,6 +26,12 @@ public class Libreria {
 	}
 	*/
 	
+	public double calcularMontoACobrar(Mes mes, Cliente cliente){
+		cliente.obtenerComprasDeMes(mes);
+		
+		return 0;
+	}
+	
 	public void agregarCliente(Cliente cliente){
 		this.listaClientes.add(cliente);
 	}

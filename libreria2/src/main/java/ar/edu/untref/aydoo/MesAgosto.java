@@ -4,30 +4,38 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class MesAgosto extends Mes{	
-	private String mes = "agosto";
-	private List<Compra> listaDeCompra;
+	private String mesAgosto = "agosto";
+	private List<Compra> listaDeCompraAgosto;
 
 	public MesAgosto(String nombre){
 		super(nombre);
-		this.listaDeCompra = new LinkedList<Compra>();
+		this.listaDeCompraAgosto = new LinkedList<Compra>();
 	}
 	
 	@Override
-	public void agregarCompra(String nombreMes, Compra compra) {
-		if(this.mes == nombreMes) {
-			this.listaDeCompra.add(compra);
+	public void inicializarListaDeComprasDeMes(String nombreMes) {
+		if(this.mesAgosto == nombreMes) {
+			System.out.println("Agosto Inicializado");
 		} else {
-			this.mesSiguiente.agregarCompra(nombreMes, compra);
+			//Tirar Excpecion
+			System.out.println("Ingrese mes valido");
 		}
 	}
 
 	@Override
+	public void agregarCompra(Compra compra) {
+		this.listaDeCompraAgosto.add(compra);
+	}
+
+	@Override
 	public String getNombreMes() {
-		return this.mes;
+		return this.mesAgosto;
 	}
 
 	@Override
 	public List<Compra> getListaDeCompras() {
-		return this.listaDeCompra;
+		return this.listaDeCompraAgosto;
 	}
+
+	
 }

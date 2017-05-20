@@ -22,7 +22,10 @@ public abstract class Mes {
 		return this.nombreMes;
 	}
 
-	public abstract void agregarCompra(String nombreMes, Compra compra);
+	public abstract void inicializarListaDeComprasDeMes(String nombreMes);
+	
+	public abstract void agregarCompra(Compra compra);
 	
 	public abstract List<Compra> getListaDeCompras();
+	
 }
