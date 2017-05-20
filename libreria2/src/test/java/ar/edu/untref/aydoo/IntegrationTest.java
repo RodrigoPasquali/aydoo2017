@@ -26,7 +26,7 @@ public class IntegrationTest {
 	}
 	
 	@Test
-	public void precioDeLibroNoDeberiaAplicarseIva(){
+	public void juanDeberiaDevolverListaDeCompras(){
 		
 	}
 

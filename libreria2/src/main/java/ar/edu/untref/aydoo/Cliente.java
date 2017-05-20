@@ -43,8 +43,10 @@ public class Cliente {
 	}
 
 	
-	public void comprar(Compra compra){
+	public void comprar(Producto producto, Mes mes){
+		Compra compra = new Compra(producto, mes);
 		this.listaDeCompras.add(compra);
+		mes.agregarCompra(mes.getNombreMes(), compra);
 	}
 	
 	public List<Compra> obtenerListaDeCompras(){
