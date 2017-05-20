@@ -49,6 +49,7 @@ public class IntegrationTest {
 	public void deberiaDevolverListaDeCompraDeMesDeEneroDeJuan(){
 		Compra compraJuanElHobbit = new Compra(elHobbit, 1);
 		Compra compraJuanLapicera = new Compra(lapicera, 1);
+		
 		juan.agregarMes(enero);
 		juan.agregarCompra(compraJuanElHobbit, enero);
 		juan.agregarCompra(compraJuanLapicera, enero);
@@ -67,6 +68,7 @@ public class IntegrationTest {
 		Compra compraJuanElHobbit = new Compra(elHobbit, 1);
 		Compra compraJuanLapicera = new Compra(lapicera, 1);
 		Compra compraJuanLibrox3 = new Compra(elHobbit, 3);
+		
 		juan.agregarMes(agosto);
 		juan.agregarCompra(compraJuanElHobbit, agosto);
 		juan.agregarCompra(compraJuanLapicera, agosto);
@@ -86,6 +88,7 @@ public class IntegrationTest {
 		Compra compraJuanElHobbit = new Compra(elHobbit, 1);
 		Compra compraJuanLapicera = new Compra(lapicera, 1);
 		Compra compraJuanLibrox3 = new Compra(elHobbit, 3);
+		
 		juan.agregarMes(agosto);
 		juan.agregarMes(enero);
 		juan.agregarCompra(compraJuanElHobbit, agosto);
@@ -103,6 +106,7 @@ public class IntegrationTest {
 	public void deberiaDevolverListaDeCompraDeMesDeAgostoDeMaria(){
 		Compra compraMariaElHobbit = new Compra(elHobbit, 1);
 		Compra compraMariaLapicera = new Compra(lapicera, 1);
+		
 		maria.agregarMes(agosto);
 		maria.agregarCompra(compraMariaElHobbit, agosto);
 		maria.agregarCompra(compraMariaLapicera, agosto);
@@ -117,10 +121,10 @@ public class IntegrationTest {
 	
 	@Test
 	public void montoGastadoPorJuanEnEneroDeberiaSerDe112con10(){
-		//enero.inicializarListaDeComprasDeMes("enero");
-		juan.agregarMes(enero);
 		Compra compraJuanLibros = new Compra(elHobbit, 2);
 		Compra compraJuanLapiceras = new Compra(lapicera, 2);
+		
+		juan.agregarMes(enero);
 		juan.agregarCompra(compraJuanLibros, enero);
 		juan.agregarCompra(compraJuanLapiceras, enero);
 		double resultadoEsperado = (50 * 2) + (5 * 1.21 * 2);
@@ -132,13 +136,31 @@ public class IntegrationTest {
 	
 	@Test
 	public void montoGastadoPorJuanEnAgostoDeberiaSerDe62con10(){
-		//agosto.inicializarListaDeComprasDeMes("agosto");
-		juan.agregarMes(agosto);
 		Compra compraJuanLibros = new Compra(elHobbit, 1);
 		Compra compraJuanLapiceras = new Compra(lapicera, 2);
+		
+		juan.agregarMes(agosto);
 		juan.agregarCompra(compraJuanLibros, agosto);
 		juan.agregarCompra(compraJuanLapiceras, agosto);
 		double resultadoEsperado = (50) + (5 * 1.21 * 2);
+		
+		double resultadoObtenido = libreria.calcularMontoACobrar(agosto, juan);
+		
+		Assert.assertEquals(resultadoEsperado, resultadoObtenido, 0.1);
+	}
+	
+	@Test
+	public void montoGastadoPorJuanEnAgostoDeberiaSerDe56con10(){
+		Compra compraJuanLibroEnEnero = new Compra(elHobbit, 1);
+		Compra compraJuanLibrosEnAgosto = new Compra(elHobbit, 1);
+		Compra compraJuanLapicerasEnAgosto= new Compra(lapicera, 1);
+		
+		juan.agregarMes(agosto);
+		juan.agregarMes(enero);
+		juan.agregarCompra(compraJuanLibroEnEnero, enero);
+		juan.agregarCompra(compraJuanLibrosEnAgosto, agosto);
+		juan.agregarCompra(compraJuanLapicerasEnAgosto, agosto);
+		double resultadoEsperado = (50) + (5 * 1.21);
 		
 		double resultadoObtenido = libreria.calcularMontoACobrar(agosto, juan);
 		
