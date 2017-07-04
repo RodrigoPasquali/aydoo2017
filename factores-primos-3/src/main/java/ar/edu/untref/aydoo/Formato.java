@@ -2,11 +2,22 @@ package ar.edu.untref.aydoo;
 
 import java.util.List;
 
-public class Formato {
-	public String aplicarFormato(String formato, List<Integer> factoresPrimos, int numero) {
-		String formatoAplicado;
-		String formatoMiniscula = formato.toLowerCase();
-		if (formatoMiniscula.equals("--format=pretty") || formatoMiniscula.equals("")) {
+public abstract class Formato {
+	
+	private String formatoAFactorizarEnMiniscula;
+	private int numeroAFactorizar;
+	private List<Integer> listaDeFactoresPrimos;
+	
+	public Formato(String formato, List<Integer> factoresPrimos, int numero){
+		this.formatoAFactorizarEnMiniscula = formato.toLowerCase();
+		this.numeroAFactorizar = numero;
+		this.listaDeFactoresPrimos = factoresPrimos;
+	}
+	
+	public abstract String aplicarFormato(String formato, List<Integer> factoresPrimos, int numero);
+	
+	/*	
+	   if (formatoMiniscula.equals("--format=pretty") || formatoMiniscula.equals("")) {
 			formatoAplicado = this.formatoPretty(factoresPrimos, numero);
 		} else if (formatoMiniscula.equals("--format=quiet")) {
 			formatoAplicado = this.formatoQuiet(factoresPrimos, numero);
@@ -14,7 +25,7 @@ public class Formato {
 			formatoAplicado = "Formato no aceptado. Las opciones posibles son: pretty o quiet.";
 		}
 		return formatoAplicado;
-	}
+	*/
 	
 	/*
 	* Pre: 
