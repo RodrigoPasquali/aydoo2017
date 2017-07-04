@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 
 public class IntegrationTest{
-	
+/*
     @Test
     public void elefante(){
         // En enero, Juan compra 2 kg de helado en la sucursal Caseros de la heladeria "Frio" con la tarjeta Premium.
@@ -29,7 +29,8 @@ public class IntegrationTest{
         assertEquals(1, caseros.getCantidadBeneficiosOtorgados());
 
    }
-    
+*/   
+/*	
     @Test
     public void HeladeriaADeberiaSerEstablecimientoQueMasBeneficiosOtorgo() {
     	/*
@@ -47,7 +48,7 @@ public class IntegrationTest{
 	    			•	Carlos debe recibir un mail con la sumatoria de dinero que se ahorró por usar su beneficio en la heladería y el restaurant.
 	    			•	Juan debe recibir el mail con lo que ahorró por usar su tarjeta en la heladería
     	 */
-    	
+    	/*
     	Club club = new Club("Club de Beneficios");
     	Cliente carlos = new Cliente("Carlos", "carlos@gmail.com");
     	Tarjeta tarjetaClassicCarlos = new TarjetaClassic(carlos);
@@ -98,7 +99,8 @@ public class IntegrationTest{
   
     	assertEquals(heladeriaA, establecimientoQueOtorgoMasBeneficios);
     }
-    
+*/
+/*
     @Test
     public void heladeriaADeberiaRecibirMailDeFelicitaciones() {
     	/*
@@ -116,7 +118,7 @@ public class IntegrationTest{
 	    			•	Carlos debe recibir un mail con la sumatoria de dinero que se ahorró por usar su beneficio en la heladería y el restaurant.
 	    			•	Juan debe recibir el mail con lo que ahorró por usar su tarjeta en la heladería
     	 */
-    	
+    	/*
     	Club club = new Club("Club de Beneficios");
     	Cliente carlos = new Cliente("Carlos", "carlos@gmail.com");
     	Tarjeta tarjetaClassicCarlos = new TarjetaClassic(carlos);
@@ -167,7 +169,8 @@ public class IntegrationTest{
   
     	assertEquals(mailRecibidoEsperado, mailRecibidoActual);
     }
-    
+*/
+/*
     @Test
     public void sucursalHeladeriaAS1DeberiaSerSucursalQueOtorgoMasBeneficios() {
     	/*
@@ -185,7 +188,7 @@ public class IntegrationTest{
 	    		  •	Carlos debe recibir un mail con la sumatoria de dinero que se ahorró por usar su beneficio en la heladería y el restaurant.
 	    		  •	Juan debe recibir el mail con lo que ahorró por usar su tarjeta en la heladería
     	 */
-    	
+    	/*
     	Club club = new Club("Club de Beneficios");
     	Cliente carlos = new Cliente("Carlos", "carlos@gmail.com");
     	Tarjeta tarjetaClassicCarlos = new TarjetaClassic(carlos);
@@ -230,7 +233,8 @@ public class IntegrationTest{
   
     	assertEquals(sucursalEsperado, sucursalActual);
     }
-    
+*/   
+/*
     @Test
     public void sucursalHeladeriaAS1DeberiaRecibirRegalo(){
     	Club club = new Club("Club de Beneficios");
@@ -280,4 +284,5 @@ public class IntegrationTest{
     	
     	assertEquals(regaloEsperado, regaloActual);
     }
+*/
 }

@@ -21,7 +21,7 @@ public class CompraTest {
 
         assertEquals(20, unaCompra.calcularMontoBruto());
     }
-
+/*
     @Test
     public void deberiaCalcularMontoNeto() {
 
@@ -35,4 +35,5 @@ public class CompraTest {
 
       //  assertEquals(18, unaCompra.calcularMontoNeto());
     }
+*/
 }
