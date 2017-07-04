@@ -17,7 +17,7 @@ private String formatoIngresado;
 private String ordenIngresado;
 private String outPutFile;
 
-	public Ejecutador(){
+	public Ejecutador() {
 		this.verificador = new VerificadorDeArgumentos();
 		this.calculadora = new Calculadora();
 		this.formateador = new Formato();
@@ -41,14 +41,14 @@ private String outPutFile;
     	}
 	}
 	
-	public void verificarArgumentos(String[] args){
+	public void verificarArgumentos(String[] args) {
     	this.verificador.verificarSiArgumentosEsNumero(args[0]);
     	this.verificador.verificarFormato(args);
     	this.verificador.verificarOrden(args);
     	this.verificador.verificarOutputFile(args);
 	}
 	
-	public void obtenerArgumentos(String[] args){
+	public void obtenerArgumentos(String[] args) {
 		numeroIngresado = Integer.parseInt(args[0]);
     	formatoIngresado = this.verificador.getFormato();
     	ordenIngresado = this.verificador.getOrden();
