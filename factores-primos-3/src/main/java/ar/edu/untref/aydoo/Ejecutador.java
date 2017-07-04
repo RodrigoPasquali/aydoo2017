@@ -20,7 +20,6 @@ private String outPutFile;
 	public Ejecutador() {
 		this.verificador = new VerificadorDeArgumentos();
 		this.calculadora = new Calculadora();
-		//this.formateador = new FormatoPretty();
 		this.ordenador = new Orden();
 		this.listaDeFactoresPrimos = new LinkedList<Integer>();
 	}
@@ -28,15 +27,16 @@ private String outPutFile;
 	public void ejecutarPeticion(String[] arg) throws IOException {
 		this.verificarArgumentos(arg);
     	this.obtenerArgumentos(arg);
-    	this.calculadora.calcularFactoresPrimos(numeroIngresado);
+    	this.calculadora.calcularFactoresPrimos(this.numeroIngresado);
     	this.listaDeFactoresPrimos = this.calculadora.obtenerFactoresPrimos();
-    	this.ordenador.ordenarNumeros(this.listaDeFactoresPrimos, ordenIngresado);
+    	this.ordenador.ordenarNumeros(this.listaDeFactoresPrimos, this.ordenIngresado);
 		List<Integer> listaDeFactoresPrimosOrdenados = this.ordenador.getOrdenDeNumeros();
-		//this.formateador = new Formato(formatoIngresado, listaDeFactoresPrimosOrdenados, numeroIngresado);
-		this.salidaObtenida = this.formateador.aplicarFormato(formatoIngresado, listaDeFactoresPrimosOrdenados, numeroIngresado);
-		if (outPutFile != null) {
+		this.formateador = new FormatoPretty(this.formatoIngresado, listaDeFactoresPrimosOrdenados, this.numeroIngresado);
+		this.formateador.aplicarFormato();
+		this.salidaObtenida = this.formateador.getFormatoSalida();
+		if (this.outPutFile != null) {
     		this.escritor = new EscrituraDeArchivos();
-    		this.escritor.escribirArchivo(outPutFile, this.salidaObtenida);
+    		this.escritor.escribirArchivo(this.outPutFile, this.salidaObtenida);
     	} else {
     		System.out.println(this.salidaObtenida);
     	}
@@ -50,10 +50,10 @@ private String outPutFile;
 	}
 	
 	public void obtenerArgumentos(String[] args) {
-		numeroIngresado = Integer.parseInt(args[0]);
-    	formatoIngresado = this.verificador.getFormato();
-    	ordenIngresado = this.verificador.getOrden();
-    	outPutFile = this.verificador.getOutPutFile();
+		this.numeroIngresado = Integer.parseInt(args[0]);
+    	this.formatoIngresado = this.verificador.getFormato();
+    	this.ordenIngresado = this.verificador.getOrden();
+    	this.outPutFile = this.verificador.getOutPutFile();
 	}
 	
 	public String getSalida() {
