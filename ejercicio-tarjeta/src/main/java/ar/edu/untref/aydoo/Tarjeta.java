@@ -7,12 +7,13 @@ public class Tarjeta {
 	
 	private final Cliente cliente;
 	
+	 public Tarjeta(Cliente cliente) {
+	        this.cliente = cliente;
+	    }
+	
     public Cliente getCliente() {
         return cliente;
     }
 
-    public Tarjeta(Cliente cliente) {
-        this.cliente = cliente;
-    }
 
 }

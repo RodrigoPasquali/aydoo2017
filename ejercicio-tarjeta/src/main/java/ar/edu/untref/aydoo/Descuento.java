@@ -1,13 +1,12 @@
 package ar.edu.untref.aydoo;
 
 public class Descuento extends Beneficio {
-
 	private int porcentajeDescuento;
-	final Integer NUMERO_CIEN = 100;
 
-	public Descuento(int porcentajeDescuento, Establecimiento establecimiento) {
-        this.porcentajeDescuento = porcentajeDescuento;
-        this.setPorcentajeDeDescuento(porcentajeDescuento);
+	public Descuento(String tipoDeBeneficio, Establecimiento establecimiento) {
+		super(tipoDeBeneficio, establecimiento);
+        //this.porcentajeDescuento = porcentajeDescuento;
+        //this.setPorcentajeDeDescuento(porcentajeDescuento);
 	}
 	
 	public void setPorcentajeDeDescuento(int porcentaje){
@@ -17,10 +16,11 @@ public class Descuento extends Beneficio {
 	public int getPorcentajeDeDescuento(){
 		return this.porcentajeDescuento;
 	}
-	
-	/*
-	public double aplicarDescuento(int valorBruto) {
-	    return valorBruto - valorBruto * porcentajeDescuento / NUMERO_CIEN;
-    }
-	*/
+
+	@Override
+	public void obtenerBeneficio() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

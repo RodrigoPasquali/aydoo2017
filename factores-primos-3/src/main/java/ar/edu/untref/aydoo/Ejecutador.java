@@ -12,6 +12,10 @@ private Formato formateador;
 private Orden ordenador;
 private EscrituraDeArchivos escritor;
 private List<Integer> listaDeFactoresPrimos;
+private int numeroIngresado;
+private String formatoIngresado;
+private String ordenIngresado;
+private String outPutFile;
 
 	public Ejecutador(){
 		this.verificador = new VerificadorDeArgumentos();
@@ -22,25 +26,33 @@ private List<Integer> listaDeFactoresPrimos;
 	}
 	
 	public void ejecutarPeticion(String[] arg) throws IOException {
-    	this.verificador.verificarSiArgumentosEsNumero(arg[0]);
-    	int numero = Integer.parseInt(arg[0]);
-    	this.verificador.verificarFormato(arg);
-    	String formatoIngresado = this.verificador.getFormato();
-    	this.verificador.verificarOrden(arg);
-    	String ordenIngresado = this.verificador.getOrden();
-    	this.verificador.verificarOutputFile(arg);
-    	String outPutFile = this.verificador.getOutPutFile();
-    	this.calculadora.calcularFactoresPrimos(numero);
+		this.verificarArgumentos(arg);
+    	this.obtenerArgumentos(arg);
+    	this.calculadora.calcularFactoresPrimos(numeroIngresado);
     	this.listaDeFactoresPrimos = this.calculadora.obtenerFactoresPrimos();
     	this.ordenador.ordenarNumeros(this.listaDeFactoresPrimos, ordenIngresado);
 		List<Integer> listaDeFactoresPrimosOrdenados = this.ordenador.getOrdenDeNumeros();
-		this.salidaObtenida = this.formateador.aplicarFormato(formatoIngresado, listaDeFactoresPrimosOrdenados, numero);
+		this.salidaObtenida = this.formateador.aplicarFormato(formatoIngresado, listaDeFactoresPrimosOrdenados, numeroIngresado);
 		if (outPutFile != null) {
     		this.escritor = new EscrituraDeArchivos();
     		this.escritor.escribirArchivo(outPutFile, this.salidaObtenida);
     	} else {
     		System.out.println(this.salidaObtenida);
     	}
+	}
+	
+	public void verificarArgumentos(String[] args){
+    	this.verificador.verificarSiArgumentosEsNumero(args[0]);
+    	this.verificador.verificarFormato(args);
+    	this.verificador.verificarOrden(args);
+    	this.verificador.verificarOutputFile(args);
+	}
+	
+	public void obtenerArgumentos(String[] args){
+		numeroIngresado = Integer.parseInt(args[0]);
+    	formatoIngresado = this.verificador.getFormato();
+    	ordenIngresado = this.verificador.getOrden();
+    	outPutFile = this.verificador.getOutPutFile();
 	}
 	
 	public String getSalida() {
