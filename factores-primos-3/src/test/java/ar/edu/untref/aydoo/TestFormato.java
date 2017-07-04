@@ -22,11 +22,9 @@ public class TestFormato {
 		factoresPrimos.add(3);
 		Collections.sort(factoresPrimos);
 		Formato formateador = new FormatoPretty(formato, factoresPrimos, numero);
-		//formateador.inicializar(formato, factoresPrimos, numero);
 		String valorEsperado = "Factores primos de 360 : 2 2 2 3 3 5 ";
 		
-		formateador.aplicarFormato();
-		String valorActual = formateador.getFormatoSalida();
+		String valorActual = formateador.aplicarFormato();
 		
 		Assert.assertEquals(valorEsperado, valorActual);
 	}
@@ -42,15 +40,13 @@ public class TestFormato {
 		factoresPrimos.add(3);
 		Collections.sort(factoresPrimos);
 		Formato formateador = new FormatoPretty(formato, factoresPrimos, numero);
-		//formateador.inicializar(formato, factoresPrimos, numero);
 		String valorEsperado = "Factores primos de 90 : 2 3 3 5 ";
 		
-		formateador.aplicarFormato();
-		String valorActual = formateador.getFormatoSalida();	
+		String valorActual = formateador.aplicarFormato();
 		
 		Assert.assertEquals(valorEsperado, valorActual);
 	}
-/*	
+	
 	@Test
 	public void formatoQuietDevuelveFactorPrimosDe360EnFormatoQuiet(){
 		int numero = 360;
@@ -64,7 +60,6 @@ public class TestFormato {
 		factoresPrimos.add(3);
 		Collections.sort(factoresPrimos);
 		Formato formateador = new FormatoPretty(formato, factoresPrimos, numero);
-		//formateador.inicializar(formato, factoresPrimos, numero);
 		String valorEsperando = "2\r\n" + 
 								"2\r\n" + 
 								"3\r\n" + 
@@ -72,8 +67,7 @@ public class TestFormato {
 								"5\r\n" + 
 								"5\r\n" ;
 		
-		formateador.aplicarFormato();
-		String valorActual = formateador.getFormatoSalida();	
+		String valorActual = formateador.aplicarFormato();
 				
 		Assert.assertEquals(valorEsperando, valorActual);
 	}	
@@ -88,16 +82,14 @@ public class TestFormato {
 		factoresPrimos.add(5);
 		Collections.sort(factoresPrimos);
 		Formato formateador = new FormatoPretty(formato, factoresPrimos, numero);
-		//formateador.inicializar(formato, factoresPrimos, numero);
 		String valorEsperado = "3\r\n" + 
 								"5\r\n";
 		
-		formateador.aplicarFormato();
-		String valorActual = formateador.getFormatoSalida();	
+		String valorActual = formateador.aplicarFormato();
 		
 		Assert.assertEquals(valorEsperado, valorActual);
 	}
-*/	
+	
 	@Test
 	public void formatoIgualYerbaDevuelveMensajeDeError() throws ExcepcionFormatoInvalido{
 		int numero = 90;
@@ -109,7 +101,6 @@ public class TestFormato {
 		factoresPrimos.add(3);
 		Collections.sort(factoresPrimos);
 		Formato formateador = new FormatoPretty(formato, factoresPrimos, numero);
-		//formateador.inicializar(formato, factoresPrimos, numero);
 		
 		try {
 			formateador.aplicarFormato();
@@ -129,11 +120,9 @@ public class TestFormato {
 		factoresPrimos.add(3);
 		Collections.sort(factoresPrimos);
 		Formato formateador = new FormatoPretty(formato, factoresPrimos, numero);
-		//formateador.inicializar(formato, factoresPrimos, numero);
 		String valorEsperado = "Factores primos de 90 : 2 3 3 5 ";
 		
-		formateador.aplicarFormato();
-		String valorActual = formateador.getFormatoSalida();		
+		String valorActual = formateador.aplicarFormato();
 		
 		Assert.assertEquals(valorEsperado, valorActual);
 	}	

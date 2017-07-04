@@ -32,8 +32,7 @@ private String outPutFile;
     	this.ordenador.ordenarNumeros(this.listaDeFactoresPrimos, this.ordenIngresado);
 		List<Integer> listaDeFactoresPrimosOrdenados = this.ordenador.getOrdenDeNumeros();
 		this.formateador = new FormatoPretty(this.formatoIngresado, listaDeFactoresPrimosOrdenados, this.numeroIngresado);
-		this.formateador.aplicarFormato();
-		this.salidaObtenida = this.formateador.getFormatoSalida();
+		this.salidaObtenida = this.formateador.aplicarFormato();
 		if (this.outPutFile != null) {
     		this.escritor = new EscrituraDeArchivos();
     		this.escritor.escribirArchivo(this.outPutFile, this.salidaObtenida);

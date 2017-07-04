@@ -11,14 +11,12 @@ public class FormatoQuiet extends Formato {
 		super(formato, factoresPrimos, numero);
 		this.factoresPrimosObtenidos = factoresPrimos;
 		this.numeroObtenido = numero;
-		//this.formatoObtenido = formato.toLowerCase();
 	}
 
 	@Override
-	public void aplicarFormato() {
+	public String aplicarFormato() {
 		if(getFormato().equals("--format=quiet")) {
-			//this.formatoSalida = this.formatoQuiet(this.factoresPrimosObtenidos, this.numeroObtenido);
-			setFormatoSalida(this.formatoQuiet(this.factoresPrimosObtenidos, this.numeroObtenido));
+			return this.formatoQuiet(this.factoresPrimosObtenidos, this.numeroObtenido);
 		} else {
 	        throw new ExcepcionFormatoInvalido();
 	    }

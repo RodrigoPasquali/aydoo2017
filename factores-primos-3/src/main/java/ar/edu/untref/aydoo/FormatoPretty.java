@@ -11,13 +11,12 @@ public class FormatoPretty extends Formato {
 	}
 
 	@Override
-	public void aplicarFormato() {
+	public String aplicarFormato() {
 		this.setSiguienteFormato(this.formatoSiguiente);
 		if(getFormato().equals("") || getFormato().equals("--format=pretty")) {
-			//this.formatoSalida = this.formatoPretty(getListaDeFactoresPrimos(), getNumeroAFactorizar());
-			setFormatoSalida(this.formatoPretty(getListaDeFactoresPrimos(), getNumeroAFactorizar()));
+			return this.formatoPretty(getListaDeFactoresPrimos(), getNumeroAFactorizar());
 		} else {
-			this.getSiguienteFormato().aplicarFormato();
+			return this.getSiguienteFormato().aplicarFormato();
 		}
 	}
 

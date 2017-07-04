@@ -7,7 +7,6 @@ public abstract class Formato {
 	private int numeroAFactorizar;
 	private List<Integer> listaDeFactoresPrimos;
 	private Formato formatoSiguiente;
-	private String formatoSalida;
 	
 	public Formato(String formato, List<Integer> factoresPrimos, int numero){
 		this.formatoAFactorizarEnMiniscula = formato.toLowerCase();
@@ -15,7 +14,7 @@ public abstract class Formato {
 		this.listaDeFactoresPrimos = factoresPrimos;
 	}
 	
-	public abstract void aplicarFormato();
+	public abstract String aplicarFormato();
 	
 	public String getFormato() {
 		return this.formatoAFactorizarEnMiniscula;
@@ -35,14 +34,6 @@ public abstract class Formato {
 
 	public List<Integer> getListaDeFactoresPrimos() {
 		return listaDeFactoresPrimos;
-	}
-	
-	public  void setFormatoSalida(String formato){
-		this.formatoSalida = formato;
-	}
-
-	public  String getFormatoSalida(){
-		return this.formatoSalida;
 	}
 	
 }
