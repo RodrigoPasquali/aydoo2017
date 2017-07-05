@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Ejecutador {
 private String salidaObtenida;
-private VerificadorDeArgumentos verificador;
+private ObtencionDeArgumentos obtenedor;
 private Calculadora calculadora;
 private Formato formateador;
 private Orden ordenador;
@@ -18,13 +18,12 @@ private String ordenIngresado;
 private String outPutFile;
 
 	public Ejecutador() {
-		this.verificador = new VerificadorDeArgumentos();
+		this.obtenedor = new ObtencionDeArgumentos();
 		this.calculadora = new Calculadora();
 		this.listaDeFactoresPrimos = new LinkedList<Integer>();
 	}
 	
 	public void ejecutarPeticion(String[] arg) throws IOException {
-		this.verificarArgumentos(arg);
     	this.obtenerArgumentos(arg);
     	this.calculadora.calcularFactoresPrimos(this.numeroIngresado);
     	this.listaDeFactoresPrimos = this.calculadora.obtenerFactoresPrimos();
@@ -40,18 +39,11 @@ private String outPutFile;
     	}
 	}
 	
-	public void verificarArgumentos(String[] args) {
-    	this.verificador.verificarSiArgumentosEsNumero(args[0]);
-    	this.verificador.verificarFormato(args);
-    	this.verificador.verificarOrden(args);
-    	this.verificador.verificarOutputFile(args);
-	}
-	
 	public void obtenerArgumentos(String[] args) {
-		this.numeroIngresado = Integer.parseInt(args[0]);
-    	this.formatoIngresado = this.verificador.getFormato();
-    	this.ordenIngresado = this.verificador.getOrden();
-    	this.outPutFile = this.verificador.getOutPutFile();
+		this.numeroIngresado = this.obtenedor.getNumero(args[0]);
+    	this.formatoIngresado = this.obtenedor.getFormato(args);
+    	this.ordenIngresado = this.obtenedor.getOrden(args);
+    	this.outPutFile = this.obtenedor.getOutputFile(args);
 	}
 	
 	public String getSalida() {
