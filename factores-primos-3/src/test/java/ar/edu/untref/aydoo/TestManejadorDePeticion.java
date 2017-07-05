@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import excepciones.ExcepcionNumeroInvalido;
 
-public class TestEjecutador {
+public class TestManejadorDePeticion {
 	
 	@Test
 	public void salidaDeberiaDevolverFactoresPrimosDe360ConFormatoQuietOrdenDesc() throws IOException{
@@ -19,7 +19,7 @@ public class TestEjecutador {
 								"2\r\n" + 
 								"2\r\n" + 
 								"2\r\n";
-		Ejecutador ejecutador = new Ejecutador();
+		ManejadorDePeticion ejecutador = new ManejadorDePeticion();
 		
 		ejecutador.ejecutarPeticion(entrada);
 		String valorActual = ejecutador.getSalida();
@@ -30,7 +30,7 @@ public class TestEjecutador {
 	@Test
 	public void siPrimerArgumentoNoEsNumeroDeberiaDevolverExcepcionNumeroInvalido() throws ExcepcionNumeroInvalido, IOException{
 		String[] entrada = {"kk", "--format=quiet", "--sort=desc"};
-		Ejecutador ejecutador = new Ejecutador();
+		ManejadorDePeticion ejecutador = new ManejadorDePeticion();
 				
 		try{
 			ejecutador.ejecutarPeticion(entrada);
@@ -43,7 +43,7 @@ public class TestEjecutador {
 	public void salidaDeberiaDevolverFactoresPrimosDe100ConFormatoPrettyOrdenAsc() throws IOException{
 		String[] entrada = {"100", "--format=pretty", "--sort=asc", "--output-file=salida.txt"};
 		String valorEsperado = "Factores primos de 100 : 2 2 5 5 ";
-		Ejecutador ejecutador = new Ejecutador();
+		ManejadorDePeticion ejecutador = new ManejadorDePeticion();
 		
 		ejecutador.ejecutarPeticion(entrada);
 		String valorActual = ejecutador.getSalida();

@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Ejecutador {
+public class ManejadorDePeticion {
 private String salidaObtenida;
 private SalidaEscrituraDeArchivos escritor;
 private List<Integer> listaDeFactoresPrimos;
@@ -13,7 +13,7 @@ private String formatoIngresado;
 private String ordenIngresado;
 private String outPutFile;
 
-	public Ejecutador() {
+	public ManejadorDePeticion() {
 		this.listaDeFactoresPrimos = new LinkedList<Integer>();
 	}
 	
