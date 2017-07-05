@@ -6,10 +6,6 @@ import java.util.List;
 
 public class Ejecutador {
 private String salidaObtenida;
-private ObtenedorDeArgumentos obtenedor;
-private Calculadora calculadora;
-private Formato formateador;
-private Orden ordenador;
 private SalidaEscrituraDeArchivos escritor;
 private List<Integer> listaDeFactoresPrimos;
 private int numeroIngresado;
@@ -18,19 +14,14 @@ private String ordenIngresado;
 private String outPutFile;
 
 	public Ejecutador() {
-		this.obtenedor = new ObtenedorDeArgumentos();
-		this.calculadora = new Calculadora();
 		this.listaDeFactoresPrimos = new LinkedList<Integer>();
 	}
 	
 	public void ejecutarPeticion(String[] arg) throws IOException {
-    	this.obtenerArgumentos(arg);
-    	this.calculadora.calcularFactoresPrimos(this.numeroIngresado);
-    	this.listaDeFactoresPrimos = this.calculadora.obtenerFactoresPrimos();
-    	this.ordenador = new OrdenAscendente(this.ordenIngresado, this.listaDeFactoresPrimos);
-    	List<Integer> listaDeFactoresPrimosOrdenados = this.ordenador.aplicarOrden();
-		this.formateador = new FormatoPretty(this.formatoIngresado, listaDeFactoresPrimosOrdenados, this.numeroIngresado);
-		this.salidaObtenida = this.formateador.aplicarFormato();
+    	obtenerArgumentos(arg);
+    	calcularFactoresPrimos();
+    	ordenarFactoresPrimos();
+    	darFormatoASalida();
 		if (this.outPutFile != null) {
     		this.escritor = new SalidaEscrituraDeArchivos();
     		this.escritor.escribirArchivo(this.outPutFile, this.salidaObtenida);
@@ -39,11 +30,29 @@ private String outPutFile;
     	}
 	}
 	
-	public void obtenerArgumentos(String[] args) {
-		this.numeroIngresado = this.obtenedor.getNumero(args[0]);
-    	this.formatoIngresado = this.obtenedor.getFormato(args);
-    	this.ordenIngresado = this.obtenedor.getOrden(args);
-    	this.outPutFile = this.obtenedor.getOutputFile(args);
+	private void obtenerArgumentos(String[] args) {
+		ObtenedorDeArgumentos obtenedor = new ObtenedorDeArgumentos();
+		this.numeroIngresado = obtenedor.getNumero(args[0]);
+    	this.formatoIngresado =obtenedor.getFormato(args);
+    	this.ordenIngresado = obtenedor.getOrden(args);
+    	this.outPutFile = obtenedor.getOutputFile(args);
+	}
+	
+	private void calcularFactoresPrimos(){
+		Calculadora calculadora = new Calculadora();
+		calculadora.calcularFactoresPrimos(this.numeroIngresado);
+		this.listaDeFactoresPrimos = calculadora.obtenerFactoresPrimos();
+	}
+	
+	private void ordenarFactoresPrimos(){
+		Orden ordenador;
+		ordenador = new OrdenAscendente(this.ordenIngresado, this.listaDeFactoresPrimos);
+		this.listaDeFactoresPrimos = ordenador.aplicarOrden();
+	}
+	
+	private void darFormatoASalida(){
+		Formato formateador = new FormatoPretty(this.formatoIngresado, this.listaDeFactoresPrimos, this.numeroIngresado);
+		this.salidaObtenida = formateador.aplicarFormato();
 	}
 	
 	public String getSalida() {
