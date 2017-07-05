@@ -20,7 +20,6 @@ private String outPutFile;
 	public Ejecutador() {
 		this.verificador = new VerificadorDeArgumentos();
 		this.calculadora = new Calculadora();
-		this.ordenador = new Orden();
 		this.listaDeFactoresPrimos = new LinkedList<Integer>();
 	}
 	
@@ -29,8 +28,8 @@ private String outPutFile;
     	this.obtenerArgumentos(arg);
     	this.calculadora.calcularFactoresPrimos(this.numeroIngresado);
     	this.listaDeFactoresPrimos = this.calculadora.obtenerFactoresPrimos();
-    	this.ordenador.ordenarNumeros(this.listaDeFactoresPrimos, this.ordenIngresado);
-		List<Integer> listaDeFactoresPrimosOrdenados = this.ordenador.getOrdenDeNumeros();
+    	this.ordenador = new OrdenAscendente(this.ordenIngresado, this.listaDeFactoresPrimos);
+    	List<Integer> listaDeFactoresPrimosOrdenados = this.ordenador.aplicarOrden();
 		this.formateador = new FormatoPretty(this.formatoIngresado, listaDeFactoresPrimosOrdenados, this.numeroIngresado);
 		this.salidaObtenida = this.formateador.aplicarFormato();
 		if (this.outPutFile != null) {

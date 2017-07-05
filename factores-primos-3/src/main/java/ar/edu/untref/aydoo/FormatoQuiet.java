@@ -7,7 +7,6 @@ import excepciones.ExcepcionFormatoInvalido;
 public class FormatoQuiet extends Formato {
 	private List <Integer> factoresPrimosObtenidos;
 	private int numeroObtenido;
-	//private String formatoObtenido;
 	
 	public FormatoQuiet(String formato, List<Integer> factoresPrimos, int numero) {
 		super(formato, factoresPrimos, numero);
