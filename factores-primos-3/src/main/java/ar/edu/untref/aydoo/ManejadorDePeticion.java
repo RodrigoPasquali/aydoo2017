@@ -6,12 +6,11 @@ import java.util.List;
 
 public class ManejadorDePeticion {
 private String salidaObtenida;
-private SalidaEscrituraDeArchivos escritor;
 private List<Integer> listaDeFactoresPrimos;
 private int numeroIngresado;
 private String formatoIngresado;
 private String ordenIngresado;
-private String outPutFile;
+private String salidaSolicitadaIngresada;
 
 	public ManejadorDePeticion() {
 		this.listaDeFactoresPrimos = new LinkedList<Integer>();
@@ -22,12 +21,15 @@ private String outPutFile;
     	calcularFactoresPrimos();
     	ordenarFactoresPrimos();
     	darFormatoASalida();
+    	ejecutarSalidaSolicitada();
+    	/*
 		if (this.outPutFile != null) {
-    		this.escritor = new SalidaEscrituraDeArchivos();
+    		this.escritor = new SalidaEscrituraDeArchivos(this.outPutFile, this.salidaObtenida);
     		this.escritor.escribirArchivo(this.outPutFile, this.salidaObtenida);
     	} else {
     		System.out.println(this.salidaObtenida);
     	}
+    	*/
 	}
 	
 	private void obtenerArgumentos(String[] args) {
@@ -35,7 +37,7 @@ private String outPutFile;
 		this.numeroIngresado = obtenedor.getNumero(args[0]);
     	this.formatoIngresado =obtenedor.getFormato(args);
     	this.ordenIngresado = obtenedor.getOrden(args);
-    	this.outPutFile = obtenedor.getOutputFile(args);
+    	this.salidaSolicitadaIngresada = obtenedor.getSalidaSolicitada(args);
 	}
 	
 	private void calcularFactoresPrimos(){
@@ -53,6 +55,11 @@ private String outPutFile;
 	private void darFormatoASalida(){
 		Formato formateador = new FormatoPretty(this.formatoIngresado, this.listaDeFactoresPrimos, this.numeroIngresado);
 		this.salidaObtenida = formateador.aplicarFormato();
+	}
+	
+	private void ejecutarSalidaSolicitada() throws IOException{
+		Salida manejadorDeSalida = new SalidaConsola(this.salidaSolicitadaIngresada, this.salidaObtenida);
+		manejadorDeSalida.aplicarSalidaSolicitada();
 	}
 	
 	public String getSalida() {

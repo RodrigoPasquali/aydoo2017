@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.junit.Test;
 
-import excepciones.ExcepcionFormatoInvalido;
 import excepciones.ExcepcionOrdenInvalido;
 
 public class TestOrden {

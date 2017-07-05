@@ -21,7 +21,7 @@ public class OrdenAscendente extends Orden {
 		}
 	}
 
-	public List<Integer> ordenAscendente(List<Integer> factoresPrimosIngresados) {
+	private List<Integer> ordenAscendente(List<Integer> factoresPrimosIngresados) {
 		List<Integer> factoresOrdenados = factoresPrimosIngresados;
 		Collections.sort(factoresOrdenados);
 		return factoresOrdenados;

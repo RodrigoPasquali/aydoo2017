@@ -104,9 +104,9 @@ public class TestObtenedorDeArgumentos {
 	public void getOutPutFileDeberiaDevolverSalidapuntotxt(){
 		ObtenedorDeArgumentos obtenedor = new ObtenedorDeArgumentos();
 		String[] cadena = {"360", "--format=yerba", "--output-file=salida.txt", "--sort=yerba"};
-		String valorEsperado = "salida.txt";
+		String valorEsperado = "--output-file=salida.txt";
 		
-		String valorActual = obtenedor.getOutputFile(cadena);
+		String valorActual = obtenedor.getSalidaSolicitada(cadena);
 		
 		assertEquals(valorEsperado,valorActual);
 	}
@@ -117,19 +117,19 @@ public class TestObtenedorDeArgumentos {
 		String[] cadena = {"360", "--format=pretty", "--output-file=yerba", "--sort=asc"};
 		
 		try{
-	       	obtenedor.getOutputFile(cadena);
+	       	obtenedor.getSalidaSolicitada(cadena);
 	    }catch (ExcepcionOutPutFileInvalido e){
 
 	    }
 	}
 	
 	@Test
-	public void siNoSeIndicaOutPutFileDeberiaDevolverNull(){
+	public void siNoSeIndicaOutPutFileDeberiaDevolverNada(){
 		ObtenedorDeArgumentos obtenedor = new ObtenedorDeArgumentos();
 		String[] cadena = {"360", "--format=yerba", "--sort=yerba"};
-		String valorEsperado = null;
+		String valorEsperado = "";
 		
-		String valorActual = obtenedor.getOutputFile(cadena);
+		String valorActual = obtenedor.getSalidaSolicitada(cadena);
 		
 		assertEquals(valorEsperado,valorActual);
 	}

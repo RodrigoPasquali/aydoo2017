@@ -20,7 +20,7 @@ public class OrdenDescendente extends Orden {
 	    }
 	}
 
-	public List<Integer> ordenDescendente(List<Integer> factoresPrimosIngresados) {
+	private List<Integer> ordenDescendente(List<Integer> factoresPrimosIngresados) {
 		List<Integer> factoresOrdenados = factoresPrimosIngresados;
 		Collections.sort(factoresOrdenados, Collections.reverseOrder());
 		return factoresOrdenados;

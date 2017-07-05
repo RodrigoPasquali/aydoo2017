@@ -4,7 +4,6 @@ import excepciones.ExcepcionNumeroInvalido;
 import excepciones.ExcepcionOutPutFileInvalido;
 
 public class ObtenedorDeArgumentos {	
-	private String outPutFileObtenido = null;
 	
 	public String getFormato(String[] cadena) {
 		String formatoObtenido = "--format=pretty";
@@ -28,20 +27,15 @@ public class ObtenedorDeArgumentos {
 		return ordenObtenido;
 	}
 	
-	public String getOutputFile(String[] cadena) {
+	public String getSalidaSolicitada(String[] cadena) {
+		String salidaObtenida = "";
 		for (int i = 0; i < cadena.length; i++) {
 			int resultado = cadena[i].indexOf("--output-file=");        
 	        if (resultado != -1) {
-	        	final int posicionDondeComienzaNombreDeArchivo = 14;
-				String aux = cadena[i].substring(posicionDondeComienzaNombreDeArchivo);
-	        	if (aux.endsWith(".txt")) {
-					this.outPutFileObtenido = aux;
-				} else {
-					throw new ExcepcionOutPutFileInvalido();
-				}
+	        	salidaObtenida = cadena[i];
 	        }
 		}
-		return this.outPutFileObtenido;
+		return salidaObtenida;
 	}
 	
 	public int getNumero(String cadena) {
