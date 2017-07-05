@@ -10,7 +10,7 @@ private VerificadorDeArgumentos verificador;
 private Calculadora calculadora;
 private Formato formateador;
 private Orden ordenador;
-private EscrituraDeArchivos escritor;
+private SalidaEscrituraDeArchivos escritor;
 private List<Integer> listaDeFactoresPrimos;
 private int numeroIngresado;
 private String formatoIngresado;
@@ -33,7 +33,7 @@ private String outPutFile;
 		this.formateador = new FormatoPretty(this.formatoIngresado, listaDeFactoresPrimosOrdenados, this.numeroIngresado);
 		this.salidaObtenida = this.formateador.aplicarFormato();
 		if (this.outPutFile != null) {
-    		this.escritor = new EscrituraDeArchivos();
+    		this.escritor = new SalidaEscrituraDeArchivos();
     		this.escritor.escribirArchivo(this.outPutFile, this.salidaObtenida);
     	} else {
     		System.out.println(this.salidaObtenida);
