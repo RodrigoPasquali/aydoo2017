@@ -26,6 +26,5 @@ public class OrdenAscendente extends Orden {
 		Collections.sort(factoresOrdenados);
 		return factoresOrdenados;
 	}
-
 }
 

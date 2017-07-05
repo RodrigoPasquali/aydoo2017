@@ -7,7 +7,7 @@ public abstract class Salida {
 	private String salidaSolicitada;
 	private Salida salidaSiguiente;
 	
-	public Salida(String salida, String cadena){
+	public Salida(String salida, String cadena) {
 		this.salidaSolicitada = salida;
 		this.cadenaDeSalida = cadena;
 	}
@@ -26,7 +26,7 @@ public abstract class Salida {
 		return this.salidaSiguiente;
 	}
 
-	public String getCadenaDeSalida(){
+	public String getCadenaDeSalida() {
 		return this.cadenaDeSalida;
 	}
 }

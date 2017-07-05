@@ -29,6 +29,5 @@ public class FormatoQuiet extends Formato {
 			stringFP = stringFP + factoresPrimos.get(i).toString() + "\r\n";
 		}
 		return stringFP;
-	}
-	
+	}	
 }

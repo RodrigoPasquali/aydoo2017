@@ -7,7 +7,7 @@ public abstract class Orden {
 	private String ordenAFactorizarEnMiniscula;
 	private Orden ordenSiguiente;
 	
-	public Orden(String orden, List<Integer> factoresPrimos){
+	public Orden(String orden, List<Integer> factoresPrimos) {
 		this.ordenAFactorizarEnMiniscula = orden.toLowerCase();
 		this.listaDeFactoresPrimos = factoresPrimos;
 	}
@@ -29,5 +29,4 @@ public abstract class Orden {
 	public List<Integer> getListaDeFactoresPrimos() {
 		return listaDeFactoresPrimos;
 	}
-
 }

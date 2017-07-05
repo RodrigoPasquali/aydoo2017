@@ -4,7 +4,6 @@ import excepciones.ExcepcionNumeroInvalido;
 import excepciones.ExcepcionOutPutFileInvalido;
 
 public class ObtenedorDeArgumentos {	
-	
 	public String getFormato(String[] cadena) {
 		String formatoObtenido = "--format=pretty";
 		for (int i = 0; i < cadena.length; i++) {
@@ -45,6 +44,5 @@ public class ObtenedorDeArgumentos {
        	} catch (NumberFormatException nfe) {
        		throw new ExcepcionNumeroInvalido();
    		}
-   }
-	
+   }	
 }

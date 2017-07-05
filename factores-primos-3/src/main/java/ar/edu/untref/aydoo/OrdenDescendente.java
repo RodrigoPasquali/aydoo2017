@@ -6,7 +6,6 @@ import java.util.List;
 import excepciones.ExcepcionOrdenInvalido;
 
 public class OrdenDescendente extends Orden {
-	
 	public OrdenDescendente(String orden, List<Integer> factoresPrimos) {
 		super(orden, factoresPrimos);
 	}

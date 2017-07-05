@@ -2,7 +2,7 @@ package ar.edu.untref.aydoo;
 
 import java.io.IOException;
 
-public class SalidaConsola extends Salida{
+public class SalidaConsola extends Salida {
 	private Salida salidaSiguiente;
 	
 	public SalidaConsola(String salida, String cadena) {
@@ -20,7 +20,7 @@ public class SalidaConsola extends Salida{
 		}
 	}
 	
-	public String imprimirEnConsola(String cadena){
+	private String imprimirEnConsola(String cadena) {
 		System.out.println(cadena);
 		return cadena;
 	}

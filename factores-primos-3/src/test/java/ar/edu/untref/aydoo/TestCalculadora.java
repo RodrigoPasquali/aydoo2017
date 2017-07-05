@@ -7,9 +7,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class TestCalculadora {
-	
 	@Test
-	public void factoresPrimosDe1Devuelve1(){
+	public void factoresPrimosDe1Devuelve1() {
 		int numero = 1;
 		List<Integer> valorEsperado = new ArrayList<Integer>();
 		valorEsperado.add(1);
@@ -24,7 +23,7 @@ public class TestCalculadora {
 	
 	
 	@Test
-	public void factoresPrimosDe360Devuelve2x2x2x3x3x5(){
+	public void factoresPrimosDe360Devuelve2x2x2x3x3x5() {
 		int numero = 360;
 		List<Integer> valorEsperado = new ArrayList<Integer>();
 		valorEsperado.add(0,2);
@@ -43,7 +42,7 @@ public class TestCalculadora {
 	}
 	
 	@Test
-	public void factoresPrimosDe90Devuelve2x3x3x5(){
+	public void factoresPrimosDe90Devuelve2x3x3x5() {
 		int numero = 90;
 		List<Integer> valorEsperado = new ArrayList<Integer>();
 		valorEsperado.add(0,2);
@@ -60,7 +59,7 @@ public class TestCalculadora {
 	}
 	
 	@Test
-	public void factoresPrimosDe0EsMenos1(){
+	public void factoresPrimosDe0EsMenos1() {
 		
 		int numero = 0;
 		List<Integer> valorEsperado = new ArrayList<Integer>();
@@ -75,7 +74,7 @@ public class TestCalculadora {
 	}
 	
 	@Test
-	public void factoresPrimosDeMenos1EsMenos1(){
+	public void factoresPrimosDeMenos1EsMenos1() {
 		
 		int numero = -1;
 		List<Integer> valorEsperado = new ArrayList<Integer>();

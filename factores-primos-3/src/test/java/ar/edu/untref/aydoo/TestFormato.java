@@ -10,9 +10,8 @@ import org.junit.Test;
 import excepciones.ExcepcionFormatoInvalido;
 
 public class TestFormato {
-	
 	@Test
-	public void formatoPrettyDevuelveFactorPrimosDe360EnFormatoPretty(){
+	public void formatoPrettyDevuelveFactorPrimosDe360EnFormatoPretty() {
 		int numero = 360;
 		String formato = "--format=pretty";
 		List<Integer> factoresPrimos = new ArrayList<Integer>();
@@ -32,7 +31,7 @@ public class TestFormato {
 	}
 	
 	@Test
-	public void formatopREttyDevuelveFactorPrimosDe90EnFormatoPretty(){
+	public void formatopREttyDevuelveFactorPrimosDe90EnFormatoPretty() {
 		int numero = 90;
 		String formato = "--format=pREtty";
 		List<Integer> factoresPrimos = new ArrayList<Integer>();
@@ -50,7 +49,7 @@ public class TestFormato {
 	}
 	
 	@Test
-	public void formatoQuietDevuelveFactorPrimosDe360EnFormatoQuiet(){
+	public void formatoQuietDevuelveFactorPrimosDe360EnFormatoQuiet() {
 		int numero = 360;
 		String formato = "--format=quiet";
 		List<Integer> factoresPrimos = new ArrayList<Integer>();
@@ -76,7 +75,7 @@ public class TestFormato {
 	
 	
 	@Test
-	public void formatoqUIetDevuelveFactorPrimosDe15EnFormatoQuiet(){
+	public void formatoqUIetDevuelveFactorPrimosDe15EnFormatoQuiet() {
 		int numero = 15;
 		String formato = "--format=qUIet";
 		List<Integer> factoresPrimos = new ArrayList<Integer>();
@@ -93,7 +92,7 @@ public class TestFormato {
 	}
 	
 	@Test
-	public void formatoIgualYerbaDevuelveMensajeDeError() throws ExcepcionFormatoInvalido{
+	public void formatoIgualYerbaDevuelveMensajeDeError() throws ExcepcionFormatoInvalido {
 		int numero = 90;
 		String formato = "--format=yerba";
 		List<Integer> factoresPrimos = new ArrayList<Integer>();
@@ -112,7 +111,7 @@ public class TestFormato {
 	}
 	
 	@Test
-	public void formatoSinEspecificarDevuelveFormatoPretty(){
+	public void formatoSinEspecificarDevuelveFormatoPretty() {
 		int numero = 90;
 		String formato = "";
 		List<Integer> factoresPrimos = new ArrayList<Integer>();
@@ -128,5 +127,4 @@ public class TestFormato {
 		
 		Assert.assertEquals(valorEsperado, valorActual);
 	}	
-	
 }

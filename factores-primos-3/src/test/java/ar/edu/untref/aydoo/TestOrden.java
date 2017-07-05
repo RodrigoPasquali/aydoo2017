@@ -9,10 +9,9 @@ import org.junit.Test;
 
 import excepciones.ExcepcionOrdenInvalido;
 
-public class TestOrden {
-	
+public class TestOrden {	
 	@Test
-	public void ordenarSinIndicarOrdenDeberiaDevolverListaDeNumerosDeFormaAscendente(){
+	public void ordenarSinIndicarOrdenDeberiaDevolverListaDeNumerosDeFormaAscendente() {
 		String orden = "";
 		List<Integer> listaNumeros = new LinkedList<Integer>();
 		listaNumeros.add(25);
@@ -32,7 +31,7 @@ public class TestOrden {
 	}
 
 	@Test
-	public void ordenDescDeberiaOrdenarLaListaDeNumerosDeFormaDescendete(){
+	public void ordenDescDeberiaOrdenarLaListaDeNumerosDeFormaDescendete() {
 		String orden = "--sort=desc";
 		List<Integer> listaNumeros = new LinkedList<Integer>();
 		listaNumeros.add(25);
@@ -52,7 +51,7 @@ public class TestOrden {
 	}
 	
 	@Test
-	public void ordenarAscDeberiaDevolverListaDeNumerosDeFormaAscendete(){
+	public void ordenarAscDeberiaDevolverListaDeNumerosDeFormaAscendete() {
 		String orden = "--sort=asc";
 		List<Integer> listaNumeros = new LinkedList<Integer>();
 		listaNumeros.add(25);
@@ -72,7 +71,7 @@ public class TestOrden {
 	}
 
 	@Test
-	public void ordenMesaDeberiaDevolverExpecionOrdenInvalido(){
+	public void ordenMesaDeberiaDevolverExpecionOrdenInvalido() {
 		String orden = "--sort=mesa";
 		List<Integer> listaNumeros = new LinkedList<Integer>();
 		listaNumeros.add(25);
@@ -88,9 +87,8 @@ public class TestOrden {
 				
 		try {
 			ordenador.aplicarOrden();
-		}catch (ExcepcionOrdenInvalido e){
+		}catch (ExcepcionOrdenInvalido e) {
 
 	    }
 	}
-
 }

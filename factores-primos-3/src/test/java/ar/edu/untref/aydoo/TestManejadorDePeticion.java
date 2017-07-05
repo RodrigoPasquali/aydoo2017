@@ -8,10 +8,9 @@ import org.junit.Test;
 
 import excepciones.ExcepcionNumeroInvalido;
 
-public class TestManejadorDePeticion {
-	
+public class TestManejadorDePeticion {	
 	@Test
-	public void salidaDeberiaDevolverFactoresPrimosDe360ConFormatoQuietOrdenDesc() throws IOException{
+	public void salidaDeberiaDevolverFactoresPrimosDe360ConFormatoQuietOrdenDesc() throws IOException {
 		String[] entrada = {"360", "--format=quiet", "--sort=desc"};
 		String valorEsperado = "5\r\n" + 
 								"3\r\n" + 
@@ -40,7 +39,7 @@ public class TestManejadorDePeticion {
 	}
 
 	@Test
-	public void salidaDeberiaDevolverFactoresPrimosDe100ConFormatoPrettyOrdenAsc() throws IOException{
+	public void salidaDeberiaDevolverFactoresPrimosDe100ConFormatoPrettyOrdenAsc() throws IOException {
 		String[] entrada = {"100", "--format=pretty", "--sort=asc", "--output-file=salida.txt"};
 		String valorEsperado = "Factores primos de 100 : 2 2 5 5 ";
 		ManejadorDePeticion ejecutador = new ManejadorDePeticion();
@@ -49,6 +48,5 @@ public class TestManejadorDePeticion {
 		String valorActual = ejecutador.getSalida();
 		
 		assertEquals(valorEsperado, valorActual);
-	}
-	
+	}	
 }

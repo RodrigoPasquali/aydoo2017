@@ -20,7 +20,7 @@ public class FormatoPretty extends Formato {
 		}
 	}
 
-	public String formatoPretty(List<Integer> factoresPrimos, int numero) {
+	private String formatoPretty(List<Integer> factoresPrimos, int numero) {
 		String stringFP = "";
 		for (int i = 0; i <= factoresPrimos.size() - 1; i++) {
 			stringFP = stringFP + factoresPrimos.get(i).toString() + " ";
@@ -28,5 +28,4 @@ public class FormatoPretty extends Formato {
 		String cadenaFormatoPretty = "Factores primos de " + numero + " : " + stringFP;
 		return cadenaFormatoPretty;
 	}
-
 }

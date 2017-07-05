@@ -7,7 +7,6 @@ import excepciones.ExcepcionOutPutFileInvalido;
 import excepciones.ExcepcionSalidaInvalida;
 
 public class SalidaEscrituraDeArchivos extends Salida {	
-
 	private String outPutFileObtenido;
 
 	public SalidaEscrituraDeArchivos(String salida, String cadena) {
@@ -16,7 +15,7 @@ public class SalidaEscrituraDeArchivos extends Salida {
 	
 	@Override
 	public void aplicarSalidaSolicitada() throws IOException {
-		if(getSalidaSolicitada().contains("--output-file")){
+		if(getSalidaSolicitada().contains("--output-file")) {
 			getOutPutFile(getSalidaSolicitada());
 			escribirArchivo(this.outPutFileObtenido, getCadenaDeSalida());
 		} else {
