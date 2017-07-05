@@ -3,6 +3,11 @@ package ar.edu.untref.aydoo;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
+import excepciones.ExcepcionFormatoInvalido;
+import excepciones.ExcepcionNumeroInvalido;
+import excepciones.ExcepcionOrdenInvalido;
+import excepciones.ExcepcionOutPutFileInvalido;
+
 public class TestVerificadorDeArgumentos {
 
 	@Test

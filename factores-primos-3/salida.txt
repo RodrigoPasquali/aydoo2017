@@ -1,1 +1,0 @@
-Factores primos de 100 : 2 2 5 5 

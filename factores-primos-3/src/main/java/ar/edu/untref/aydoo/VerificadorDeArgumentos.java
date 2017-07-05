@@ -1,5 +1,10 @@
 package ar.edu.untref.aydoo;
 
+import excepciones.ExcepcionFormatoInvalido;
+import excepciones.ExcepcionNumeroInvalido;
+import excepciones.ExcepcionOrdenInvalido;
+import excepciones.ExcepcionOutPutFileInvalido;
+
 public class VerificadorDeArgumentos {	
 	private String formato;
 	private String orden;

@@ -1,4 +1,4 @@
-package ar.edu.untref.aydoo;
+package excepciones;
 
 public class ExcepcionOutPutFileInvalido extends RuntimeException {
     private final static String mensajeOutPutFileInvalido = " Archivo no aceptado. El archvio debe poseer extension .txt";

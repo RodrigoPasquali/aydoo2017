@@ -2,6 +2,8 @@ package ar.edu.untref.aydoo;
 
 import java.util.List;
 
+import excepciones.ExcepcionFormatoInvalido;
+
 public class FormatoQuiet extends Formato {
 	private List <Integer> factoresPrimosObtenidos;
 	private int numeroObtenido;

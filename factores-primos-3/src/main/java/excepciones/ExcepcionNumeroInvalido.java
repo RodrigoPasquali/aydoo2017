@@ -1,4 +1,4 @@
-package ar.edu.untref.aydoo;
+package excepciones;
 
 public class ExcepcionNumeroInvalido extends RuntimeException {
     private final static String mensajeNumeroInvalido = " El primero Argumento debe ser un numero natural";
