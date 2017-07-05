@@ -4,6 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import excepciones.ExcepcionOutPutFileInvalido;
+import excepciones.ExcepcionSalidaInvalida;
 
 public class SalidaEscrituraDeArchivos extends Salida {	
 
@@ -19,7 +20,7 @@ public class SalidaEscrituraDeArchivos extends Salida {
 			getOutPutFile(getSalidaSolicitada());
 			escribirArchivo(this.outPutFileObtenido, getCadenaDeSalida());
 		} else {
-			System.out.println("Salida no valida");
+			throw new ExcepcionSalidaInvalida();
 		}
 	}
 	
