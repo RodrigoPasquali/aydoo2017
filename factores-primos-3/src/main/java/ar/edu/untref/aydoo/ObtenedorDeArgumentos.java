@@ -3,7 +3,7 @@ package ar.edu.untref.aydoo;
 import excepciones.ExcepcionNumeroInvalido;
 import excepciones.ExcepcionOutPutFileInvalido;
 
-public class ObtencionDeArgumentos {	
+public class ObtenedorDeArgumentos {	
 	private String outPutFileObtenido = null;
 	
 	public String getFormato(String[] cadena) {

@@ -8,11 +8,11 @@ import excepciones.ExcepcionNumeroInvalido;
 import excepciones.ExcepcionOrdenInvalido;
 import excepciones.ExcepcionOutPutFileInvalido;
 
-public class TestObtencionDeArgumentos {
+public class TestObtenedorDeArgumentos {
 
 	@Test
 	public void getFormatoDeberiaDevolverFormatoPretty(){
-		ObtencionDeArgumentos obtenedor = new ObtencionDeArgumentos();
+		ObtenedorDeArgumentos obtenedor = new ObtenedorDeArgumentos();
 		String[] cadena = {"360", "--format=pretty", "--output-file=salida.txt"};
 		String valorEsperado = "--format=pretty";
 		
@@ -23,7 +23,7 @@ public class TestObtencionDeArgumentos {
 	
 	@Test
 	public void getFormatoDeberiaDevolverFormatoQuiet(){
-		ObtencionDeArgumentos obtenedor = new ObtencionDeArgumentos();
+		ObtenedorDeArgumentos obtenedor = new ObtenedorDeArgumentos();
 		String[] cadena = {"360", "--format=quiet", "--output-file=salida.txt"};
 		String valorEsperado = "--format=quiet";
 		
@@ -34,7 +34,7 @@ public class TestObtencionDeArgumentos {
 	
 	@Test
 	public void siNoSeIndicaFormatoDeberiaDevolverFormatoPretty(){
-		ObtencionDeArgumentos obtenedor = new ObtencionDeArgumentos();
+		ObtenedorDeArgumentos obtenedor = new ObtenedorDeArgumentos();
 		String[] cadena = {"360", "--output-file=salida.txt"};
 		String valorEsperado = "--format=pretty";
 		
@@ -45,7 +45,7 @@ public class TestObtencionDeArgumentos {
 	
     @Test
     public void siIndicoFormatoInvalidoDeberiaLanzarExcepcionFormatoInvalido() throws ExcepcionFormatoInvalido {
-    	ObtencionDeArgumentos obtenedor = new ObtencionDeArgumentos();
+    	ObtenedorDeArgumentos obtenedor = new ObtenedorDeArgumentos();
 		String[] cadena = {"360", "--format=yerba", "--output-file=salida.txt"};
 		
         try{
@@ -57,7 +57,7 @@ public class TestObtencionDeArgumentos {
 	
 	@Test
 	public void getOrdenDeberiaDevolverOrdenAsc(){
-		ObtencionDeArgumentos obtenedor = new ObtencionDeArgumentos();
+		ObtenedorDeArgumentos obtenedor = new ObtenedorDeArgumentos();
 		String[] cadena = {"360", "--format=yerba", "--output-file=salida.txt", "--sort=asc"};
 		String valorEsperado = "--sort=asc";
 		
@@ -68,7 +68,7 @@ public class TestObtencionDeArgumentos {
 	
 	@Test
 	public void getOrdenDeberiaDevolverOrdenDesc(){
-		ObtencionDeArgumentos obtenedor = new ObtencionDeArgumentos();
+		ObtenedorDeArgumentos obtenedor = new ObtenedorDeArgumentos();
 		String[] cadena = {"360", "--format=yerba", "--output-file=salida.txt", "--sort=desc"};
 		String valorEsperado = "--sort=desc";
 		
@@ -79,7 +79,7 @@ public class TestObtencionDeArgumentos {
 	
 	@Test
 	public void siNoIndicoOrdenDeberiaDevolverOrdenAsc(){
-		ObtencionDeArgumentos obtenedor = new ObtencionDeArgumentos();
+		ObtenedorDeArgumentos obtenedor = new ObtenedorDeArgumentos();
 		String[] cadena = {"360", "--format=yerba", "--output-file=salida.txt"};
 		String valorEsperado = "--sort=asc";
 		
@@ -90,7 +90,7 @@ public class TestObtencionDeArgumentos {
 	
 	@Test
 	public void siIndicoOrdenInvalidoDeberiaLanzarExcepcionOrdenInvalido() throws ExcepcionOrdenInvalido {
-		ObtencionDeArgumentos obtenedor = new ObtencionDeArgumentos();
+		ObtenedorDeArgumentos obtenedor = new ObtenedorDeArgumentos();
 		String[] cadena = {"360", "--format=pretty", "--output-file=salida.txt", "--sort=yerba"};
 		
 		try{
@@ -102,7 +102,7 @@ public class TestObtencionDeArgumentos {
 	
 	@Test
 	public void getOutPutFileDeberiaDevolverSalidapuntotxt(){
-		ObtencionDeArgumentos obtenedor = new ObtencionDeArgumentos();
+		ObtenedorDeArgumentos obtenedor = new ObtenedorDeArgumentos();
 		String[] cadena = {"360", "--format=yerba", "--output-file=salida.txt", "--sort=yerba"};
 		String valorEsperado = "salida.txt";
 		
@@ -113,7 +113,7 @@ public class TestObtencionDeArgumentos {
 	
 	@Test
 	public void siIndicoOutPutFileIgualYerbaDeberiaDevolverExcepcionOutPutFileInvalido(){
-		ObtencionDeArgumentos obtenedor = new ObtencionDeArgumentos();
+		ObtenedorDeArgumentos obtenedor = new ObtenedorDeArgumentos();
 		String[] cadena = {"360", "--format=pretty", "--output-file=yerba", "--sort=asc"};
 		
 		try{
@@ -125,7 +125,7 @@ public class TestObtencionDeArgumentos {
 	
 	@Test
 	public void siNoSeIndicaOutPutFileDeberiaDevolverNull(){
-		ObtencionDeArgumentos obtenedor = new ObtencionDeArgumentos();
+		ObtenedorDeArgumentos obtenedor = new ObtenedorDeArgumentos();
 		String[] cadena = {"360", "--format=yerba", "--sort=yerba"};
 		String valorEsperado = null;
 		
@@ -136,7 +136,7 @@ public class TestObtencionDeArgumentos {
 	
 	@Test
 	public void getNumeroDeberiaDevolver360(){
-		ObtencionDeArgumentos obtenedor = new ObtencionDeArgumentos();
+		ObtenedorDeArgumentos obtenedor = new ObtenedorDeArgumentos();
 		String cadena = "360";
 		int valorEsperado = 360;
 		
@@ -147,7 +147,7 @@ public class TestObtencionDeArgumentos {
 	
 	@Test
 	public void getNumeroDeKkDeberiaDevolverExcepcionNumeroInvalido() throws ExcepcionNumeroInvalido{
-		ObtencionDeArgumentos obtenedor = new ObtencionDeArgumentos();
+		ObtenedorDeArgumentos obtenedor = new ObtenedorDeArgumentos();
 		String cadena = "kk";
 		
 		try{

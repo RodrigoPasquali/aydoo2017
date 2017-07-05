@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Ejecutador {
 private String salidaObtenida;
-private ObtencionDeArgumentos obtenedor;
+private ObtenedorDeArgumentos obtenedor;
 private Calculadora calculadora;
 private Formato formateador;
 private Orden ordenador;
@@ -18,7 +18,7 @@ private String ordenIngresado;
 private String outPutFile;
 
 	public Ejecutador() {
-		this.obtenedor = new ObtencionDeArgumentos();
+		this.obtenedor = new ObtenedorDeArgumentos();
 		this.calculadora = new Calculadora();
 		this.listaDeFactoresPrimos = new LinkedList<Integer>();
 	}
