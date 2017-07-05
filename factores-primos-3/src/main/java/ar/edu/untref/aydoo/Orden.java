@@ -29,32 +29,5 @@ public abstract class Orden {
 	public List<Integer> getListaDeFactoresPrimos() {
 		return listaDeFactoresPrimos;
 	}
-	
-	/*
-	public List<Integer> ordenarNumeros(List<Integer> factoresPrimosIngresados, String orden) {
-		this.listaDeFactoresPrimos = new LinkedList<Integer>();
-		if (orden.equals("--sort=asc") || orden.equals("")) {
-			this.listaDeFactoresPrimos = this.ordenAscendente(factoresPrimosIngresados);
-		} else if (orden.equals("--sort=desc")) {
-			this.listaDeFactoresPrimos = this.ordenDescendente(factoresPrimosIngresados);
-		}
-		return this.listaDeFactoresPrimos;
-	}
 
-	public List<Integer> ordenAscendente(List<Integer> factoresPrimosIngresados) {
-		this.listaDeFactoresPrimos = factoresPrimosIngresados;
-		Collections.sort(this.listaDeFactoresPrimos);
-		return this.listaDeFactoresPrimos;
-	}
-	
-	public List<Integer> ordenDescendente(List<Integer> factoresPrimosIngresados) {
-		this.listaDeFactoresPrimos = factoresPrimosIngresados;
-		Collections.sort(this.listaDeFactoresPrimos, Collections.reverseOrder());
-		return this.listaDeFactoresPrimos;
-	}
-	
-	public List<Integer> getOrdenDeNumeros() {
-		return this.listaDeFactoresPrimos;
-	}
-	*/
 }
