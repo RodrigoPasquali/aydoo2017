@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ManejadorDePeticion {
+public class GeneradorDeRespuesta {
 private String salidaObtenida;
 private List<Integer> listaDeFactoresPrimos;
 private int numeroIngresado;
@@ -12,16 +12,16 @@ private String formatoIngresado;
 private String ordenIngresado;
 private String salidaSolicitadaIngresada;
 
-	public ManejadorDePeticion() {
+	public GeneradorDeRespuesta() {
 		this.listaDeFactoresPrimos = new LinkedList<Integer>();
 	}
 	
-	public void ejecutarPeticion(String[] arg) throws IOException {
+	public void generarRespuesta(String[] arg) throws IOException {
     	obtenerArgumentos(arg);
     	calcularFactoresPrimos();
     	ordenarFactoresPrimos();
     	darFormatoASalida();
-    	ejecutarSalidaSolicitada();
+    	ejecutarTipoDeSalida();
 	}
 	
 	private void obtenerArgumentos(String[] args) {
@@ -49,12 +49,12 @@ private String salidaSolicitadaIngresada;
 		this.salidaObtenida = formateador.aplicarFormato();
 	}
 	
-	private void ejecutarSalidaSolicitada() throws IOException {
+	private void ejecutarTipoDeSalida() throws IOException {
 		Salida manejadorDeSalida = new SalidaConsola(this.salidaSolicitadaIngresada, this.salidaObtenida);
 		manejadorDeSalida.aplicarSalidaSolicitada();
 	}
 	
-	public String getSalida() {
+	public String getRespuesta() {
 		return this.salidaObtenida;
 	}	
 }

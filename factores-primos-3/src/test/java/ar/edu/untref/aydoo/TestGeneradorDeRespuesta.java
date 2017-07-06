@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import excepciones.ExcepcionNumeroInvalido;
 
-public class TestManejadorDePeticion {	
+public class TestGeneradorDeRespuesta {	
 	@Test
 	public void salidaDeberiaDevolverFactoresPrimosDe360ConFormatoQuietOrdenDesc() throws IOException {
 		String[] entrada = {"360", "--format=quiet", "--sort=desc"};
@@ -18,10 +18,10 @@ public class TestManejadorDePeticion {
 								"2\r\n" + 
 								"2\r\n" + 
 								"2\r\n";
-		ManejadorDePeticion ejecutador = new ManejadorDePeticion();
+		GeneradorDeRespuesta generador = new GeneradorDeRespuesta();
 		
-		ejecutador.ejecutarPeticion(entrada);
-		String valorActual = ejecutador.getSalida();
+		generador.generarRespuesta(entrada);
+		String valorActual = generador.getRespuesta();
 		
 		assertEquals(valorEsperado, valorActual);
 	}
@@ -29,10 +29,10 @@ public class TestManejadorDePeticion {
 	@Test
 	public void siPrimerArgumentoNoEsNumeroDeberiaDevolverExcepcionNumeroInvalido() throws ExcepcionNumeroInvalido, IOException{
 		String[] entrada = {"kk", "--format=quiet", "--sort=desc"};
-		ManejadorDePeticion ejecutador = new ManejadorDePeticion();
+		GeneradorDeRespuesta generador = new GeneradorDeRespuesta();
 				
 		try{
-			ejecutador.ejecutarPeticion(entrada);
+			generador.generarRespuesta(entrada);
 	    }catch (ExcepcionNumeroInvalido e){
 	    	
 	    }
@@ -42,10 +42,10 @@ public class TestManejadorDePeticion {
 	public void salidaDeberiaDevolverFactoresPrimosDe100ConFormatoPrettyOrdenAsc() throws IOException {
 		String[] entrada = {"100", "--format=pretty", "--sort=asc", "--output-file=salida.txt"};
 		String valorEsperado = "Factores primos de 100 : 2 2 5 5 ";
-		ManejadorDePeticion ejecutador = new ManejadorDePeticion();
+		GeneradorDeRespuesta generador = new GeneradorDeRespuesta();
 		
-		ejecutador.ejecutarPeticion(entrada);
-		String valorActual = ejecutador.getSalida();
+		generador.generarRespuesta(entrada);
+		String valorActual = generador.getRespuesta();
 		
 		assertEquals(valorEsperado, valorActual);
 	}	
