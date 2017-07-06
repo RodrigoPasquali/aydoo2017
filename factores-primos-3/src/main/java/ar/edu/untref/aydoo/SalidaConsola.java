@@ -20,7 +20,7 @@ public class SalidaConsola extends Salida {
 		}
 	}
 	
-	private String imprimirEnConsola(String cadena) {
+	protected String imprimirEnConsola(String cadena) {
 		System.out.println(cadena);
 		return cadena;
 	}
