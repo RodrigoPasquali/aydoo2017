@@ -7,7 +7,7 @@ public class SalidaConsola extends Salida {
 	
 	public SalidaConsola(String salida, String cadena) {
 		super(salida, cadena);
-		this.salidaSiguiente = new SalidaEscrituraDeArchivos(salida, cadena);
+		this.salidaSiguiente = new SalidaEscrituraDeArchivo(salida, cadena);
 	}
 
 	@Override

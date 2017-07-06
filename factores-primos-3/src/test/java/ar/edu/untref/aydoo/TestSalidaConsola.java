@@ -20,7 +20,7 @@ public class TestSalidaConsola {
 	}
 	
 	@Test
-	public void aplicarSalidaSolicitadaDeberiaDevolverExpecion() {
+	public void aplicarSalidaSolicitadaDeberiaDevolverExcepcionSalidaInvalida() {
 		String salida = "yayo";
 		String cadena = "4 4 4";
 		SalidaConsola generadorDeSalida = new SalidaConsola(salida, cadena);

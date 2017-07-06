@@ -6,10 +6,10 @@ import java.io.IOException;
 import excepciones.ExcepcionOutPutFileInvalido;
 import excepciones.ExcepcionSalidaInvalida;
 
-public class SalidaEscrituraDeArchivos extends Salida {	
+public class SalidaEscrituraDeArchivo extends Salida {	
 	private String outPutFileObtenido;
 
-	public SalidaEscrituraDeArchivos(String salida, String cadena) {
+	public SalidaEscrituraDeArchivo(String salida, String cadena) {
 		super(salida, cadena);
 	}
 	
