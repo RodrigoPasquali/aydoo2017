@@ -24,7 +24,7 @@ public class TestCliente {
 	}
 	
 	@Test
-	public void getListaDeComprasDeberiaDevolverLaListaDeComorasDeJuan() {
+	public void getListaDeComprasDeberiaDevolverLaListaDeComorasDeJuan1Producto() {
 		Cliente juan = new Cliente("Juan", "juan@gamil.com");
 		Producto helado = new Producto(100, null);
 		Compra compraDeJuan = new Compra(helado);
@@ -37,5 +37,22 @@ public class TestCliente {
 		assertEquals(valorEsperado, valorObtenido);
 	}
 	
+	@Test 
+	public void getListaDeCompraDeberiaDevolverLaListaDeJuanCon2Productos() {
+		Cliente juan = new Cliente("Juan", "juan@gamil.com");
+		Producto helado = new Producto(100, null);
+		Producto hamburguesa = new Producto(70, null);
+		Compra compraHelado = new Compra(helado);
+		Compra compraHamburguesa = new Compra(hamburguesa);
+		List<Compra> valorEsperado = new LinkedList<Compra>();
+		valorEsperado.add(compraHelado);
+		valorEsperado.add(compraHamburguesa);
+		
+		juan.registrarCompra(compraHelado, null);
+		juan.registrarCompra(compraHamburguesa, null);
+		List<Compra> valorObtenido = juan.getListaDeCompras();
+		
+		assertEquals(valorEsperado, valorObtenido);
+	}
 	
 }
