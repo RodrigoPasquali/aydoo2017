@@ -11,7 +11,7 @@ public class TestCliente {
 	@Test
 	public void juanDeberiaTenerTarjetaPremium(){
 		Cliente juan = new Cliente("Juan", "juan@gamil.com");
-		Tarjeta tarjetaClassic = new Tarjeta("Classic");
+		Tarjeta tarjetaClassic = new Tarjeta("Premium");
 		juan.setTarjeta(tarjetaClassic);		
 		Tarjeta valorEsperado = tarjetaClassic;
 		
@@ -19,5 +19,7 @@ public class TestCliente {
 		
 		assertEquals(valorEsperado, valorObtenido);	
 	}
+	
+	
 	
 }
