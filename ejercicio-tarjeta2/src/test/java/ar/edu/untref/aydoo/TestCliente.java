@@ -1,22 +1,18 @@
 package ar.edu.untref.aydoo;
 
-
-import static org.junit.Assert.assertEquals;
-
 import java.util.LinkedList;
 import java.util.List;
-
 import org.junit.Test;
-
+import static org.junit.Assert.assertEquals;
 
 public class TestCliente {
 
 	@Test
 	public void juanDeberiaTenerTarjetaPremium() {
 		Cliente juan = new Cliente("Juan", "juan@gamil.com");
-		Tarjeta tarjetaClassic = new Tarjeta("Premium");
-		juan.setTarjeta(tarjetaClassic);		
-		Tarjeta valorEsperado = tarjetaClassic;
+		Tarjeta tarjetaPremium = Tarjeta.PREMIUM;
+		juan.setTarjeta(tarjetaPremium);		
+		Tarjeta valorEsperado = tarjetaPremium;
 		
 		Tarjeta valorObtenido = juan.getTarjeta();
 		
