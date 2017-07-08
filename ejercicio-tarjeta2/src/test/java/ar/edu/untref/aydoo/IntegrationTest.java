@@ -10,12 +10,21 @@ public class IntegrationTest {
 	public void pruebaDeCompra(){
 		Club club = new Club();
 		Establecimiento mcDonal = new Establecimiento("Mc Donals");
+		club.agregarEstablecimiento(mcDonal);
 		Sucursal s1 = new Sucursal("S1");
 		mcDonal.agregarSucursal(s1);
 		Tarjeta tarjetaPremium = Tarjeta.PREMIUM;
 		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", null, tarjetaPremium);
 		mcDonal.agregarBeneficio(descuento10, tarjetaPremium);
+		Producto hamburguesa = new Producto(100);
+		Cliente juan = new Cliente("juan", "j@");
+		juan.setTarjeta(tarjetaPremium);
+		Compra compraMcDonal = new Compra(tarjetaPremium, s1);
+		compraMcDonal.agregarProducto(hamburguesa);
+		juan.registrarCompra(compraMcDonal);
+		int valorEsperado = 100;
 		
+		//int valorObtenido = 
 	}
 
 //	@Test

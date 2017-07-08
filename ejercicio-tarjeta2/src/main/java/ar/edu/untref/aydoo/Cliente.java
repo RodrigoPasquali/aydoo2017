@@ -24,7 +24,7 @@ public class Cliente {
 		return this.tarjetaCliente;
 	}
 	
-	public void registrarCompra(Compra compra, Sucursal sucursal) {
+	public void registrarCompra(Compra compra) {
 		this.listaDeCompra.add(compra);
 	}
 	

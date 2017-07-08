@@ -28,7 +28,7 @@ public class TestCliente {
 		List<Compra> valorEsperado = new LinkedList<Compra>();
 		valorEsperado.add(compraDeJuan);
 		
-		juan.registrarCompra(compraDeJuan, null);
+		juan.registrarCompra(compraDeJuan);
 		List<Compra> valorObtenido = juan.getListaDeCompras();
 		
 		assertEquals(valorEsperado, valorObtenido);
@@ -47,8 +47,8 @@ public class TestCliente {
 		valorEsperado.add(compraHeladeria);
 		valorEsperado.add(compraRestaurant);
 		
-		juan.registrarCompra(compraHeladeria, null);
-		juan.registrarCompra(compraRestaurant, null);
+		juan.registrarCompra(compraHeladeria);
+		juan.registrarCompra(compraRestaurant);
 		List<Compra> valorObtenido = juan.getListaDeCompras();
 		
 		assertEquals(valorEsperado, valorObtenido);
