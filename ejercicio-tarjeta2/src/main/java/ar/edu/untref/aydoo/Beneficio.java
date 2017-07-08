@@ -9,7 +9,6 @@ public abstract class Beneficio {
 	
 	Beneficio beneficioSiguiente;
 	private String beneficioIngresado;
-	private Producto productoA;
 	private int porcentajeDescuento;
 	private List<Producto> listaProductos;
 	

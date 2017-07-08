@@ -27,14 +27,9 @@ public class Compra {
 		}
 	}
 	
-//	public void setBeneficio(String beneficio) {
-//		this.beneficioIngresado = beneficio;
-//		this.beneficioIngresado = new BeneficioDescuentoPorcentaje(beneficio, productoA, productoB);
-//	}
-//	
-//	public Beneficio getBeneficio() {
-//		return this.beneficioIngresado;
-//	}
+	public void setBeneficio(String beneficio) {
+		this.beneficioIngresado = beneficio;
+	}
 	
 	public Tarjeta getTarjeta() {
 		return this.tarjetaIngresada;
@@ -61,7 +56,8 @@ public class Compra {
 		if(this.beneficioIngresado == null){
 			precioFinal = sumarPrecioProductos();
 		} else {
-			//this.beneficioIngresado.aplicarBeneficio();
+			Beneficio beneficio = new BeneficioDescuentoPorcentaje(this.beneficioIngresado, this.listaProductoComprado);
+			precioFinal = beneficio.aplicarBeneficio();
 		}
 		return precioFinal;
 	}

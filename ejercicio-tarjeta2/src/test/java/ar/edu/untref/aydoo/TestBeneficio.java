@@ -28,6 +28,20 @@ public class TestBeneficio {
 	}
 	
 	@Test
+	public void elPrecioFinalDeberiaSer90CuandoSeEscribeDescuentoConMayuscula(){		
+		Producto libro = new Producto(100);
+		List<Producto> listaProductos = new LinkedList<Producto>();
+		listaProductos.add(libro);
+		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("Descuento", listaProductos);
+		descuento10.setPorcentajeDescuento(10);
+		double valorEsperado = 90;
+		
+		double valorObtenido = descuento10.aplicarBeneficio();
+		
+		assertEquals(valorEsperado, valorObtenido, 0.01);		
+	}
+	
+	@Test
 	public void deberiaDevolverExpecionCuandoPorcentajeEsMenorA5(){
 		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", null);
 		
