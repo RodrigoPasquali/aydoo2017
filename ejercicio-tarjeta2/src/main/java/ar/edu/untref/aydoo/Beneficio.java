@@ -10,9 +10,11 @@ public abstract class Beneficio {
 	Beneficio beneficioSiguiente;
 	private String beneficioIngresado;
 	private int porcentajeDescuento;
+	private Tarjeta tarjetaIngresada;
 	
 	public Beneficio(String beneficio, List<Producto> productos, Tarjeta tarjeta) {
 		this.beneficioIngresado = beneficio.toLowerCase();
+		this.tarjetaIngresada = tarjeta;
 	}
 	
 	public abstract double aplicarBeneficio() throws ExpecionBeneficioInvalido;
@@ -27,6 +29,10 @@ public abstract class Beneficio {
 	
 	public Beneficio getBeneficioSiguiente() {
 		return this.beneficioSiguiente;
+	}
+	
+	public Tarjeta getTarjeta() {
+		return this.tarjetaIngresada;
 	}
 	
 	public void setPorcentajeDescuento(int porcentaje) {

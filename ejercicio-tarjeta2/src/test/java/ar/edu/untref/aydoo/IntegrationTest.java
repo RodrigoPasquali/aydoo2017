@@ -7,24 +7,52 @@ import static org.junit.Assert.assertEquals;
 public class IntegrationTest {
 	
 	@Test
-	public void pruebaDeCompra(){
+	public void pruebaDeCompra3(){
 		Club club = new Club();
 		Establecimiento mcDonal = new Establecimiento("Mc Donals");
 		club.agregarEstablecimiento(mcDonal);
 		Sucursal s1 = new Sucursal("S1");
+		s1.esUnaSucursalDe(mcDonal);
 		mcDonal.agregarSucursal(s1);
 		Tarjeta tarjetaPremium = Tarjeta.PREMIUM;
 		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", null, tarjetaPremium);
-		mcDonal.agregarBeneficio(descuento10, tarjetaPremium);
+		descuento10.setPorcentajeDescuento(10);
+		mcDonal.agregarBeneficio(descuento10);
 		Producto hamburguesa = new Producto(100);
 		Cliente juan = new Cliente("juan", "j@");
 		juan.setTarjeta(tarjetaPremium);
 		Compra compraMcDonal = new Compra(tarjetaPremium, s1);
 		compraMcDonal.agregarProducto(hamburguesa);
+		compraMcDonal.setBeneficio("descuentO");
 		juan.registrarCompra(compraMcDonal);
-		int valorEsperado = 100;
+		double valorEsperado = 90;
 		
-		//int valorObtenido = 
+		double valorObtenido = compraMcDonal.obtenerPrecioFinal(); 
+		assertEquals(valorEsperado, valorObtenido, 0.1);
+	}
+	
+	public void pruebaDeCompra(){
+		Club club = new Club();
+		Establecimiento mcDonal = new Establecimiento("Mc Donals");
+		club.agregarEstablecimiento(mcDonal);
+		Sucursal s1 = new Sucursal("S1");
+		s1.esUnaSucursalDe(mcDonal);
+		mcDonal.agregarSucursal(s1);
+		Tarjeta tarjetaPremium = Tarjeta.PREMIUM;
+		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", null, tarjetaPremium);
+		descuento10.setPorcentajeDescuento(10);
+		mcDonal.agregarBeneficio(descuento10);
+		Producto hamburguesa = new Producto(100);
+		Cliente juan = new Cliente("juan", "j@");
+		juan.setTarjeta(tarjetaPremium);
+		Compra compraMcDonal = new Compra(tarjetaPremium, s1);
+		compraMcDonal.agregarProducto(hamburguesa);
+		compraMcDonal.setBeneficio("descuentO");
+		juan.registrarCompra(compraMcDonal);
+		double valorEsperado = 90;
+		
+		double valorObtenido = compraMcDonal.obtenerPrecioFinal(); 
+		assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
 
 //	@Test

@@ -21,8 +21,21 @@ public class Establecimiento {
 		this.listaDeSucursales.add(sucursal);
 	}
 	
-	public void agregarBeneficio(Beneficio beneficio, Tarjeta tarjeta){
+	public void agregarBeneficio(Beneficio beneficio){
 		this.listaDeBeneficios.add(beneficio);
+	}
+	
+	public List<Beneficio> getBeneficiosParaTarjeta(Tarjeta tarjeta){
+		List<Beneficio> listaDeBeneficiosConTarjetaSeleccionada = new LinkedList<Beneficio>();
+		int i = 0;
+		while(i < this.listaDeBeneficios.size()) {
+			Beneficio beneficioActual = this.listaDeBeneficios.get(i);
+			if(tarjeta.equals(beneficioActual.getTarjeta())) {
+				listaDeBeneficiosConTarjetaSeleccionada.add(beneficioActual);
+			}
+			i++;
+		}
+		return listaDeBeneficiosConTarjetaSeleccionada;
 	}
 	
 }
