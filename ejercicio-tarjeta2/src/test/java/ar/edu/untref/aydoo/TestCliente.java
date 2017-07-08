@@ -22,7 +22,7 @@ public class TestCliente {
 	@Test
 	public void getListaDeComprasDeberiaDevolverLaListaDeComorasDeJuan1Producto() {
 		Cliente juan = new Cliente("Juan", "juan@gamil.com");
-		Producto helado = new Producto(100, null);
+		Producto helado = new Producto(100);
 		Compra compraDeJuan = new Compra(helado);
 		List<Compra> valorEsperado = new LinkedList<Compra>();
 		valorEsperado.add(compraDeJuan);
@@ -36,8 +36,8 @@ public class TestCliente {
 	@Test 
 	public void getListaDeCompraDeberiaDevolverLaListaDeJuanCon2Productos() {
 		Cliente juan = new Cliente("Juan", "juan@gamil.com");
-		Producto helado = new Producto(100, null);
-		Producto hamburguesa = new Producto(70, null);
+		Producto helado = new Producto(100);
+		Producto hamburguesa = new Producto(70);
 		Compra compraHelado = new Compra(helado);
 		Compra compraHamburguesa = new Compra(hamburguesa);
 		List<Compra> valorEsperado = new LinkedList<Compra>();

@@ -7,7 +7,7 @@ public class TestCompra {
 	
 	@Test 
 	public void getProductoCompradoDeberiaDevolverHelado() {
-		Producto helado = new Producto(100, null);
+		Producto helado = new Producto(100);
 		Compra compra = new Compra(helado);
 		Producto valorEsperado = helado;
 		
