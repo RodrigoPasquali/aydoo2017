@@ -22,4 +22,5 @@ public class Establecimiento {
 	public void agregarBeneficio(Beneficio beneficio){
 		this.listaDeBeneficios.add(beneficio);
 	}
+	
 }
