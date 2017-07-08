@@ -1,12 +1,16 @@
 package ar.edu.untref.aydoo;
 
+import java.util.List;
+
 public class BeneficioDescuentoPorcentaje extends Beneficio{
 	
 	Beneficio beneficioSiguiente;
+	private List<Producto> listaDeProductos;
 
-	public BeneficioDescuentoPorcentaje(String beneficio, Producto productoA, Producto productoB) {
-		super(beneficio, productoA);
-		this.beneficioSiguiente = new BeneficioPromocion2x1(getBeneficioIngresado(), getProductoA(), productoB);
+	public BeneficioDescuentoPorcentaje(String beneficio, List<Producto> productos) {
+		super(beneficio, productos);
+		this.beneficioSiguiente = new BeneficioPromocion2x1(beneficio, productos);
+		this.listaDeProductos = productos;
 	}
 
 	@Override
@@ -20,9 +24,10 @@ public class BeneficioDescuentoPorcentaje extends Beneficio{
 	}
 	
 	public double calcularDescuento(){
-		double descuento = (getPrecioProductoA() * getPorcentajeDescuento())/ 100;
+		double precioProducto = this.listaDeProductos.get(0).getPrecio();
+		double descuento = (precioProducto * getPorcentajeDescuento())/ 100;
 		System.out.println(descuento);
-		double precioFinal = getPrecioProductoA() - descuento;
+		double precioFinal = precioProducto - descuento;
 		return precioFinal;
 	}
 

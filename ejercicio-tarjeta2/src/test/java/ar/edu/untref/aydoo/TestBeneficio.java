@@ -7,12 +7,18 @@ import Excepciones.ExpecionFaltaProducto;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.concurrent.LinkedBlockingDeque;
+
 public class TestBeneficio {
 	
 	@Test
 	public void elPrecioFinalDeberiaSer90(){		
 		Producto libro = new Producto(100);
-		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", libro, null);
+		List<Producto> listaProductos = new LinkedList<Producto>();
+		listaProductos.add(libro);
+		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", listaProductos);
 		descuento10.setPorcentajeDescuento(10);
 		double valorEsperado = 90;
 		
@@ -23,8 +29,7 @@ public class TestBeneficio {
 	
 	@Test
 	public void deberiaDevolverExpecionCuandoPorcentajeEsMenorA5(){
-		Producto libro = new Producto(100);
-		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", libro, null);	
+		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", null);
 		
 		try {
 			descuento10.setPorcentajeDescuento(4);
@@ -35,8 +40,7 @@ public class TestBeneficio {
 	
 	@Test
 	public void deberiaDevolverExpecionCuandoPorcentajeEsMayorA100(){
-		Producto libro = new Producto(100);
-		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", libro, null);	
+		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento",null);	
 		
 		try {
 			descuento10.setPorcentajeDescuento(101);
@@ -49,7 +53,10 @@ public class TestBeneficio {
 	public void precioFinalDeberiaDevolver100(){
 		Producto elHobbit = new Producto(100);
 		Producto elPrincipito = new Producto(50);
-		Beneficio promocion2x1 = new BeneficioDescuentoPorcentaje("2x1", elHobbit, elPrincipito);
+		List<Producto> listaProductos = new LinkedList<Producto>();
+		listaProductos.add(elPrincipito);
+		listaProductos.add(elHobbit);
+		Beneficio promocion2x1 = new BeneficioDescuentoPorcentaje("2x1", listaProductos);
 		double valorEsperado = 100;
 		
 		double valorObtenido = promocion2x1.aplicarBeneficio();
@@ -60,7 +67,9 @@ public class TestBeneficio {
 	@Test
 	public void precioFinalDeberiaDevolverExpecionFaltaProducto(){
 		Producto elHobbit = new Producto(100);
-		Beneficio promocion2x1 = new BeneficioDescuentoPorcentaje("2x1", elHobbit, null);
+		List<Producto> listaProductos = new LinkedList<Producto>();
+		listaProductos.add(elHobbit);
+		Beneficio promocion2x1 = new BeneficioDescuentoPorcentaje("2x1", listaProductos);
 		
 		try {
 			promocion2x1.aplicarBeneficio();
@@ -73,7 +82,10 @@ public class TestBeneficio {
 	public void precioFinalDeberiaDevolver200(){
 		Producto elHobbit = new Producto(100);
 		Producto elPrincipito = new Producto(200);
-		Beneficio promocion2x1 = new BeneficioDescuentoPorcentaje("2x1", elHobbit, elPrincipito);
+		List<Producto> listaProductos = new LinkedList<Producto>();
+		listaProductos.add(elPrincipito);
+		listaProductos.add(elHobbit);
+		Beneficio promocion2x1 = new BeneficioDescuentoPorcentaje("2x1", listaProductos);
 		double valorEsperado = 200;
 		
 		double valorObtenido = promocion2x1.aplicarBeneficio();
@@ -85,7 +97,10 @@ public class TestBeneficio {
 	public void precioFinalDeberiaDevolver140(){
 		Producto elHobbit = new Producto(90);
 		Producto elPrincipito = new Producto(50);
-		Beneficio promocion2x1 = new BeneficioDescuentoPorcentaje("2x1", elHobbit, elPrincipito);
+		List<Producto> listaProductos = new LinkedList<Producto>();
+		listaProductos.add(elPrincipito);
+		listaProductos.add(elHobbit);
+		Beneficio promocion2x1 = new BeneficioDescuentoPorcentaje("2x1", listaProductos);
 		double valorEsperado = 140;
 		
 		double valorObtenido = promocion2x1.aplicarBeneficio();

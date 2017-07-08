@@ -1,15 +1,17 @@
 package ar.edu.untref.aydoo;
 
+import java.util.List;
+
 import Excepciones.ExpecionBeneficioInvalido;
 import Excepciones.ExpecionFaltaProducto;
 
 public class BeneficioPromocion2x1 extends Beneficio {
 	
-	private Producto productoB;
-
-	public BeneficioPromocion2x1(String beneficio, Producto productoA, Producto productoB) {
-		super(beneficio, productoA);
-		this.productoB = productoB;
+	private List<Producto> listaDeProductos;
+	
+	public BeneficioPromocion2x1(String beneficio, List<Producto> productos) {
+		super(beneficio, productos);
+		this.listaDeProductos = productos;
 	}
 
 	@Override
@@ -22,13 +24,14 @@ public class BeneficioPromocion2x1 extends Beneficio {
 	}
 	
 	public double calcular2x1() {
-		if(this.productoB == null){
+		if(this.listaDeProductos.size() < 2){
 			throw new ExpecionFaltaProducto();
 		}
-		double precioProductoB = this.productoB.getPrecio();
-		double precioFinal = getPrecioProductoA() + precioProductoB;
-		double precioMasAlto = getPrecioProductoA();
-		if(getPrecioProductoA() < precioProductoB){
+		double precioProductoA = this.listaDeProductos.get(0).getPrecio();
+		double precioProductoB = this.listaDeProductos.get(1).getPrecio();
+		double precioFinal = precioProductoA + precioProductoB;
+		double precioMasAlto = precioProductoA;
+		if(precioProductoA < precioProductoB){
 			precioMasAlto = precioProductoB;
 		}
 		if(precioMasAlto >= 100) {
