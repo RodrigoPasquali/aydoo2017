@@ -56,7 +56,7 @@ public class Compra {
 		if(this.beneficioIngresado == null){
 			precioFinal = sumarPrecioProductos();
 		} else {
-			Beneficio beneficio = new BeneficioDescuentoPorcentaje(this.beneficioIngresado, this.listaProductoComprado);
+			Beneficio beneficio = new BeneficioDescuentoPorcentaje(this.beneficioIngresado, this.listaProductoComprado, this.tarjetaIngresada);
 			precioFinal = beneficio.aplicarBeneficio();
 		}
 		return precioFinal;

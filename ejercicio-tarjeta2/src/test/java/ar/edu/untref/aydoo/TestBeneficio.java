@@ -18,7 +18,7 @@ public class TestBeneficio {
 		Producto libro = new Producto(100);
 		List<Producto> listaProductos = new LinkedList<Producto>();
 		listaProductos.add(libro);
-		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", listaProductos);
+		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", listaProductos, null);
 		descuento10.setPorcentajeDescuento(10);
 		double valorEsperado = 90;
 		
@@ -32,7 +32,7 @@ public class TestBeneficio {
 		Producto libro = new Producto(100);
 		List<Producto> listaProductos = new LinkedList<Producto>();
 		listaProductos.add(libro);
-		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("Descuento", listaProductos);
+		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("Descuento", listaProductos, null);
 		descuento10.setPorcentajeDescuento(10);
 		double valorEsperado = 90;
 		
@@ -43,7 +43,7 @@ public class TestBeneficio {
 	
 	@Test
 	public void deberiaDevolverExpecionCuandoPorcentajeEsMenorA5(){
-		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", null);
+		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", null, null);
 		
 		try {
 			descuento10.setPorcentajeDescuento(4);
@@ -54,7 +54,7 @@ public class TestBeneficio {
 	
 	@Test
 	public void deberiaDevolverExpecionCuandoPorcentajeEsMayorA100(){
-		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento",null);	
+		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento",null, null);	
 		
 		try {
 			descuento10.setPorcentajeDescuento(101);
@@ -70,7 +70,7 @@ public class TestBeneficio {
 		List<Producto> listaProductos = new LinkedList<Producto>();
 		listaProductos.add(elPrincipito);
 		listaProductos.add(elHobbit);
-		Beneficio promocion2x1 = new BeneficioDescuentoPorcentaje("2x1", listaProductos);
+		Beneficio promocion2x1 = new BeneficioDescuentoPorcentaje("2x1", listaProductos, null);
 		double valorEsperado = 100;
 		
 		double valorObtenido = promocion2x1.aplicarBeneficio();
@@ -83,7 +83,7 @@ public class TestBeneficio {
 		Producto elHobbit = new Producto(100);
 		List<Producto> listaProductos = new LinkedList<Producto>();
 		listaProductos.add(elHobbit);
-		Beneficio promocion2x1 = new BeneficioDescuentoPorcentaje("2x1", listaProductos);
+		Beneficio promocion2x1 = new BeneficioDescuentoPorcentaje("2x1", listaProductos, null);
 		
 		try {
 			promocion2x1.aplicarBeneficio();
@@ -99,7 +99,7 @@ public class TestBeneficio {
 		List<Producto> listaProductos = new LinkedList<Producto>();
 		listaProductos.add(elPrincipito);
 		listaProductos.add(elHobbit);
-		Beneficio promocion2x1 = new BeneficioDescuentoPorcentaje("2x1", listaProductos);
+		Beneficio promocion2x1 = new BeneficioDescuentoPorcentaje("2x1", listaProductos, null);
 		double valorEsperado = 200;
 		
 		double valorObtenido = promocion2x1.aplicarBeneficio();
@@ -114,7 +114,7 @@ public class TestBeneficio {
 		List<Producto> listaProductos = new LinkedList<Producto>();
 		listaProductos.add(elPrincipito);
 		listaProductos.add(elHobbit);
-		Beneficio promocion2x1 = new BeneficioDescuentoPorcentaje("2x1", listaProductos);
+		Beneficio promocion2x1 = new BeneficioDescuentoPorcentaje("2x1", listaProductos, null);
 		double valorEsperado = 140;
 		
 		double valorObtenido = promocion2x1.aplicarBeneficio();

@@ -7,9 +7,9 @@ public class BeneficioDescuentoPorcentaje extends Beneficio{
 	Beneficio beneficioSiguiente;
 	private List<Producto> listaDeProductos;
 
-	public BeneficioDescuentoPorcentaje(String beneficio, List<Producto> productos) {
-		super(beneficio, productos);
-		this.beneficioSiguiente = new BeneficioPromocion2x1(beneficio, productos);
+	public BeneficioDescuentoPorcentaje(String beneficio, List<Producto> productos, Tarjeta tarjeta) {
+		super(beneficio, productos, tarjeta);
+		this.beneficioSiguiente = new BeneficioPromocion2x1(beneficio, productos, tarjeta);
 		this.listaDeProductos = productos;
 	}
 

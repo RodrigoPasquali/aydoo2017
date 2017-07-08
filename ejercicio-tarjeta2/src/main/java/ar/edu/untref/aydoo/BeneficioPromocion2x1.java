@@ -9,8 +9,8 @@ public class BeneficioPromocion2x1 extends Beneficio {
 	
 	private List<Producto> listaDeProductos;
 	
-	public BeneficioPromocion2x1(String beneficio, List<Producto> productos) {
-		super(beneficio, productos);
+	public BeneficioPromocion2x1(String beneficio, List<Producto> productos, Tarjeta tarjeta) {
+		super(beneficio, productos, tarjeta);
 		this.listaDeProductos = productos;
 	}
 

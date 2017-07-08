@@ -1,11 +1,23 @@
-//package ar.edu.untref.aydoo;
-//
-//import org.junit.Test;
-//
-//import static org.junit.Assert.assertEquals;
-//
-//public class IntegrationTest {
-//
+package ar.edu.untref.aydoo;
+
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class IntegrationTest {
+	
+	@Test
+	public void pruebaDeCompra(){
+		Club club = new Club();
+		Establecimiento mcDonal = new Establecimiento("Mc Donals");
+		Sucursal s1 = new Sucursal("S1");
+		mcDonal.agregarSucursal(s1);
+		Tarjeta tarjetaPremium = Tarjeta.PREMIUM;
+		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", null, tarjetaPremium);
+		mcDonal.agregarBeneficio(descuento10, tarjetaPremium);
+		
+	}
+
 //	@Test
 //	public void elefante() {
 //		// En enero, Juan compra 2 kg de helado en la sucursal Caseros de la
@@ -302,4 +314,4 @@
 //		assertEquals(regaloEsperado, regaloActual);
 //	}
 //
-//}
+}
