@@ -5,10 +5,11 @@ import Excepciones.ExpecionFaltaProducto;
 
 public class BeneficioPromocion2x1 extends Beneficio {
 	
-	private Producto precioProductoB = null;
+	private Producto productoB;
 
-	public BeneficioPromocion2x1(String beneficio, Producto productoA) {
+	public BeneficioPromocion2x1(String beneficio, Producto productoA, Producto productoB) {
 		super(beneficio, productoA);
+		this.productoB = productoB;
 	}
 
 	@Override
@@ -19,26 +20,18 @@ public class BeneficioPromocion2x1 extends Beneficio {
 	        throw new ExpecionBeneficioInvalido();
 	    }
 	}
-		
-	public void setProductoB(Producto productoB){
-		this.precioProductoB = productoB;
-	}
-	
-	public double getPrecioProductoB() {
-		double precioProductoB = this.precioProductoB.getPrecio();
-		return precioProductoB;
-	}
 	
 	public double calcular2x1() {
-		if(this.precioProductoB.equals(null)){
+		if(this.productoB == null){
 			throw new ExpecionFaltaProducto();
 		}
-		double precioFinal = getPrecioProductoA() + getPrecioProductoB();
+		double precioProductoB = this.productoB.getPrecio();
+		double precioFinal = getPrecioProductoA() + precioProductoB;
 		double precioMasAlto = getPrecioProductoA();
-		if(getPrecioProductoA() < getPrecioProductoB()){
-			precioMasAlto = getPrecioProductoB();
+		if(getPrecioProductoA() < precioProductoB){
+			precioMasAlto = precioProductoB;
 		}
-		if(precioMasAlto > 100) {
+		if(precioMasAlto >= 100) {
 			precioFinal = precioMasAlto;
 		}
 		return precioFinal;
