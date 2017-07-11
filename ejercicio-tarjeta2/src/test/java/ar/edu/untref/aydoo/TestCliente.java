@@ -3,6 +3,9 @@ package ar.edu.untref.aydoo;
 import java.util.LinkedList;
 import java.util.List;
 import org.junit.Test;
+
+import Excepciones.ExpcepcionUnaSolaTarjeta;
+
 import static org.junit.Assert.assertEquals;
 
 public class TestCliente {
@@ -52,6 +55,20 @@ public class TestCliente {
 		List<Compra> valorObtenido = juan.getListaDeCompras();
 		
 		assertEquals(valorEsperado, valorObtenido);
+	}
+	
+	@Test
+	public void deberiaDevolverUnaExpecionCuandoSeDeseaAsignarDosTarjetasAUnMismoClinte() {
+		Cliente juan = new Cliente("Juan", "juan@gamil.com");
+		Tarjeta tarjetaPremium = Tarjeta.PREMIUM;
+		Tarjeta tarjetaClassic = Tarjeta.CLASSIC;
+		juan.setTarjeta(tarjetaPremium);	
+		
+		try {
+			juan.setTarjeta(tarjetaClassic);
+		}catch (ExpcepcionUnaSolaTarjeta e){
+
+	    }	
 	}
 	
 }

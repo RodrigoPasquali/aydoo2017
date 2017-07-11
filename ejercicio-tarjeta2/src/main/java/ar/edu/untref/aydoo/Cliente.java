@@ -3,6 +3,8 @@ package ar.edu.untref.aydoo;
 import java.util.LinkedList;
 import java.util.List;
 
+import Excepciones.ExpcepcionUnaSolaTarjeta;
+
 public class Cliente {
 
 	private String mailCliente;
@@ -14,10 +16,15 @@ public class Cliente {
 		this.nombreCliente = nombre;
 		this.mailCliente = mail;
 		this.listaDeCompra = new LinkedList<Compra>();
+		this.tarjetaCliente = null;
 	}
 	
 	public void setTarjeta(Tarjeta tarjeta) {
-		this.tarjetaCliente = tarjeta;
+		if(this.tarjetaCliente == null) {
+			this.tarjetaCliente = tarjeta;
+		} else {
+			throw new ExpcepcionUnaSolaTarjeta();
+		}
 	}
 	
 	public Tarjeta getTarjeta() {
