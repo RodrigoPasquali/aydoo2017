@@ -42,7 +42,7 @@ public class TestBeneficio {
 	}
 	
 	@Test
-	public void elPrecioFinalDeberiaSerCeroCuandoDescuentoEsCinco(){		
+	public void elPrecioFinalDeberiaSerCeroCuandoDescuentoEsCien(){		
 		Producto libro = new Producto(100);
 		List<Producto> listaProductos = new LinkedList<Producto>();
 		listaProductos.add(libro);

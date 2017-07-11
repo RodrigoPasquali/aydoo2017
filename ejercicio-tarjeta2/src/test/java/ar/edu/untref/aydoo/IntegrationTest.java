@@ -54,6 +54,34 @@ public class IntegrationTest {
 		double valorObtenido = compraMcDonal.obtenerPrecioFinal(); 
 		assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
+	
+	@Test
+	public void deberiaDevolver100CuandoSeAplica2x1CuandoSeCompranProductosDe80y100(){
+		//	Mateo compra con su tarjeta classic el libro "Martín Fierro" ($100) en la librería 
+		//	"El altillo" (sucursal única). Esta librería está asociada al club y ofrece el beneficio 2x1.
+		//	Entonces Mateo elige como segundo libro "El Cantar del Cid" ($80) pero como tiene el beneficio 
+		//	este segundo libro le resultar gratis. O sea que Mateo se lleva estos dos libros por $100 
+		//	(el beneficio 2x1 tomo como referencia el  precio del libro más alto)
+		
+		Club club = new Club();
+		Establecimiento libreria = new Establecimiento("El Altillo");
+		club.agregarEstablecimiento(libreria);
+		Sucursal sucursalElAltillo = new Sucursal("El Altillo Sucursal");
+		libreria.agregarSucursal(sucursalElAltillo);
+		Tarjeta tarjetaPremium = Tarjeta.PREMIUM;
+		Beneficio beneficio2x1 = new BeneficioDescuentoPorcentaje("2x1", null, tarjetaPremium);
+		libreria.agregarBeneficio(beneficio2x1);
+		Cliente mateo = new Cliente("Mateo", "mat@gmail.com");
+		mateo.setTarjeta(tarjetaPremium);
+		Producto martinFierro = new Producto(100);
+		Producto elCantarDelCid = new Producto(80);
+		Compra compraElAltillo = new Compra(tarjetaPremium, sucursalElAltillo);
+		compraElAltillo.agregarProducto(elCantarDelCid);
+		compraElAltillo.agregarProducto(martinFierro);
+		compraElAltillo.setBeneficio("2x1");
+		mateo.registrarCompra(compraElAltillo);
+		
+	}
 
 //	@Test
 //	public void elefante() {
