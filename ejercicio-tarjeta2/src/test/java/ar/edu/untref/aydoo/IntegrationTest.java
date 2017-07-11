@@ -21,7 +21,7 @@ public class IntegrationTest {
 		Producto hamburguesa = new Producto(100);
 		Cliente juan = new Cliente("juan", "j@");
 		juan.setTarjeta(tarjetaPremium);
-		Compra compraMcDonal = new Compra(tarjetaPremium, s1);
+		Compra compraMcDonal = new Compra(tarjetaPremium, s1, null);
 		compraMcDonal.agregarProducto(hamburguesa);
 		compraMcDonal.setBeneficio("descuentO");
 		juan.registrarCompra(compraMcDonal);
@@ -45,7 +45,7 @@ public class IntegrationTest {
 		Producto hamburguesa = new Producto(100);
 		Cliente juan = new Cliente("juan", "j@");
 		juan.setTarjeta(tarjetaPremium);
-		Compra compraMcDonal = new Compra(tarjetaPremium, s1);
+		Compra compraMcDonal = new Compra(tarjetaPremium, s1, null);
 		compraMcDonal.agregarProducto(hamburguesa);
 		compraMcDonal.setBeneficio("descuentO");
 		juan.registrarCompra(compraMcDonal);
@@ -75,7 +75,7 @@ public class IntegrationTest {
 		mateo.setTarjeta(tarjetaPremium);
 		Producto martinFierro = new Producto(100);
 		Producto elCantarDelCid = new Producto(80);
-		Compra compraElAltillo = new Compra(tarjetaPremium, sucursalElAltillo);
+		Compra compraElAltillo = new Compra(tarjetaPremium, sucursalElAltillo, null);
 		compraElAltillo.agregarProducto(elCantarDelCid);
 		compraElAltillo.agregarProducto(martinFierro);
 		compraElAltillo.setBeneficio("2x1");

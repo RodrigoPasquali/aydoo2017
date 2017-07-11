@@ -18,7 +18,8 @@ public class TestCompra {
 		Producto hamburguesa = new Producto(100);
 		Cliente juan = new Cliente("juan", "j@");
 		juan.setTarjeta(tarjetaPremium);
-		Compra compraMcDonal = new Compra(tarjetaPremium, s1);
+		Mes agosto = Mes.Agosto;
+		Compra compraMcDonal = new Compra(tarjetaPremium, s1, agosto);
 		compraMcDonal.agregarProducto(hamburguesa);
 		compraMcDonal.setBeneficio("descuentO");
 		juan.registrarCompra(compraMcDonal);
@@ -40,7 +41,8 @@ public class TestCompra {
 		mcDonal.agregarBeneficio(descuento10);
 		Producto hamburguesa = new Producto(100);
 		Tarjeta tarjetaCLASSIC = Tarjeta.CLASSIC;
-		Compra compraMcDonal = new Compra(tarjetaCLASSIC, s1);
+		Mes agosto = Mes.Agosto;
+		Compra compraMcDonal = new Compra(tarjetaCLASSIC, s1, agosto);
 		compraMcDonal.agregarProducto(hamburguesa);
 		compraMcDonal.setBeneficio("descuentO");
 		double valorEsperado = 100;
@@ -60,7 +62,8 @@ public class TestCompra {
 		mcDonal.agregarBeneficio(descuento10);
 		Producto hamburguesa = new Producto(100);
 		Producto papas = new Producto(50);
-		Compra compraMcDonal = new Compra(tarjetaPremium, s1);
+		Mes agosto = Mes.Agosto;
+		Compra compraMcDonal = new Compra(tarjetaPremium, s1, agosto);
 		compraMcDonal.agregarProducto(hamburguesa);
 		compraMcDonal.agregarProducto(papas);
 		compraMcDonal.setBeneficio("2x1");
@@ -81,7 +84,8 @@ public class TestCompra {
 		mcDonal.agregarBeneficio(descuento10);
 		Producto hamburguesa = new Producto(90);
 		Producto papas = new Producto(50);
-		Compra compraMcDonal = new Compra(tarjetaPremium, s1);
+		Mes agosto = Mes.Agosto;
+		Compra compraMcDonal = new Compra(tarjetaPremium, s1, agosto);
 		compraMcDonal.agregarProducto(hamburguesa);
 		compraMcDonal.agregarProducto(papas);
 		compraMcDonal.setBeneficio("2x1");
@@ -103,7 +107,8 @@ public class TestCompra {
 		Producto hamburguesa = new Producto(100);
 		Producto papas = new Producto(50);
 		Tarjeta tarjetaPremium = Tarjeta.PREMIUM;
-		Compra compraMcDonal = new Compra(tarjetaPremium, s1);
+		Mes agosto = Mes.Agosto;
+		Compra compraMcDonal = new Compra(tarjetaPremium, s1, agosto);
 		compraMcDonal.agregarProducto(hamburguesa);
 		compraMcDonal.agregarProducto(papas);
 		compraMcDonal.setBeneficio("2x1");

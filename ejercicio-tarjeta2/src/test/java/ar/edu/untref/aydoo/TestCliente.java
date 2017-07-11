@@ -26,7 +26,7 @@ public class TestCliente {
 	public void getListaDeComprasDeberiaDevolverLaListaDeComorasDeJuan1Producto() {
 		Cliente juan = new Cliente("Juan", "juan@gamil.com");
 		Producto helado = new Producto(100);
-		Compra compraDeJuan = new Compra(null, null);
+		Compra compraDeJuan = new Compra(null, null, null);
 		compraDeJuan.agregarProducto(helado);
 		List<Compra> valorEsperado = new LinkedList<Compra>();
 		valorEsperado.add(compraDeJuan);
@@ -42,8 +42,8 @@ public class TestCliente {
 		Cliente juan = new Cliente("Juan", "juan@gamil.com");
 		Producto helado = new Producto(100);
 		Producto hamburguesa = new Producto(70);
-		Compra compraHeladeria = new Compra(null, null);
-		Compra compraRestaurant = new Compra(null, null);
+		Compra compraHeladeria = new Compra(null, null, null);
+		Compra compraRestaurant = new Compra(null, null, null);
 		compraHeladeria.agregarProducto(helado);
 		compraRestaurant.agregarProducto(hamburguesa);
 		List<Compra> valorEsperado = new LinkedList<Compra>();

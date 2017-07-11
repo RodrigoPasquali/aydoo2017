@@ -11,12 +11,14 @@ public class Compra {
 	private String beneficioIngresado;
 	private Tarjeta tarjetaIngresada;
 	private Sucursal sucursalDondeSeCompra;
+	private Mes mesDeLaCompra;
 
-	public Compra(Tarjeta tarjeta, Sucursal sucursal){
+	public Compra(Tarjeta tarjeta, Sucursal sucursal, Mes mes){
 		this.listaProductoComprado = new LinkedList<Producto>();
 		this.tarjetaIngresada = tarjeta;
 		this.sucursalDondeSeCompra = sucursal;
 		this.beneficioIngresado = null;
+		this.mesDeLaCompra = mes;
 	}
 	
 	public void agregarProducto(Producto producto) {
