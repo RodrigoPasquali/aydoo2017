@@ -28,10 +28,12 @@ public class Establecimiento {
 	public List<Beneficio> getBeneficiosParaTarjeta(Tarjeta tarjeta) {
 		List<Beneficio> listaDeBeneficiosConTarjetaSeleccionada = new LinkedList<Beneficio>();
 		int i = 0;
+		int j = 0;
 		while(i < this.listaDeBeneficios.size()) {
 			Beneficio beneficioActual = this.listaDeBeneficios.get(i);
 			if(tarjeta.equals(beneficioActual.getTarjeta())) {
-				listaDeBeneficiosConTarjetaSeleccionada.add(beneficioActual);
+				listaDeBeneficiosConTarjetaSeleccionada.add(j, beneficioActual);
+				j++;
 			}
 			i++;
 		}
