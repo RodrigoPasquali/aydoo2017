@@ -82,6 +82,24 @@ public class IntegrationTest {
 		mateo.registrarCompra(compraElAltillo);
 		
 	}
+	
+	@Test
+	public void elEstablecimientoQueMasBeneficioOtorgoDeberiaSerHeladeriaA() {
+		// Carlos tiene tarjeta Classic. Juan tiene tarjeta Premium.  
+		// La heladería A ofrece un 10% de descuento con tarjeta Classic y 20% de
+		// descuento con tarjeta Premium. 
+		// La heladería A tiene las sucursales S1y S2.
+		// El restaurant B ofrece un 20% de descuento con ambas tarjetas.
+		// El restaurant B tiene una sola sucursal: S3. 
+		// Durante Enero, la sucursal S1 realiza 4 beneficios con tarjeta Classic y 3 con tarjet Premium.
+		// 		Carlos y Juan utilizaron los beneficios con sus tarjetas, una vez cada uno. 
+		// La sucursal S2 no realiza beneficios. La sucursal S3 atendió a 6 clientes y les realizó el beneficio ofrecido.
+		//		Carlos utilizó su tarjeta Classic para hacer uso del beneficio.
+		// Resultado esperado: OK --> • La Heladería A es el establecimiento al que se debe felicitar, por ser el que más beneficios realizó. 
+		
+		
+		
+	}
 
 //	@Test
 //	public void elefante() {
