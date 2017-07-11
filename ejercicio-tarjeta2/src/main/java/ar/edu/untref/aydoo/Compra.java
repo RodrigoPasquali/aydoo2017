@@ -43,13 +43,13 @@ public class Compra {
 		return this.sucursalDondeSeCompra;
 	}
 	
-	public List<Beneficio> getBeneficiosDeEstablecimiento(){
+	private List<Beneficio> getBeneficiosDeEstablecimiento(){
 		Establecimiento establecimiento = this.sucursalDondeSeCompra.getEstablecimientoAlQuePertenece();
 		List<Beneficio> listaDeBeneficios = establecimiento.getBeneficiosParaTarjeta(this.tarjetaIngresada);
 		return listaDeBeneficios;
 	}
 	
-	public double sumarPrecioProductos() {
+	private double sumarPrecioProductos() {
 		double montoTotal = 0;
 		for(int i = 0; i < this.listaProductoComprado.size(); i++){
 			montoTotal = montoTotal + this.listaProductoComprado.get(i).getPrecio();

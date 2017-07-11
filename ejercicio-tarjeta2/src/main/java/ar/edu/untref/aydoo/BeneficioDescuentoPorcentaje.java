@@ -23,7 +23,7 @@ public class BeneficioDescuentoPorcentaje extends Beneficio{
 		}
 	}
 	
-	public double calcularDescuento(){
+	private double calcularDescuento(){
 		double precioProducto = this.listaDeProductos.get(0).getPrecio();
 		double descuento = (precioProducto * getPorcentajeDescuento())/ 100;
 		System.out.println(descuento);
