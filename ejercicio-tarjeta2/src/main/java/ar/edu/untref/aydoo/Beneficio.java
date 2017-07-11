@@ -23,7 +23,7 @@ public abstract class Beneficio {
 		return this.beneficioIngresado;
 	}
 	
-	public void setBeneficioSiguiente(Beneficio beneficio) {
+	protected void setBeneficioSiguiente(Beneficio beneficio) {
 		this.beneficioSiguiente = beneficio;
 	}
 	

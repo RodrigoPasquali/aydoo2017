@@ -12,5 +12,9 @@ public class Mail {
 	public void setTexto(String texto) { 
 		this.textoDelMail = texto;
 	}
+	
+	public String getTexto() {
+		return this.textoDelMail;
+	}
 
 }

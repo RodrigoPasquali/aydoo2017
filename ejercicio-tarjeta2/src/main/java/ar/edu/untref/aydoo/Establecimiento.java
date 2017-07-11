@@ -8,13 +8,11 @@ public class Establecimiento {
 	private String nombreEstablecimiento;
 	private List<Sucursal> listaDeSucursales;
 	private List<Beneficio> listaDeBeneficios;
-	private int cantidadBeneficioOtorgado;
 	
 	public Establecimiento(String nombre) {
 		this.nombreEstablecimiento = nombre;
 		this.listaDeSucursales = new LinkedList<Sucursal>();
 		this.listaDeBeneficios = new LinkedList<Beneficio>();
-		this.cantidadBeneficioOtorgado = 0;
 	}
 	
 	public String getNombre() {
@@ -27,6 +25,10 @@ public class Establecimiento {
 	
 	public void agregarBeneficio(Beneficio beneficio) { 
 		this.listaDeBeneficios.add(beneficio);
+	}
+	
+	public List<Sucursal> getSucursales() {
+		return this.listaDeSucursales;
 	}
 	
 	public List<Beneficio> getBeneficiosParaTarjeta(Tarjeta tarjeta) {
@@ -44,12 +46,13 @@ public class Establecimiento {
 		return listaDeBeneficiosConTarjetaSeleccionada;
 	}
 	
-	public void sumarBeneficoOtorgadoEnElMes(Mes mes) {
-		this.cantidadBeneficioOtorgado = this.cantidadBeneficioOtorgado++;
-	}
-	
-	public int getBeneficioOtorgados() {
-		return this.cantidadBeneficioOtorgado;
+	public int getCantidadBeneficioOtorgadosEnMes(Mes mes) {
+		int cantidadBeneficios = 0;
+		for(int i = 0; i < getSucursales().size(); i++) {
+			Sucursal sucursalActual = getSucursales().get(i);
+			cantidadBeneficios = cantidadBeneficios + sucursalActual.obtenerCantidadDeVentasEnMes(mes);
+		}
+		return cantidadBeneficios;
 	}
 	
 }
