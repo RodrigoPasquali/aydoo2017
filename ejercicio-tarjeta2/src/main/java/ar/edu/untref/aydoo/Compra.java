@@ -59,6 +59,7 @@ public class Compra {
 	
 	public double obtenerPrecioFinal() {
 		double precioFinal = sumarPrecioProductos();
+		
 		int i = 0;
 		while(i < getBeneficiosDeEstablecimiento().size()){
 			if(getBeneficiosDeEstablecimiento().get(i).getTarjeta().equals(this.tarjetaIngresada)){
@@ -69,10 +70,15 @@ public class Compra {
 					beneficio.setPorcentajeDescuento(porcentaje);
 				}
 				precioFinal = beneficio.aplicarBeneficio();
+				sumarClienteAtendidoASucursal();
 			}
 			i++;
 		}
 		return precioFinal;
+	}
+	
+	private void sumarClienteAtendidoASucursal() {
+		this.sucursalDondeSeCompra.sumarClienteAtendido();
 	}
 
 }
