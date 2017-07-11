@@ -67,6 +67,7 @@ public class IntegrationTest {
 		Establecimiento libreria = new Establecimiento("El Altillo");
 		club.agregarEstablecimiento(libreria);
 		Sucursal sucursalElAltillo = new Sucursal("El Altillo Sucursal");
+		sucursalElAltillo.esUnaSucursalDe(libreria);
 		libreria.agregarSucursal(sucursalElAltillo);
 		Tarjeta tarjetaPremium = Tarjeta.PREMIUM;
 		Beneficio beneficio2x1 = new BeneficioDescuentoPorcentaje("2x1", null, tarjetaPremium);
@@ -75,12 +76,17 @@ public class IntegrationTest {
 		mateo.setTarjeta(tarjetaPremium);
 		Producto martinFierro = new Producto(100);
 		Producto elCantarDelCid = new Producto(80);
-		Compra compraElAltillo = new Compra(tarjetaPremium, sucursalElAltillo, null);
+		Mes agosto = Mes.Agosto;
+		Compra compraElAltillo = new Compra(tarjetaPremium, sucursalElAltillo, agosto);
 		compraElAltillo.agregarProducto(elCantarDelCid);
 		compraElAltillo.agregarProducto(martinFierro);
 		compraElAltillo.setBeneficio("2x1");
 		mateo.registrarCompra(compraElAltillo);
+		double valorEsperado = 100;
 		
+		double valorObtenido = mateo.getMontoGastadoEnMes(agosto);
+		
+		assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
 	
 	@Test

@@ -38,4 +38,15 @@ public class Cliente {
 	public List<Compra> getListaDeCompras() {
 		return this.listaDeCompra;
 	}
+	
+	public double getMontoGastadoEnMes(Mes mes) { 
+		double montoGastado = 0;
+		for(int i = 0; i < getListaDeCompras().size(); i++) {
+			Mes mesActual = getListaDeCompras().get(i).getMes();
+			if(mes.equals(mesActual)) {
+				montoGastado = getListaDeCompras().get(i).obtenerPrecioFinal();
+			}
+		}
+		return montoGastado;
+	}
 }
