@@ -93,7 +93,7 @@ public class IntegrationTest {
 	}
 	
 	@Test
-	public void elEstablecimientoQueMasBeneficioOtorgoDeberiaSerHeladeriaA() {
+	public void seDberiaEnviarMesDeFelicitacionesAHeladeriaAEnEneroPorSerEstablecimientoConMasVentas() {
 		// Carlos tiene tarjeta Classic. Juan tiene tarjeta Premium.  
 		// La heladería A ofrece un 10% de descuento con tarjeta Classic y 20% de descuento con tarjeta Premium. 
 		// La heladería A tiene las sucursales S1y S2.
