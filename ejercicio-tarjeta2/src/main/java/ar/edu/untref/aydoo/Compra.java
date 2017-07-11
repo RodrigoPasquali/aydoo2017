@@ -45,6 +45,10 @@ public class Compra {
 		return this.sucursalDondeSeCompra;
 	}
 	
+	public Mes getMes() {
+		return this.mesDeLaCompra;
+	}
+	
 	private List<Beneficio> getBeneficiosDeEstablecimiento(){
 		Establecimiento establecimiento = this.sucursalDondeSeCompra.getEstablecimientoAlQuePertenece();
 		List<Beneficio> listaDeBeneficios = establecimiento.getBeneficiosParaTarjeta(this.tarjetaIngresada);
@@ -61,7 +65,6 @@ public class Compra {
 	
 	public double obtenerPrecioFinal() {
 		double precioFinal = sumarPrecioProductos();
-		
 		int i = 0;
 		while(i < getBeneficiosDeEstablecimiento().size()){
 			if(getBeneficiosDeEstablecimiento().get(i).getTarjeta().equals(this.tarjetaIngresada)){
@@ -72,15 +75,11 @@ public class Compra {
 					beneficio.setPorcentajeDescuento(porcentaje);
 				}
 				precioFinal = beneficio.aplicarBeneficio();
-				sumarClienteAtendidoASucursal();
+				this.sucursalDondeSeCompra.agregarVenta(this);
 			}
 			i++;
 		}
 		return precioFinal;
-	}
-	
-	private void sumarClienteAtendidoASucursal() {
-		this.sucursalDondeSeCompra.sumarClienteAtendido();
 	}
 
 }

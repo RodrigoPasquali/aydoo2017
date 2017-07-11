@@ -17,6 +17,10 @@ public class Establecimiento {
 		this.cantidadBeneficioOtorgado = 0;
 	}
 	
+	public String getNombre() {
+		return this.nombreEstablecimiento;
+	}
+	
 	public void agregarSucursal(Sucursal sucursal) {
 		this.listaDeSucursales.add(sucursal);
 	}
@@ -40,7 +44,7 @@ public class Establecimiento {
 		return listaDeBeneficiosConTarjetaSeleccionada;
 	}
 	
-	public void sumarBeneficoOtorgado() {
+	public void sumarBeneficoOtorgadoEnElMes(Mes mes) {
 		this.cantidadBeneficioOtorgado = this.cantidadBeneficioOtorgado++;
 	}
 	

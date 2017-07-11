@@ -1,16 +1,17 @@
 package ar.edu.untref.aydoo;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Sucursal {
 	
 	private String nombreSucursal;
 	private Establecimiento establecimientoAlQuePertenece;
-	private int cantidadDeClienteAtendidos;
+	private List<Compra> listaDeVentas;
 
 	public Sucursal(String nombre) {
 		this.nombreSucursal = nombre;
-		this.cantidadDeClienteAtendidos = 0;
+		this.listaDeVentas = new LinkedList<Compra>();
 	}
 	
 	public void esUnaSucursalDe(Establecimiento estableciemiento) {
@@ -21,9 +22,23 @@ public class Sucursal {
 		return this.establecimientoAlQuePertenece;
 	}
 	
-	public void sumarClienteAtendido() {
-		this.cantidadDeClienteAtendidos = this.cantidadDeClienteAtendidos++;
-		this.establecimientoAlQuePertenece.sumarBeneficoOtorgado();
+	public void agregarVenta(Compra compra) {
+		this.listaDeVentas.add(compra);
+	}
+	
+	public List<Compra> getListaDeVentas() {
+		return this.listaDeVentas;
+	}
+	
+	public int obtenerCantidadDeVentasEnMes(Mes mes) {
+		int ventasEnElMes = 0;
+		for(int i = 0; i < getListaDeVentas().size(); i++) {
+			Mes mesActual = getListaDeVentas().get(i).getMes();
+			if(mes.equals(mesActual)){
+				ventasEnElMes++;
+			}
+		}
+		return ventasEnElMes;
 	}
 
 }
