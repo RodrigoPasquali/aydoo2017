@@ -14,7 +14,7 @@ import java.util.concurrent.LinkedBlockingDeque;
 public class TestBeneficio {
 	
 	@Test
-	public void elPrecioFinalDeberiaSer90(){		
+	public void elPrecioFinalDeberiaSer90CuandoDescuentoEsDiez(){		
 		Producto libro = new Producto(100);
 		List<Producto> listaProductos = new LinkedList<Producto>();
 		listaProductos.add(libro);
@@ -28,11 +28,39 @@ public class TestBeneficio {
 	}
 	
 	@Test
+	public void elPrecioFinalDeberiaSer95CuandoDescuentoEsCinco(){		
+		Producto libro = new Producto(100);
+		List<Producto> listaProductos = new LinkedList<Producto>();
+		listaProductos.add(libro);
+		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", listaProductos, null);
+		descuento10.setPorcentajeDescuento(5);
+		double valorEsperado = 95;
+		
+		double valorObtenido = descuento10.aplicarBeneficio();
+		
+		assertEquals(valorEsperado, valorObtenido, 0.01);		
+	}
+	
+	@Test
+	public void elPrecioFinalDeberiaSerCeroCuandoDescuentoEsCinco(){		
+		Producto libro = new Producto(100);
+		List<Producto> listaProductos = new LinkedList<Producto>();
+		listaProductos.add(libro);
+		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", listaProductos, null);
+		descuento10.setPorcentajeDescuento(100);
+		double valorEsperado = 0;
+		
+		double valorObtenido = descuento10.aplicarBeneficio();
+		
+		assertEquals(valorEsperado, valorObtenido, 0.01);		
+	}
+	
+	@Test
 	public void elPrecioFinalDeberiaSer90CuandoSeEscribeDescuentoConMayuscula(){		
 		Producto libro = new Producto(100);
 		List<Producto> listaProductos = new LinkedList<Producto>();
 		listaProductos.add(libro);
-		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("Descuento", listaProductos, null);
+		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("DESCUENTO", listaProductos, null);
 		descuento10.setPorcentajeDescuento(10);
 		double valorEsperado = 90;
 		
@@ -64,7 +92,7 @@ public class TestBeneficio {
 	}
 	
 	@Test
-	public void precioFinalDeberiaDevolver100(){
+	public void precioFinalDeberiaDevolver100CuandoSeAplica2x1(){
 		Producto elHobbit = new Producto(100);
 		Producto elPrincipito = new Producto(50);
 		List<Producto> listaProductos = new LinkedList<Producto>();
@@ -79,7 +107,7 @@ public class TestBeneficio {
 	}
 	
 	@Test
-	public void precioFinalDeberiaDevolverExpecionFaltaProducto(){
+	public void precioFinalDeberiaDevolverExpecionFaltaProductoCuandoSeDeseaHacer2x1DeUnSoloProducto(){
 		Producto elHobbit = new Producto(100);
 		List<Producto> listaProductos = new LinkedList<Producto>();
 		listaProductos.add(elHobbit);
@@ -108,7 +136,7 @@ public class TestBeneficio {
 	}
 	
 	@Test
-	public void precioFinalDeberiaDevolver140(){
+	public void precioFinalDeberiaDevolver140CuandoNingunoDeLosProductosCuesta100OMas(){
 		Producto elHobbit = new Producto(90);
 		Producto elPrincipito = new Producto(50);
 		List<Producto> listaProductos = new LinkedList<Producto>();
