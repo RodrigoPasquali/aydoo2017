@@ -43,7 +43,7 @@ public class TestEstablecimiento {
 	}
 	
 	@Test
-	public void gasfasd() {
+	public void laSucursalQueAtendioMasClintesDeberiaSerS1() {
 		Tarjeta tarjetaClassic = Tarjeta.CLASSIC;
 		Tarjeta tarjetaPremium = Tarjeta.PREMIUM;
 		Establecimiento heladeriaA = new Establecimiento("Heladeria A");
