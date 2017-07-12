@@ -30,7 +30,7 @@ public class Sucursal {
 		return this.listaDeVentas;
 	}
 	
-	public int obtenerCantidadDeVentasEnMes(Mes mes) {
+	public int getCantidadDeVentasEnMes(Mes mes) {
 		int ventasEnElMes = 0;
 		for(int i = 0; i < getListaDeVentas().size(); i++) {
 			Mes mesActual = getListaDeVentas().get(i).getMes();

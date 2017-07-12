@@ -50,9 +50,20 @@ public class Establecimiento {
 		int cantidadBeneficios = 0;
 		for(int i = 0; i < getSucursales().size(); i++) {
 			Sucursal sucursalActual = getSucursales().get(i);
-			cantidadBeneficios = cantidadBeneficios + sucursalActual.obtenerCantidadDeVentasEnMes(mes);
+			cantidadBeneficios = cantidadBeneficios + sucursalActual.getCantidadDeVentasEnMes(mes);
 		}
 		return cantidadBeneficios;
+	}
+	
+	public Sucursal getSucursalQueAtendioMasClientesEnMes(Mes mes) {
+		Sucursal sucursalQueMasAtendio = getSucursales().get(0);
+		for(int i = 1; i < getSucursales().size(); i++) {
+			Sucursal sucursalActual = getSucursales().get(i);
+			if(sucursalQueMasAtendio.getCantidadDeVentasEnMes(mes) < sucursalActual.getCantidadDeVentasEnMes(mes)) {
+				sucursalQueMasAtendio = sucursalActual;
+			}
+		}
+		return sucursalQueMasAtendio;
 	}
 	
 }
