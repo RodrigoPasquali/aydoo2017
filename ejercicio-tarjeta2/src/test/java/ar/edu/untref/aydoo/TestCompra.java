@@ -12,7 +12,7 @@ public class TestCompra {
 		s1.esUnaSucursalDe(mcDonal);
 		mcDonal.agregarSucursal(s1);
 		Tarjeta tarjetaPremium = Tarjeta.PREMIUM;
-		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", null, tarjetaPremium);
+		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", tarjetaPremium);
 		descuento10.setPorcentajeDescuento(10);
 		mcDonal.agregarBeneficio(descuento10);
 		Producto hamburguesa = new Producto(100);
@@ -36,7 +36,7 @@ public class TestCompra {
 		s1.esUnaSucursalDe(mcDonal);
 		mcDonal.agregarSucursal(s1);
 		Tarjeta tarjetaPremium = Tarjeta.PREMIUM;
-		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", null, tarjetaPremium);
+		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", tarjetaPremium);
 		descuento10.setPorcentajeDescuento(10);
 		mcDonal.agregarBeneficio(descuento10);
 		Producto hamburguesa = new Producto(100);
@@ -58,7 +58,7 @@ public class TestCompra {
 		s1.esUnaSucursalDe(mcDonal);
 		mcDonal.agregarSucursal(s1);
 		Tarjeta tarjetaPremium = Tarjeta.PREMIUM;
-		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("2x1", null, tarjetaPremium);
+		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("2x1", tarjetaPremium);
 		mcDonal.agregarBeneficio(descuento10);
 		Producto hamburguesa = new Producto(100);
 		Producto papas = new Producto(50);
@@ -80,7 +80,7 @@ public class TestCompra {
 		s1.esUnaSucursalDe(mcDonal);
 		mcDonal.agregarSucursal(s1);
 		Tarjeta tarjetaPremium = Tarjeta.PREMIUM;
-		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("2x1", null, tarjetaPremium);
+		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("2x1", tarjetaPremium);
 		mcDonal.agregarBeneficio(descuento10);
 		Producto hamburguesa = new Producto(90);
 		Producto papas = new Producto(50);
@@ -102,7 +102,7 @@ public class TestCompra {
 		s1.esUnaSucursalDe(mcDonal);
 		mcDonal.agregarSucursal(s1);
 		Tarjeta tarjetaClassic = Tarjeta.CLASSIC;
-		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("2x1", null, tarjetaClassic);
+		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("2x1", tarjetaClassic);
 		mcDonal.agregarBeneficio(descuento10);
 		Producto hamburguesa = new Producto(100);
 		Producto papas = new Producto(50);

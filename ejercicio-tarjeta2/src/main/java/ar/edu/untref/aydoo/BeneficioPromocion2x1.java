@@ -9,9 +9,8 @@ public class BeneficioPromocion2x1 extends Beneficio {
 	
 	private List<Producto> listaDeProductos;
 	
-	public BeneficioPromocion2x1(String beneficio, List<Producto> productos, Tarjeta tarjeta) {
-		super(beneficio, productos, tarjeta);
-		this.listaDeProductos = productos;
+	public BeneficioPromocion2x1(String beneficio, Tarjeta tarjeta) {
+		super(beneficio, tarjeta);
 	}
 
 	@Override
@@ -24,6 +23,7 @@ public class BeneficioPromocion2x1 extends Beneficio {
 	}
 	
 	public double calcular2x1() {
+		this.listaDeProductos = getProductos();
 		if(this.listaDeProductos.size() < 2){
 			throw new ExpecionFaltaProducto();
 		}

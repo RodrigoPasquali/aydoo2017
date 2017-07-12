@@ -1,5 +1,6 @@
 package ar.edu.untref.aydoo;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import Excepciones.ExcepcionPocentajeDescuentoInvalido;
@@ -11,10 +12,12 @@ public abstract class Beneficio {
 	private String beneficioIngresado;
 	private int porcentajeDescuento;
 	private Tarjeta tarjetaIngresada;
+	private List<Producto> listaDeProductos;
 	
-	public Beneficio(String beneficio, List<Producto> productos, Tarjeta tarjeta) {
+	public Beneficio(String beneficio, Tarjeta tarjeta) {
 		this.beneficioIngresado = beneficio.toLowerCase();
 		this.tarjetaIngresada = tarjeta;
+		this.listaDeProductos = new LinkedList<Producto>();
 	}
 	
 	public abstract double aplicarBeneficio() throws ExpecionBeneficioInvalido;
@@ -33,6 +36,14 @@ public abstract class Beneficio {
 	
 	public Tarjeta getTarjeta() {
 		return this.tarjetaIngresada;
+	}
+	
+	public void setProductos(List<Producto> productos) {
+		this.listaDeProductos = productos;
+	}
+	
+	public List<Producto> getProductos() {
+		return this.listaDeProductos;
 	}
 	
 	public void setPorcentajeDescuento(int porcentaje) {

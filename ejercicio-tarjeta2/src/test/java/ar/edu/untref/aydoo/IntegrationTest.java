@@ -18,7 +18,7 @@ public class IntegrationTest {
 		s1.esUnaSucursalDe(mcDonal);
 		mcDonal.agregarSucursal(s1);
 		Tarjeta tarjetaPremium = Tarjeta.PREMIUM;
-		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", null, tarjetaPremium);
+		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", tarjetaPremium);
 		descuento10.setPorcentajeDescuento(10);
 		mcDonal.agregarBeneficio(descuento10);
 		Producto hamburguesa = new Producto(100);
@@ -42,7 +42,7 @@ public class IntegrationTest {
 		s1.esUnaSucursalDe(mcDonal);
 		mcDonal.agregarSucursal(s1);
 		Tarjeta tarjetaPremium = Tarjeta.PREMIUM;
-		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", null, tarjetaPremium);
+		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", tarjetaPremium);
 		descuento10.setPorcentajeDescuento(10);
 		mcDonal.agregarBeneficio(descuento10);
 		Producto hamburguesa = new Producto(100);
@@ -73,7 +73,7 @@ public class IntegrationTest {
 		sucursalElAltillo.esUnaSucursalDe(libreria);
 		libreria.agregarSucursal(sucursalElAltillo);
 		Tarjeta tarjetaPremium = Tarjeta.PREMIUM;
-		Beneficio beneficio2x1 = new BeneficioDescuentoPorcentaje("2x1", null, tarjetaPremium);
+		Beneficio beneficio2x1 = new BeneficioDescuentoPorcentaje("2x1", tarjetaPremium);
 		libreria.agregarBeneficio(beneficio2x1);
 		Cliente mateo = new Cliente("Mateo", "mat@gmail.com");
 		mateo.setTarjeta(tarjetaPremium);
@@ -93,7 +93,7 @@ public class IntegrationTest {
 	}
 	
 	@Test
-	public void seDberiaEnviarMesDeFelicitacionesAHeladeriaAEnEneroPorSerEstablecimientoConMasVentas() {
+	public void seDeberiaEnviarMailDeFelicitacionesAHeladeriaAEnEneroPorSerEstablecimientoConMasVentas() {
 		// Carlos tiene tarjeta Classic. Juan tiene tarjeta Premium.  
 		// La heladería A ofrece un 10% de descuento con tarjeta Classic y 20% de descuento con tarjeta Premium. 
 		// La heladería A tiene las sucursales S1y S2.
@@ -115,9 +115,9 @@ public class IntegrationTest {
 		Club club = new Club();
 		Establecimiento heladeriaA = new Establecimiento("Heladeria A");
 		club.agregarEstablecimiento(heladeriaA);
-		Beneficio descuento10Classic = new BeneficioDescuentoPorcentaje("descuento", null, tarjetaClassic);
+		Beneficio descuento10Classic = new BeneficioDescuentoPorcentaje("descuento", tarjetaClassic);
 		descuento10Classic.setPorcentajeDescuento(10);
-		Beneficio descuento20Premium = new BeneficioDescuentoPorcentaje("descuento", null, tarjetaPremium);
+		Beneficio descuento20Premium = new BeneficioDescuentoPorcentaje("descuento", tarjetaPremium);
 		descuento20Premium.setPorcentajeDescuento(20);
 		heladeriaA.agregarBeneficio(descuento20Premium);
 		heladeriaA.agregarBeneficio(descuento10Classic);
@@ -129,7 +129,7 @@ public class IntegrationTest {
 		s2.esUnaSucursalDe(heladeriaA);
 		Establecimiento restaurantB = new Establecimiento("Restaurant B");
 		club.agregarEstablecimiento(restaurantB);
-		Beneficio descuento20Classic = new BeneficioDescuentoPorcentaje("descuento", null, tarjetaClassic);
+		Beneficio descuento20Classic = new BeneficioDescuentoPorcentaje("descuento", tarjetaClassic);
 		descuento20Classic.setPorcentajeDescuento(20);
 		restaurantB.agregarBeneficio(descuento20Classic);
 		restaurantB.agregarBeneficio(descuento20Premium);
@@ -201,7 +201,7 @@ public class IntegrationTest {
 		sucursalElAltillo.esUnaSucursalDe(libreria);
 		libreria.agregarSucursal(sucursalElAltillo);
 		Tarjeta tarjetaPremium = Tarjeta.PREMIUM;
-		Beneficio beneficio2x1 = new BeneficioDescuentoPorcentaje("2x1", null, tarjetaPremium);
+		Beneficio beneficio2x1 = new BeneficioDescuentoPorcentaje("2x1",tarjetaPremium);
 		libreria.agregarBeneficio(beneficio2x1);
 		Producto martinFierro = new Producto(100);
 		Producto elCantarDelCid = new Producto(80);

@@ -69,7 +69,8 @@ public class Compra {
 		while(i < getBeneficiosDeEstablecimiento().size()){
 			if(getBeneficiosDeEstablecimiento().get(i).getTarjeta().equals(this.tarjetaIngresada)){
 				int porcentaje;
-				Beneficio beneficio = new BeneficioDescuentoPorcentaje(this.beneficioIngresado, this.listaProductoComprado, this.tarjetaIngresada);
+				Beneficio beneficio = new BeneficioDescuentoPorcentaje(this.beneficioIngresado, this.tarjetaIngresada);
+				beneficio.setProductos(this.listaProductoComprado);
 				if(getBeneficiosDeEstablecimiento().get(i).getBeneficioIngresado().equals("descuento")){
 					porcentaje = getBeneficiosDeEstablecimiento().get(i).getPorcentajeDescuento();
 					beneficio.setPorcentajeDescuento(porcentaje);

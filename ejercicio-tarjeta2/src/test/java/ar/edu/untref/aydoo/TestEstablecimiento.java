@@ -13,8 +13,8 @@ public class TestEstablecimiento {
 		Establecimiento establecimiento = new Establecimiento("Fredo");
 		Tarjeta tarjetaPremium = Tarjeta.PREMIUM;
 		Tarjeta tarjetaClassic = Tarjeta.CLASSIC;
-		Beneficio beneficio2x1 = new BeneficioDescuentoPorcentaje("2x1", null, tarjetaPremium);
-		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", null, tarjetaClassic);
+		Beneficio beneficio2x1 = new BeneficioDescuentoPorcentaje("2x1", tarjetaPremium);
+		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", tarjetaClassic);
 		establecimiento.agregarBeneficio(beneficio2x1);
 		establecimiento.agregarBeneficio(descuento10);
 		List<Beneficio> listaEsperada = new LinkedList<Beneficio>();
@@ -29,8 +29,8 @@ public class TestEstablecimiento {
 	public void getBeneficioTarjetaPremiumDeberiaDevolverDescuento10yBeneficio2x1() {
 		Establecimiento establecimiento = new Establecimiento("Fredo");
 		Tarjeta tarjetaPremium = Tarjeta.PREMIUM;
-		Beneficio beneficio2x1 = new BeneficioDescuentoPorcentaje("2x1", null, tarjetaPremium);
-		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", null, tarjetaPremium);
+		Beneficio beneficio2x1 = new BeneficioDescuentoPorcentaje("2x1",tarjetaPremium);
+		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", tarjetaPremium);
 		establecimiento.agregarBeneficio(beneficio2x1);
 		establecimiento.agregarBeneficio(descuento10);
 		List<Beneficio> listaEsperada = new LinkedList<Beneficio>();
