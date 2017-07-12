@@ -60,8 +60,9 @@ public class Club {
 	public Mail enviarRegaloASucursalQueAtendioMasClientesEnElMes(Mes mes) {
 		Sucursal sucursalGanadora = obtenerSucursalQueAtendioMasClientesEnMes(mes);
 		String mensajeDeFelicitaciones = "Felicidades " + sucursalGanadora.getNombre() + 
-				" por ser la sucursal ganadora del regalo del mes " + mes + 
-				" por ATENCION DEL MES con " + sucursalGanadora.getCantidadDeVentasEnMes(mes) + " clientes atendidos!";
+				" por ser la sucursal ganadora del regalo del mes de " + mes + 
+				" por ser la sucursal que mas cliente atendio con la cantidad de " +
+				sucursalGanadora.getCantidadDeVentasEnMes(mes) + "!";
 		Mail mailDeFelcitacion = new Mail();
 		mailDeFelcitacion.setTexto(mensajeDeFelicitaciones);
 		return mailDeFelcitacion;
