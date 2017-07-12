@@ -35,7 +35,6 @@ public class Sucursal {
 		for(int i = 0; i < getListaDeVentas().size(); i++) {
 			Mes mesActual = getListaDeVentas().get(i).getMes();
 			if(mes.equals(mesActual)){
-			//if(mes == mesActual){
 				ventasEnElMes++;
 			}
 		}

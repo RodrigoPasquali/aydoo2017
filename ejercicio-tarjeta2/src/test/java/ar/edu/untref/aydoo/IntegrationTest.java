@@ -1,11 +1,7 @@
 package ar.edu.untref.aydoo;
 
 import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
-
-import java.util.LinkedList;
-import java.util.List;
 
 public class IntegrationTest {
 	
