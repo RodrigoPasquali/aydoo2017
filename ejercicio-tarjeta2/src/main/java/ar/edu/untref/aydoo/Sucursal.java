@@ -41,4 +41,8 @@ public class Sucursal {
 		return ventasEnElMes;
 	}
 
+	public String getNombre() {
+		return this.nombreSucursal;
+	}
+
 }

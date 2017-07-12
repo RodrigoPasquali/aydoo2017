@@ -41,7 +41,28 @@ public class Club {
 		String mensajeDeFelicitaciones = "Felicidades " + estableciemientoGanador.getNombre() + 
 				" por ser el establecimiento que mas beneficios otorgo con la cantidad de " +
 				estableciemientoGanador.getCantidadBeneficioOtorgadosEnMes(mes) + " en el mes de " + mes+ "!";
-		Mail mailDeFelcitacion = new Mail(estableciemientoGanador);
+		Mail mailDeFelcitacion = new Mail();
+		mailDeFelcitacion.setTexto(mensajeDeFelicitaciones);
+		return mailDeFelcitacion;
+	}
+	
+	public Sucursal obtenerSucursalQueAtendioMasClientesEnMes(Mes mes) {
+		Sucursal sucursalGanadora = getEstablecimientos().get(0).getSucursalQueAtendioMasClientesEnMes(mes);
+		for(int i = 1; i < getEstablecimientos().size(); i++) {
+			Sucursal sucursalActual = getEstablecimientos().get(i).getSucursalQueAtendioMasClientesEnMes(mes);
+			if(sucursalGanadora.getCantidadDeVentasEnMes(mes) < sucursalActual.getCantidadDeVentasEnMes(mes)) {
+				sucursalGanadora = sucursalActual;
+			}
+		}
+		return sucursalGanadora;
+	}
+	
+	public Mail enviarRegaloASucursalQueAtendioMasClientesEnElMes(Mes mes) {
+		Sucursal sucursalGanadora = obtenerSucursalQueAtendioMasClientesEnMes(mes);
+		String mensajeDeFelicitaciones = "Felicidades " + sucursalGanadora.getNombre() + 
+				" por ser la sucursal ganadora del regalo del mes " + mes + 
+				" por ATENCION DEL MES con " + sucursalGanadora.getCantidadDeVentasEnMes(mes) + " clientes atendidos!";
+		Mail mailDeFelcitacion = new Mail();
 		mailDeFelcitacion.setTexto(mensajeDeFelicitaciones);
 		return mailDeFelcitacion;
 	}
