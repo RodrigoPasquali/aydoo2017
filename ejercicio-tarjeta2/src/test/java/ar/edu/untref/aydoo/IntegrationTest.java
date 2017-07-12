@@ -220,7 +220,6 @@ public class IntegrationTest {
 		int valorEsperado = 3;
 		
 		int valorObtenido = libreria.getCantidadBeneficioOtorgadosEnMes(agosto);
-		System.out.println(valorObtenido);
 	
 		assertEquals(valorEsperado, valorObtenido);
 	}
