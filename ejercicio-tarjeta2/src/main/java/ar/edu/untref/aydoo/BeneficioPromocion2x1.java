@@ -2,8 +2,8 @@ package ar.edu.untref.aydoo;
 
 import java.util.List;
 
-import Excepciones.ExpecionBeneficioInvalido;
-import Excepciones.ExpecionFaltaProducto;
+import Excepciones.ExcepcionBeneficioInvalido;
+import Excepciones.ExcepcionFaltaProducto;
 
 public class BeneficioPromocion2x1 extends Beneficio {
 	
@@ -14,18 +14,18 @@ public class BeneficioPromocion2x1 extends Beneficio {
 	}
 
 	@Override
-	public double aplicarBeneficio() throws ExpecionBeneficioInvalido {
+	public double aplicarBeneficio() throws ExcepcionBeneficioInvalido {
 		if(getBeneficioIngresado().equals("2x1")) {
 			return calcular2x1();
 		} else {
-	        throw new ExpecionBeneficioInvalido();
+	        throw new ExcepcionBeneficioInvalido();
 	    }
 	}
 	
 	public double calcular2x1() {
 		this.listaDeProductos = getProductos();
 		if(this.listaDeProductos.size() < 2){
-			throw new ExpecionFaltaProducto();
+			throw new ExcepcionFaltaProducto();
 		}
 		double precioProductoA = this.listaDeProductos.get(0).getPrecio();
 		double precioProductoB = this.listaDeProductos.get(1).getPrecio();

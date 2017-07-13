@@ -2,8 +2,8 @@ package ar.edu.untref.aydoo;
 
 import org.junit.Test;
 
-import Excepciones.ExpecionBeneficioInvalido;
-import Excepciones.ExpecionDosProductosPorCompra;
+import Excepciones.ExcepcionBeneficioInvalido;
+import Excepciones.ExcepcionDosProductosPorCompra;
 
 import static org.junit.Assert.assertEquals;
 
@@ -123,7 +123,7 @@ public class TestCompra {
 	}
 	
 	@Test
-	public void deberiaDevolverExpecionDosProductosPorCompraCuandoSeAgregan3ProductosALaCompra(){
+	public void deberiaDevolverExpecionDosProductosPorCompraCuandoSeAgregan3ProductosALaCompra() {
 		Producto hamburguesa = new Producto("Hamburgusa", 100);
 		Producto papas = new Producto("Papas", 50);
 		Producto gaseosa = new Producto("Gaseosa", 70);
@@ -136,7 +136,7 @@ public class TestCompra {
 		
 		try {
 			compraMcDonal.agregarProducto(gaseosa);
-		}catch (ExpecionDosProductosPorCompra e){
+		}catch (ExcepcionDosProductosPorCompra e){
 
 	    }
 	}

@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import org.junit.Test;
 
-import Excepciones.ExpcepcionUnaSolaTarjeta;
+import Excepciones.ExcepcionUnaSolaTarjeta;
 
 import static org.junit.Assert.assertEquals;
 
@@ -66,7 +66,7 @@ public class TestCliente {
 		
 		try {
 			juan.setTarjeta(tarjetaClassic);
-		}catch (ExpcepcionUnaSolaTarjeta e){
+		}catch (ExcepcionUnaSolaTarjeta e){
 
 	    }	
 	}

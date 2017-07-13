@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.management.monitor.MonitorNotification;
 
-import Excepciones.ExpcepcionUnaSolaTarjeta;
+import Excepciones.ExcepcionUnaSolaTarjeta;
 
 public class Cliente {
 
@@ -25,7 +25,7 @@ public class Cliente {
 		if(this.tarjetaCliente == null) {
 			this.tarjetaCliente = tarjeta;
 		} else {
-			throw new ExpcepcionUnaSolaTarjeta();
+			throw new ExcepcionUnaSolaTarjeta();
 		}
 	}
 	

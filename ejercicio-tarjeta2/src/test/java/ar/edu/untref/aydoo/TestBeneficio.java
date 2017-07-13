@@ -3,8 +3,8 @@ package ar.edu.untref.aydoo;
 import org.junit.Test;
 
 import Excepciones.ExcepcionPocentajeDescuentoInvalido;
-import Excepciones.ExpecionBeneficioInvalido;
-import Excepciones.ExpecionFaltaProducto;
+import Excepciones.ExcepcionBeneficioInvalido;
+import Excepciones.ExcepcionFaltaProducto;
 
 import static org.junit.Assert.assertEquals;
 
@@ -122,7 +122,7 @@ public class TestBeneficio {
 		
 		try {
 			promocion2x1.aplicarBeneficio();
-		}catch (ExpecionFaltaProducto e){
+		}catch (ExcepcionFaltaProducto e){
 
 	    }	
 	}
@@ -163,7 +163,7 @@ public class TestBeneficio {
 	public void deberiaDevolverExpecionBeneficioInvalidoCuandoSeIntroduceBeneficio3x2() {
 		try {
 			Beneficio promocion3x2 = new BeneficioDescuentoPorcentaje("3x2", null);
-		}catch (ExpecionBeneficioInvalido e){
+		}catch (ExcepcionBeneficioInvalido e){
 
 	    }
 	}

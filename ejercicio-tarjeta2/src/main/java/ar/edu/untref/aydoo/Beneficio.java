@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import Excepciones.ExcepcionPocentajeDescuentoInvalido;
-import Excepciones.ExpecionBeneficioInvalido;
+import Excepciones.ExcepcionBeneficioInvalido;
 
 public abstract class Beneficio {
 	
@@ -20,7 +20,7 @@ public abstract class Beneficio {
 		this.listaDeProductos = new LinkedList<Producto>();
 	}
 	
-	public abstract double aplicarBeneficio() throws ExpecionBeneficioInvalido;
+	public abstract double aplicarBeneficio() throws ExcepcionBeneficioInvalido;
 	
 	public String getBeneficioIngresado() {
 		return this.beneficioIngresado;

@@ -1,10 +1,10 @@
 package Excepciones;
 
-public class ExpecionFaltaProducto extends RuntimeException {
+public class ExcepcionFaltaProducto extends RuntimeException {
 	
     private final static String mensajeFaltaProducto = "Ingrese otro producto para poder aplicar el beneficio";
     
-    public ExpecionFaltaProducto() {
+    public ExcepcionFaltaProducto() {
         super(mensajeFaltaProducto);
     }
     

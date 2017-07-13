@@ -2,7 +2,7 @@ package ar.edu.untref.aydoo;
 
 import org.junit.Test;
 
-import Excepciones.ExpecionClienteNoUtilizoTarjeta;
+import Excepciones.ExcepcionClienteNoUtilizoTarjeta;
 
 import static org.junit.Assert.assertEquals;
 
@@ -324,7 +324,7 @@ public class IntegrationTest {
 		
 		try {
 			this.club.generarReporteDeAhorrosDeClienteEnMes(pablo, enero);
-		}catch (ExpecionClienteNoUtilizoTarjeta e){
+		}catch (ExcepcionClienteNoUtilizoTarjeta e){
 
 	    }
 	}

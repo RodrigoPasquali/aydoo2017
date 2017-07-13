@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.w3c.dom.ls.LSInput;
 
-import Excepciones.ExpecionClienteNoUtilizoTarjeta;
+import Excepciones.ExcepcionClienteNoUtilizoTarjeta;
 
 public class Club {
 	
@@ -97,7 +97,7 @@ public class Club {
 				reporte = reporte + establecimiento + " | " + nombreDeProductos + " | " + precioSinBeneficio + " | " + 
 						precioConBeneficio + " | " + beneficioOtorgado + " \r\n" ;
 			} else {
-				throw new ExpecionClienteNoUtilizoTarjeta();
+				throw new ExcepcionClienteNoUtilizoTarjeta();
 			}
 		}
 		return reporte;

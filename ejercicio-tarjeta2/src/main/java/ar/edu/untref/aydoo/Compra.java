@@ -3,7 +3,7 @@ package ar.edu.untref.aydoo;
 import java.util.LinkedList;
 import java.util.List;
 
-import Excepciones.ExpecionDosProductosPorCompra;
+import Excepciones.ExcepcionDosProductosPorCompra;
 
 public class Compra {
 	
@@ -25,7 +25,7 @@ public class Compra {
 		if(this.listaProductoComprado.size() <= 2) {
 			this.listaProductoComprado.add(producto);
 		} else {
-			throw new ExpecionDosProductosPorCompra();
+			throw new ExcepcionDosProductosPorCompra();
 		}
 	}
 	

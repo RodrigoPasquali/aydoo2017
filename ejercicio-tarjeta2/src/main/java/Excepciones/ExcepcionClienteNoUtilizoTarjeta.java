@@ -1,10 +1,10 @@
 package Excepciones;
 
-public class ExpecionClienteNoUtilizoTarjeta extends RuntimeException {
+public class ExcepcionClienteNoUtilizoTarjeta extends RuntimeException {
 	
     private final static String mensajeClienteNoUtilizoTarjeta = "El cliente solicitado no realizo compras en el mes indicado";
     
-    public ExpecionClienteNoUtilizoTarjeta() {
+    public ExcepcionClienteNoUtilizoTarjeta() {
         super(mensajeClienteNoUtilizoTarjeta);
     }
     
