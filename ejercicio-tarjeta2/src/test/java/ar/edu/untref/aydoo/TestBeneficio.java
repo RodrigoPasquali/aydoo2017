@@ -3,6 +3,7 @@ package ar.edu.untref.aydoo;
 import org.junit.Test;
 
 import Excepciones.ExcepcionPocentajeDescuentoInvalido;
+import Excepciones.ExpecionBeneficioInvalido;
 import Excepciones.ExpecionFaltaProducto;
 
 import static org.junit.Assert.assertEquals;
@@ -156,6 +157,15 @@ public class TestBeneficio {
 		double valorObtenido = promocion2x1.aplicarBeneficio();
 		
 		assertEquals(valorEsperado, valorObtenido, 0.001);
+	}
+	
+	@Test
+	public void deberiaDevolverExpecionBeneficioInvalido() {
+		try {
+			Beneficio promocion3x2 = new BeneficioDescuentoPorcentaje("3x2", null);
+		}catch (ExpecionBeneficioInvalido e){
+
+	    }
 	}
 	
 }
