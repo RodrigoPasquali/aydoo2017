@@ -55,7 +55,7 @@ public class Compra {
 		return listaDeBeneficios;
 	}
 	
-	private double sumarPrecioProductos() {
+	public double getPrecioProductosSinBeneficio() {
 		double montoTotal = 0;
 		for(int i = 0; i < this.listaProductoComprado.size(); i++){
 			montoTotal = montoTotal + this.listaProductoComprado.get(i).getPrecio();
@@ -63,8 +63,8 @@ public class Compra {
 		return montoTotal;
 	}
 	
-	public double obtenerPrecioFinal() {
-		double precioFinal = sumarPrecioProductos();
+	public double getPrecioProductosConBeneficio() {
+		double precioFinal = getPrecioProductosSinBeneficio();
 		int i = 0;
 		while(i < getBeneficiosDeEstablecimiento().size()){
 			if(getBeneficiosDeEstablecimiento().get(i).getTarjeta().equals(this.tarjetaIngresada)){

@@ -25,7 +25,7 @@ public class TestCompra {
 		juan.registrarCompra(compraMcDonal);
 		double valorEsperado = 90;
 		
-		double valorObtenido = compraMcDonal.obtenerPrecioFinal(); 
+		double valorObtenido = compraMcDonal.getPrecioProductosConBeneficio(); 
 		assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
 	
@@ -47,7 +47,7 @@ public class TestCompra {
 		compraMcDonal.setBeneficio("descuentO");
 		double valorEsperado = 100;
 		
-		double valorObtenido = compraMcDonal.obtenerPrecioFinal(); 
+		double valorObtenido = compraMcDonal.getPrecioProductosConBeneficio(); 
 		assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
 	
@@ -69,7 +69,7 @@ public class TestCompra {
 		compraMcDonal.setBeneficio("2x1");
 		double valorEsperado = 100;
 		
-		double valorObtenido = compraMcDonal.obtenerPrecioFinal(); 
+		double valorObtenido = compraMcDonal.getPrecioProductosConBeneficio(); 
 		assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
 	
@@ -91,7 +91,7 @@ public class TestCompra {
 		compraMcDonal.setBeneficio("2x1");
 		double valorEsperado = 140;
 		
-		double valorObtenido = compraMcDonal.obtenerPrecioFinal(); 
+		double valorObtenido = compraMcDonal.getPrecioProductosConBeneficio(); 
 		assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
 	
@@ -114,7 +114,7 @@ public class TestCompra {
 		compraMcDonal.setBeneficio("2x1");
 		double valorEsperado = 150;
 		
-		double valorObtenido = compraMcDonal.obtenerPrecioFinal(); 
+		double valorObtenido = compraMcDonal.getPrecioProductosConBeneficio(); 
 		assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
 	

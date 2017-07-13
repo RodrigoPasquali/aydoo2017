@@ -25,7 +25,7 @@ public class Club {
 		return this.listaEstablecimiento;
 	}
 	
-	public Establecimiento obtenerEstablecimientoConMasBeneficiosOtorgadosEnMes(Mes mes) {
+	public Establecimiento getEstablecimientoConMasBeneficiosOtorgadosEnMes(Mes mes) {
 		Establecimiento establecimientoGanador = getEstablecimientos().get(0);
 		for(int i = 1; i < getEstablecimientos().size(); i++) {
 			Establecimiento establecimientoActual = getEstablecimientos().get(i);
@@ -37,7 +37,7 @@ public class Club {
 	}
 	
 	public Mail felicitarEstablecimientoConMasBeneficiosOtorgadosEnMes(Mes mes){
-		Establecimiento estableciemientoGanador = obtenerEstablecimientoConMasBeneficiosOtorgadosEnMes(mes);
+		Establecimiento estableciemientoGanador = getEstablecimientoConMasBeneficiosOtorgadosEnMes(mes);
 		String mensajeDeFelicitaciones = "Felicidades " + estableciemientoGanador.getNombre() + 
 				" por ser el establecimiento que mas beneficios otorgo con la cantidad de " +
 				estableciemientoGanador.getCantidadBeneficioOtorgadosEnMes(mes) + " en el mes de " + mes+ "!";
@@ -46,7 +46,7 @@ public class Club {
 		return mailDeFelcitacion;
 	}
 	
-	public Sucursal obtenerSucursalQueAtendioMasClientesEnMes(Mes mes) {
+	public Sucursal getSucursalQueAtendioMasClientesEnMes(Mes mes) {
 		Sucursal sucursalGanadora = getEstablecimientos().get(0).getSucursalQueAtendioMasClientesEnMes(mes);
 		for(int i = 1; i < getEstablecimientos().size(); i++) {
 			Sucursal sucursalActual = getEstablecimientos().get(i).getSucursalQueAtendioMasClientesEnMes(mes);
@@ -58,7 +58,7 @@ public class Club {
 	}
 	
 	public Mail enviarRegaloASucursalQueAtendioMasClientesEnElMes(Mes mes) {
-		Sucursal sucursalGanadora = obtenerSucursalQueAtendioMasClientesEnMes(mes);
+		Sucursal sucursalGanadora = getSucursalQueAtendioMasClientesEnMes(mes);
 		String mensajeDeFelicitaciones = "Felicidades " + sucursalGanadora.getNombre() + 
 				" por ser la sucursal ganadora del regalo del mes de " + mes + 
 				" por ser la sucursal que mas cliente atendio con la cantidad de " +

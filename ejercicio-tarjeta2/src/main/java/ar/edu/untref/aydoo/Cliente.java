@@ -3,6 +3,8 @@ package ar.edu.untref.aydoo;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.management.monitor.MonitorNotification;
+
 import Excepciones.ExpcepcionUnaSolaTarjeta;
 
 public class Cliente {
@@ -44,9 +46,22 @@ public class Cliente {
 		for(int i = 0; i < getListaDeCompras().size(); i++) {
 			Mes mesActual = getListaDeCompras().get(i).getMes();
 			if(mes.equals(mesActual)) {
-				montoGastado = getListaDeCompras().get(i).obtenerPrecioFinal();
+				montoGastado = getListaDeCompras().get(i).getPrecioProductosConBeneficio();
 			}
 		}
 		return montoGastado;
 	}
+	
+	public double getDescuentosObtenidosEnMes(Mes mes) {
+		double montoAhorradoTotal = 0;
+		for(int i = 0; i < getListaDeCompras().size(); i++) {
+			Compra compraActual = getListaDeCompras().get(i);
+			if(compraActual.getMes().equals(mes)) {
+				double montoAhorradoActual =  compraActual.getPrecioProductosSinBeneficio() - compraActual.getPrecioProductosConBeneficio();
+				montoAhorradoTotal = montoAhorradoTotal + montoAhorradoActual;
+			}	
+		}
+		return montoAhorradoTotal;
+	}
+	
 }

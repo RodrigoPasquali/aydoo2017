@@ -24,7 +24,7 @@ public class IntegrationTest {
 	
 	@Before
 	public void inicializar() {
-		this.carlos = new Cliente("Carlos", "car@gamil");
+		this.carlos = new Cliente("Carlos", "car@gmail");
 		this.tarjetaClassic = Tarjeta.CLASSIC;
 		this.carlos.setTarjeta(this.tarjetaClassic);
 		this.juan = new Cliente("Juan", "juan@gmail");
@@ -125,11 +125,12 @@ public class IntegrationTest {
 		juan.registrarCompra(compraMcDonal);
 		double valorEsperado = 90;
 		
-		double valorObtenido = compraMcDonal.obtenerPrecioFinal(); 
+		double valorObtenido = compraMcDonal.getPrecioProductosConBeneficio(); 
 		assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
 	
-	public void pruebaDeCompra(){
+	@Test
+	public void getDescuentoEnMarzoDeberiaSerQuince(){
 		Club club = new Club();
 		Establecimiento mcDonal = new Establecimiento("Mc Donals");
 		club.agregarEstablecimiento(mcDonal);
@@ -141,15 +142,20 @@ public class IntegrationTest {
 		descuento10.setPorcentajeDescuento(10);
 		mcDonal.agregarBeneficio(descuento10);
 		Producto hamburguesa = new Producto(100);
+		Producto papas = new Producto(50);
 		Cliente juan = new Cliente("juan", "j@");
 		juan.setTarjeta(tarjetaPremium);
-		Compra compraMcDonal = new Compra(tarjetaPremium, s1, null);
+		Mes marzo = Mes.Marzo;
+		Compra compraMcDonal = new Compra(tarjetaPremium, s1, marzo);
 		compraMcDonal.agregarProducto(hamburguesa);
+		compraMcDonal.agregarProducto(papas);
 		compraMcDonal.setBeneficio("descuentO");
 		juan.registrarCompra(compraMcDonal);
-		double valorEsperado = 90;
+		double valorEsperado = 15;
 		
-		double valorObtenido = compraMcDonal.obtenerPrecioFinal(); 
+		double valorObtenido = juan.getDescuentosObtenidosEnMes(marzo); 
+		System.out.println(valorObtenido);
+		
 		assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
 	
@@ -235,7 +241,8 @@ public class IntegrationTest {
 		// La sucursal S2 no realiza beneficios. 
 		// La sucursal S3 atendió a 6 clientes y les realizó el beneficio ofrecido.
 		//		Carlos utilizó su tarjeta Classic para hacer uso del beneficio.
-		// Resultado esperado: OK --> • La Heladería A es el establecimiento al que se debe felicitar, por ser el que más beneficios realizó. 
+		// Resultado esperado: OK --> • La Heladería A es el establecimiento al que se debe felicitar, 
+		// 		por ser el que más beneficios realizó. 
 		
 		
 		String valorEsperado = "Felicidades Heladeria A por ser el establecimiento que mas beneficios otorgo con la cantidad de 7 en el mes de Enero!";
@@ -265,7 +272,6 @@ public class IntegrationTest {
 				+ " por ser la sucursal que mas cliente atendio con la cantidad de 7!";
 
 		String valorObtenido = this.club.enviarRegaloASucursalQueAtendioMasClientesEnElMes(this.enero).getTexto();
-		System.out.println(valorObtenido);
 		
 		assertEquals(valorEsperado, valorObtenido);
 	}	
