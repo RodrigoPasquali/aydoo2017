@@ -129,7 +129,7 @@ public class TestBeneficio {
 	@Test
 	public void precioFinalDeberiaDevolver200(){
 		Producto elHobbit = new Producto("El Hobbit", 100);
-		Producto elPrincipito = new Producto("El Principito", 50);
+		Producto elPrincipito = new Producto("El Principito", 200);
 		List<Producto> listaProductos = new LinkedList<Producto>();
 		listaProductos.add(elPrincipito);
 		listaProductos.add(elHobbit);
@@ -144,7 +144,7 @@ public class TestBeneficio {
 	
 	@Test
 	public void precioFinalDeberiaDevolver140CuandoNingunoDeLosProductosCuesta100OMas(){
-		Producto elHobbit = new Producto("El Hobbit", 100);
+		Producto elHobbit = new Producto("El Hobbit", 90);
 		Producto elPrincipito = new Producto("El Principito", 50);
 		List<Producto> listaProductos = new LinkedList<Producto>();
 		listaProductos.add(elPrincipito);

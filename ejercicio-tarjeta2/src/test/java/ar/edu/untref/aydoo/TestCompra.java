@@ -82,7 +82,7 @@ public class TestCompra {
 		Tarjeta tarjetaPremium = Tarjeta.PREMIUM;
 		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("2x1", tarjetaPremium);
 		mcDonal.agregarBeneficio(descuento10);
-		Producto hamburguesa = new Producto("Hamburgusa", 100);
+		Producto hamburguesa = new Producto("Hamburgusa", 90);
 		Producto papas = new Producto("Papas", 50);
 		Mes agosto = Mes.Agosto;
 		Compra compraMcDonal = new Compra(tarjetaPremium, s1, agosto);

@@ -301,6 +301,34 @@ public class IntegrationTest {
 		
 		assertEquals(valorEsperado, valorObtenido);
 	}
+/*	
+	@Test
+	public void seDeberiaEnviarReporteDeBeneficiosObtenidosPorJuan() {
+		// Carlos tiene tarjeta Classic. Juan tiene tarjeta Premium.  
+		// La heladería A ofrece un 10% de descuento con tarjeta Classic y 20% de descuento con tarjeta Premium. 
+		// La heladería A tiene las sucursales S1y S2.
+		// El restaurant B ofrece un 20% de descuento con ambas tarjetas.
+		// El restaurant B tiene una sola sucursal: S3. 
+		// Durante Enero, la sucursal S1 realiza 4 beneficios con tarjeta Classic y 3 con tarjet Premium.
+		// 		Carlos y Juan utilizaron los beneficios con sus tarjetas, una vez cada uno. 
+		// La sucursal S2 no realiza beneficios. 
+		// La sucursal S3 atendió a 6 clientes y les realizó el beneficio ofrecido.
+		//		Carlos utilizó su tarjeta Classic para hacer uso del beneficio.
+		// Resultado esperado: OK -->  Juan debe recibir el mail con lo que ahorró por usar su
+		//	 	tarjeta en la heladería
+		
+		
+		String valorEsperado = "...Reporte de ahorros obtenidos por Carlos con la tarjeta del club en el mes de Enero... \r\n" 
+				 + "Establecimiento | Producto Comprado  | Precio Habitual | Precio Con Beneficio | Beneficio \r\n" 
+				 + "Heladeria A | Helado | 100.0 | 90.0 | descuento \r\n"
+				 + "Restaurant B | Cena | 250.0 | 200.0 | descuento \r\n" ;
+
+		String valorObtenido = this.club.generarReporteDeAhorrosDeClienteEnMes(this.juan, this.enero);
+		System.out.println(valorObtenido);
+		
+		assertEquals(valorEsperado, valorObtenido);
+	}
+*/
 
 //	@Test
 //	public void elefante() {
