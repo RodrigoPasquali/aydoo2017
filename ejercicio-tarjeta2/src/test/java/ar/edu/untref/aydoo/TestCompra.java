@@ -1,6 +1,10 @@
 package ar.edu.untref.aydoo;
 
 import org.junit.Test;
+
+import Excepciones.ExpecionBeneficioInvalido;
+import Excepciones.ExpecionDosProductosPorCompra;
+
 import static org.junit.Assert.assertEquals;
 
 public class TestCompra {
@@ -116,6 +120,25 @@ public class TestCompra {
 		
 		double valorObtenido = compraMcDonal.getPrecioProductosConBeneficio(); 
 		assertEquals(valorEsperado, valorObtenido, 0.1);
+	}
+	
+	@Test
+	public void deberiaDevolverExpecionDosProductosPorCompraCuandoSeAgregan3ProductosALaCompra(){
+		Producto hamburguesa = new Producto("Hamburgusa", 100);
+		Producto papas = new Producto("Papas", 50);
+		Producto gaseosa = new Producto("Gaseosa", 70);
+		Tarjeta tarjetaPremium = Tarjeta.PREMIUM;
+		Mes agosto = Mes.Agosto;
+		Sucursal s1 = new Sucursal("S1");
+		Compra compraMcDonal = new Compra(tarjetaPremium, s1, agosto);
+		compraMcDonal.agregarProducto(hamburguesa);
+		compraMcDonal.agregarProducto(papas);
+		
+		try {
+			compraMcDonal.agregarProducto(gaseosa);
+		}catch (ExpecionDosProductosPorCompra e){
+
+	    }
 	}
 	
 }
