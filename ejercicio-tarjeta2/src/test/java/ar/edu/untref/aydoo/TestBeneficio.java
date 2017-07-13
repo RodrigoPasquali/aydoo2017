@@ -160,7 +160,7 @@ public class TestBeneficio {
 	}
 	
 	@Test
-	public void deberiaDevolverExpecionBeneficioInvalido() {
+	public void deberiaDevolverExpecionBeneficioInvalidoCuandoSeIntroduceBeneficio3x2() {
 		try {
 			Beneficio promocion3x2 = new BeneficioDescuentoPorcentaje("3x2", null);
 		}catch (ExpecionBeneficioInvalido e){
