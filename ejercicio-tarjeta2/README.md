@@ -1,14 +1,13 @@
-﻿Ejercicio sin finalizar.
+CONSIDERACIONES:
+-En una compra solo se pueden comprar 2 productos.
+-Si se desea aplicar un Beneficio, se debe indicar dicho beneficio en la compra, y en caso de que el establecimiento no lo este ofreciendo el precio de la compra
+se calculara normalmente( ejemplo : si en un 2x1 alguno de los poductos no es igual o superior a 100 entonces simplemente suma dicho valores de ambos productos"
 
-Funciona : 
-• Funcionalidad #2: además, quiere enviarle un mail de felicitaciones al establecimiento que dió más beneficios por mes sin importar el porcentaje de descuento: cada vez que un cliente realiza una compra con la tarjeta del club, el establecimiento le está dando un beneficio.
-• Funcionalidad #3: es de interés del club enviarle un regalo mensual al personal de la sucursal que atendió a más clientes del club.
+POSIBLES MEJORAS :
+-Que Beneficio se aplique automaticamente y no cuando se realiza una compra tener que poner que beneficio se desea obtener.
+-Como esta resuelto el tema de aplicarDescuento() en clase Beneficio cuando elije entre los beneficios disponibles.
 
-Faltante :
-• Funcionalidad #1: Reporte de ahorros
-El club de amigos necesita enviarle un reporte mensual a sus clientes para decirles cuánto ahorraron en sus compras por haber usado las tarjetas del club. Es importante evitar enviarle el mail a aquellos que no utilizaron la tarjeta ese mes. En términos concretos se espera que el reporte incluya la siguiente información: Establecimiento | Producto comprado | Precio habitual (sin beneficio) | Beneficio obtenido.
-• Diagrama de Clases
-• Diagrama de Secuencias
-• Cobertura 100%
-• Manejo de Excepciones
-• Contrato : pre, post e invariante
+Dudas :
+-Que Tarjta sea un Enum.
+-Que la clase Compra realize el calculo de precio de la compra, con y sin beneficio, tal vez de esto tenga que encargarse la sucursal.
+-Que la misma clase Beneficio aplique el descuento, necesitando datos de los productos, tal vez tenga que realizarse en la clase Sucursal o Compra.
