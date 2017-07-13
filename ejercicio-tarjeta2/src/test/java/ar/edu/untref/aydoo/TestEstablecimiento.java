@@ -65,7 +65,7 @@ public class TestEstablecimiento {
 		Beneficio descuento20Classic = new BeneficioDescuentoPorcentaje("descuento", tarjetaClassic);
 		descuento20Classic.setPorcentajeDescuento(20);
 		Mes enero = Mes.Enero;
-		Producto helado = new Producto(100);
+		Producto helado = new Producto("Helado", 100);
 		Compra compraJuanS1 = new Compra(tarjetaPremium, s1, enero);
 		compraJuanS1.agregarProducto(helado);
 		compraJuanS1.setBeneficio("descuento");

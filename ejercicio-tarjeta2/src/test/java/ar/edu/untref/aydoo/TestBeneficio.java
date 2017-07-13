@@ -15,7 +15,7 @@ public class TestBeneficio {
 	
 	@Test
 	public void elPrecioFinalDeberiaSer90CuandoDescuentoEsDiez(){		
-		Producto libro = new Producto(100);
+		Producto libro = new Producto("Libro", 100);
 		List<Producto> listaProductos = new LinkedList<Producto>();
 		listaProductos.add(libro);
 		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", null);
@@ -30,7 +30,7 @@ public class TestBeneficio {
 	
 	@Test
 	public void elPrecioFinalDeberiaSer95CuandoDescuentoEsCinco(){		
-		Producto libro = new Producto(100);
+		Producto libro = new Producto("Libro", 100);
 		List<Producto> listaProductos = new LinkedList<Producto>();
 		listaProductos.add(libro);
 		Beneficio descuento5 = new BeneficioDescuentoPorcentaje("descuento", null);
@@ -45,7 +45,7 @@ public class TestBeneficio {
 	
 	@Test
 	public void elPrecioFinalDeberiaSerCeroCuandoDescuentoEsCien(){		
-		Producto libro = new Producto(100);
+		Producto libro = new Producto("Libro", 100);
 		List<Producto> listaProductos = new LinkedList<Producto>();
 		listaProductos.add(libro);
 		Beneficio descuento100 = new BeneficioDescuentoPorcentaje("descuento", null);
@@ -60,7 +60,7 @@ public class TestBeneficio {
 	
 	@Test
 	public void elPrecioFinalDeberiaSer90CuandoSeEscribeDescuentoConMayuscula(){		
-		Producto libro = new Producto(100);
+		Producto libro = new Producto("Libro", 100);
 		List<Producto> listaProductos = new LinkedList<Producto>();
 		listaProductos.add(libro);
 		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("DESCUENTO", null);
@@ -97,8 +97,8 @@ public class TestBeneficio {
 	
 	@Test
 	public void precioFinalDeberiaDevolver100CuandoSeAplica2x1(){
-		Producto elHobbit = new Producto(100);
-		Producto elPrincipito = new Producto(50);
+		Producto elHobbit = new Producto("El Hobbit", 100);
+		Producto elPrincipito = new Producto("El Principito", 50);
 		List<Producto> listaProductos = new LinkedList<Producto>();
 		listaProductos.add(elPrincipito);
 		listaProductos.add(elHobbit);
@@ -113,7 +113,7 @@ public class TestBeneficio {
 	
 	@Test
 	public void precioFinalDeberiaDevolverExpecionFaltaProductoCuandoSeDeseaHacer2x1DeUnSoloProducto(){
-		Producto elHobbit = new Producto(100);
+		Producto elHobbit = new Producto("El Hobbit", 100);
 		List<Producto> listaProductos = new LinkedList<Producto>();
 		listaProductos.add(elHobbit);
 		Beneficio promocion2x1 = new BeneficioDescuentoPorcentaje("2x1", null);
@@ -128,8 +128,8 @@ public class TestBeneficio {
 	
 	@Test
 	public void precioFinalDeberiaDevolver200(){
-		Producto elHobbit = new Producto(100);
-		Producto elPrincipito = new Producto(200);
+		Producto elHobbit = new Producto("El Hobbit", 100);
+		Producto elPrincipito = new Producto("El Principito", 50);
 		List<Producto> listaProductos = new LinkedList<Producto>();
 		listaProductos.add(elPrincipito);
 		listaProductos.add(elHobbit);
@@ -144,8 +144,8 @@ public class TestBeneficio {
 	
 	@Test
 	public void precioFinalDeberiaDevolver140CuandoNingunoDeLosProductosCuesta100OMas(){
-		Producto elHobbit = new Producto(90);
-		Producto elPrincipito = new Producto(50);
+		Producto elHobbit = new Producto("El Hobbit", 100);
+		Producto elPrincipito = new Producto("El Principito", 50);
 		List<Producto> listaProductos = new LinkedList<Producto>();
 		listaProductos.add(elPrincipito);
 		listaProductos.add(elHobbit);

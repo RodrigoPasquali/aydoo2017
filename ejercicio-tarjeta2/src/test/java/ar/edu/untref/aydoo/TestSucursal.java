@@ -15,8 +15,8 @@ public class TestSucursal {
 		Tarjeta tarjetaPremium = Tarjeta.PREMIUM;
 		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", tarjetaPremium);
 		descuento10.setPorcentajeDescuento(10);
-		Producto hamburguesa = new Producto(100);
-		Producto papas = new Producto(50);
+		Producto hamburguesa = new Producto("Hamburguesa", 100);
+		Producto papas = new Producto("Papas", 50);
 		Compra compraHamburguesa = new Compra(tarjetaPremium, s1, diciembre);
 		compraHamburguesa.agregarProducto(hamburguesa);
 		compraHamburguesa.setBeneficio("descuentO");
@@ -26,7 +26,7 @@ public class TestSucursal {
 		s1.agregarVenta(compraHamburguesa);
 		s1.agregarVenta(compraPapas);
 		Mes enero = Mes.Enero;
-		Producto combo = new Producto(200);
+		Producto combo = new Producto("Combo", 200);
 		Compra compraCombo = new Compra(tarjetaPremium, s1, enero);
 		compraCombo.agregarProducto(combo);
 		compraCombo.setBeneficio("descuentO");
@@ -45,8 +45,8 @@ public class TestSucursal {
 		Tarjeta tarjetaPremium = Tarjeta.PREMIUM;
 		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", tarjetaPremium);
 		descuento10.setPorcentajeDescuento(10);
-		Producto hamburguesa = new Producto(100);
-		Producto papas = new Producto(50);
+		Producto hamburguesa = new Producto("Hamburguesa", 100);
+		Producto papas = new Producto("Papas", 50);
 		Compra compraHamburguesa = new Compra(tarjetaPremium, s1, diciembre);
 		compraHamburguesa.agregarProducto(hamburguesa);
 		compraHamburguesa.setBeneficio("descuentO");
@@ -56,7 +56,7 @@ public class TestSucursal {
 		s1.agregarVenta(compraHamburguesa);
 		s1.agregarVenta(compraPapas);
 		Mes enero = Mes.Enero;
-		Producto combo = new Producto(200);
+		Producto combo = new Producto("Combo", 200);
 		Compra compraCombo = new Compra(tarjetaPremium, s1, enero);
 		compraCombo.agregarProducto(combo);
 		compraCombo.setBeneficio("descuentO");

@@ -15,7 +15,7 @@ public class TestCompra {
 		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", tarjetaPremium);
 		descuento10.setPorcentajeDescuento(10);
 		mcDonal.agregarBeneficio(descuento10);
-		Producto hamburguesa = new Producto(100);
+		Producto hamburguesa = new Producto("Hamburgusa", 100);
 		Cliente juan = new Cliente("juan", "j@");
 		juan.setTarjeta(tarjetaPremium);
 		Mes agosto = Mes.Agosto;
@@ -39,7 +39,7 @@ public class TestCompra {
 		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", tarjetaPremium);
 		descuento10.setPorcentajeDescuento(10);
 		mcDonal.agregarBeneficio(descuento10);
-		Producto hamburguesa = new Producto(100);
+		Producto hamburguesa = new Producto("Hamburgusa", 100);
 		Tarjeta tarjetaCLASSIC = Tarjeta.CLASSIC;
 		Mes agosto = Mes.Agosto;
 		Compra compraMcDonal = new Compra(tarjetaCLASSIC, s1, agosto);
@@ -60,8 +60,8 @@ public class TestCompra {
 		Tarjeta tarjetaPremium = Tarjeta.PREMIUM;
 		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("2x1", tarjetaPremium);
 		mcDonal.agregarBeneficio(descuento10);
-		Producto hamburguesa = new Producto(100);
-		Producto papas = new Producto(50);
+		Producto hamburguesa = new Producto("Hamburgusa", 100);
+		Producto papas = new Producto("Papas", 50);
 		Mes agosto = Mes.Agosto;
 		Compra compraMcDonal = new Compra(tarjetaPremium, s1, agosto);
 		compraMcDonal.agregarProducto(hamburguesa);
@@ -82,8 +82,8 @@ public class TestCompra {
 		Tarjeta tarjetaPremium = Tarjeta.PREMIUM;
 		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("2x1", tarjetaPremium);
 		mcDonal.agregarBeneficio(descuento10);
-		Producto hamburguesa = new Producto(90);
-		Producto papas = new Producto(50);
+		Producto hamburguesa = new Producto("Hamburgusa", 100);
+		Producto papas = new Producto("Papas", 50);
 		Mes agosto = Mes.Agosto;
 		Compra compraMcDonal = new Compra(tarjetaPremium, s1, agosto);
 		compraMcDonal.agregarProducto(hamburguesa);
@@ -104,8 +104,8 @@ public class TestCompra {
 		Tarjeta tarjetaClassic = Tarjeta.CLASSIC;
 		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("2x1", tarjetaClassic);
 		mcDonal.agregarBeneficio(descuento10);
-		Producto hamburguesa = new Producto(100);
-		Producto papas = new Producto(50);
+		Producto hamburguesa = new Producto("Hamburgusa", 100);
+		Producto papas = new Producto("Papas", 50);
 		Tarjeta tarjetaPremium = Tarjeta.PREMIUM;
 		Mes agosto = Mes.Agosto;
 		Compra compraMcDonal = new Compra(tarjetaPremium, s1, agosto);

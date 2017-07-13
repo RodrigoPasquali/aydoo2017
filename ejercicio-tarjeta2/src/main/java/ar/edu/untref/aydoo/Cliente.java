@@ -33,6 +33,10 @@ public class Cliente {
 		return this.tarjetaCliente;
 	}
 	
+	public String getNombre() {
+		return this.nombreCliente;
+	}
+	
 	public void registrarCompra(Compra compra) {
 		this.listaDeCompra.add(compra);
 	}

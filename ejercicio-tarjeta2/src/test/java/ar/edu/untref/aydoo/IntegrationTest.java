@@ -55,7 +55,7 @@ public class IntegrationTest {
 		this.restaurantB.agregarSucursal(this.s3);
 		this.s3.esUnaSucursalDe(this.restaurantB);
 		this.enero = Mes.Enero;
-		Producto helado = new Producto(100);
+		Producto helado = new Producto("Helado", 100);
 		Compra compraJuanS1 = new Compra(this.tarjetaPremium, this.s1, this.enero);
 		compraJuanS1.agregarProducto(helado);
 		compraJuanS1.setBeneficio("descuento");
@@ -81,7 +81,7 @@ public class IntegrationTest {
 		Compra compraPremiumS12 = new Compra(this.tarjetaPremium, this.s1, this.enero);
 		compraPremiumS12.setBeneficio("descuento");
 		this.s1.agregarVenta(compraPremiumS12);
-		Producto menuCena = new Producto(250);
+		Producto menuCena = new Producto("Cena", 250);
 		Compra compraCarlosS3 = new Compra(this.tarjetaClassic, this.s3, this.enero);
 		compraCarlosS3.agregarProducto(menuCena);
 		compraCarlosS3.setBeneficio("descuento");
@@ -116,7 +116,7 @@ public class IntegrationTest {
 		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", tarjetaPremium);
 		descuento10.setPorcentajeDescuento(10);
 		mcDonal.agregarBeneficio(descuento10);
-		Producto hamburguesa = new Producto(100);
+		Producto hamburguesa = new Producto("Hamburguesa", 100);
 		Cliente juan = new Cliente("juan", "j@");
 		juan.setTarjeta(tarjetaPremium);
 		Compra compraMcDonal = new Compra(tarjetaPremium, s1, null);
@@ -141,8 +141,8 @@ public class IntegrationTest {
 		Beneficio descuento10 = new BeneficioDescuentoPorcentaje("descuento", tarjetaPremium);
 		descuento10.setPorcentajeDescuento(10);
 		mcDonal.agregarBeneficio(descuento10);
-		Producto hamburguesa = new Producto(100);
-		Producto papas = new Producto(50);
+		Producto hamburguesa = new Producto("Hamburguesa",100);
+		Producto papas = new Producto("Papas",50);
 		Cliente juan = new Cliente("juan", "j@");
 		juan.setTarjeta(tarjetaPremium);
 		Mes marzo = Mes.Marzo;
@@ -154,7 +154,6 @@ public class IntegrationTest {
 		double valorEsperado = 15;
 		
 		double valorObtenido = juan.getDescuentosObtenidosEnMes(marzo); 
-		System.out.println(valorObtenido);
 		
 		assertEquals(valorEsperado, valorObtenido, 0.1);
 	}
@@ -170,8 +169,8 @@ public class IntegrationTest {
 		Tarjeta tarjetaPremium = Tarjeta.PREMIUM;
 		Beneficio beneficio2x1 = new BeneficioDescuentoPorcentaje("2x1",tarjetaPremium);
 		libreria.agregarBeneficio(beneficio2x1);
-		Producto martinFierro = new Producto(100);
-		Producto elCantarDelCid = new Producto(80);
+		Producto martinFierro = new Producto("Martin Fierro", 100);
+		Producto elCantarDelCid = new Producto("El Cantar del Cid", 80);
 		Mes agosto = Mes.Agosto;
 		Compra compra1 = new Compra(tarjetaPremium, sucursalElAltillo, agosto);
 		compra1.agregarProducto(elCantarDelCid);
@@ -214,8 +213,8 @@ public class IntegrationTest {
 		libreria.agregarBeneficio(beneficio2x1);
 		Cliente mateo = new Cliente("Mateo", "mat@gmail.com");
 		mateo.setTarjeta(tarjetaPremium);
-		Producto martinFierro = new Producto(100);
-		Producto elCantarDelCid = new Producto(80);
+		Producto martinFierro = new Producto("Martin Fierro", 100);
+		Producto elCantarDelCid = new Producto("El Cantar del Cid", 80);
 		Mes agosto = Mes.Agosto;
 		Compra compraElAltillo = new Compra(tarjetaPremium, sucursalElAltillo, agosto);
 		compraElAltillo.agregarProducto(elCantarDelCid);
@@ -275,6 +274,33 @@ public class IntegrationTest {
 		
 		assertEquals(valorEsperado, valorObtenido);
 	}	
+	
+	@Test
+	public void seDeberiaEnviarReporteDeBeneficiosObtenidosPorCarlos() {
+		// Carlos tiene tarjeta Classic. Juan tiene tarjeta Premium.  
+		// La heladería A ofrece un 10% de descuento con tarjeta Classic y 20% de descuento con tarjeta Premium. 
+		// La heladería A tiene las sucursales S1y S2.
+		// El restaurant B ofrece un 20% de descuento con ambas tarjetas.
+		// El restaurant B tiene una sola sucursal: S3. 
+		// Durante Enero, la sucursal S1 realiza 4 beneficios con tarjeta Classic y 3 con tarjet Premium.
+		// 		Carlos y Juan utilizaron los beneficios con sus tarjetas, una vez cada uno. 
+		// La sucursal S2 no realiza beneficios. 
+		// La sucursal S3 atendió a 6 clientes y les realizó el beneficio ofrecido.
+		//		Carlos utilizó su tarjeta Classic para hacer uso del beneficio.
+		// Resultado esperado: OK -->  • Carlos debe recibir un mail con la sumatoria de
+		//		 dinero que se ahorró por usar su beneficio en la heladería y el restaurant. 
+		
+		
+		String valorEsperado = "...Reporte de ahorros obtenidos por Carlos con la tarjeta del club en el mes de Enero... \r\n" 
+				 + "Establecimiento | Producto Comprado  | Precio Habitual | Precio Con Beneficio | Beneficio \r\n" 
+				 + "Heladeria A | Helado | 100.0 | 90.0 | descuento \r\n"
+				 + "Restaurant B | Cena | 250.0 | 200.0 | descuento \r\n" ;
+
+		String valorObtenido = this.club.generarReporteDeAhorrosDeClienteEnMes(this.carlos, this.enero);
+		System.out.println(valorObtenido);
+		
+		assertEquals(valorEsperado, valorObtenido);
+	}
 
 //	@Test
 //	public void elefante() {

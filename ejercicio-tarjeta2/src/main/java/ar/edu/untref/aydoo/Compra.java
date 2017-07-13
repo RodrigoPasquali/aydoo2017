@@ -33,6 +33,10 @@ public class Compra {
 		this.beneficioIngresado = beneficio.toLowerCase();
 	}
 	
+	public String getBeneficio() {
+		return this.beneficioIngresado;
+	}
+	
 	public Tarjeta getTarjeta() {
 		return this.tarjetaIngresada;
 	}

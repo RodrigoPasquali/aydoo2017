@@ -3,6 +3,10 @@ package ar.edu.untref.aydoo;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.w3c.dom.ls.LSInput;
+
+import Excepciones.ExpecionClienteNoUtilizoTarjeta;
+
 public class Club {
 	
 	private List<Cliente> listaClientes;
@@ -66,6 +70,52 @@ public class Club {
 		Mail mailDeFelcitacion = new Mail();
 		mailDeFelcitacion.setTexto(mensajeDeFelicitaciones);
 		return mailDeFelcitacion;
+	}
+	
+	/*
+	private List<Producto> ordenarAscendenteListaDeProductosSegunPrecio(List<Producto> listaProductos) {
+		Producto producto1 = listaProductos.get(0);
+		Producto prodcuto2 = listaProductos.get(1);
+		List<Producto> listaOrdenada = new LinkedList<Producto>();
+		listaOrdenada.add(0, producto1);
+		listaOrdenada.add(1, prodcuto2);
+		if(producto1.getPrecio() > prodcuto2.getPrecio()) {
+			listaOrdenada.add(0, prodcuto2);
+			listaOrdenada.add(1, producto1);
+		}
+		return listaOrdenada;
+	}
+	*/
+	
+	private String getNombreProductos(List<Producto> productos) {
+		String nombreProductos = "";
+		for(int i = 0; i < productos.size(); i++) {
+			String productoActual = productos.get(i).getNombre();
+			nombreProductos = nombreProductos + productoActual;
+		}
+		return nombreProductos;
+	}
+	
+	public String generarReporteDeAhorrosDeClienteEnMes(Cliente cliente, Mes mes) {
+		List<Compra> listaDeCompras = cliente.getListaDeCompras();
+		String reporte = "...Reporte de ahorros obtenidos por " + cliente.getNombre() + " con la tarjeta del club en el mes de " + mes + "... \r\n"
+				+ "Establecimiento | Producto Comprado  | Precio Habitual | Precio Con Beneficio | Beneficio \r\n";
+		for(int i = 0; i < listaDeCompras.size(); i++) {
+			Compra compraActual = listaDeCompras.get(i);
+			if(compraActual.getMes().equals(mes)) {
+				String establecimiento = compraActual.getSucursal().getEstablecimientoAlQuePertenece().getNombre();
+				List<Producto> listaProductos = compraActual.getListaProductosComprados();
+				String nombreDeProductos = getNombreProductos(listaProductos);
+				double precioSinBeneficio = compraActual.getPrecioProductosSinBeneficio();
+				double precioConBeneficio = compraActual.getPrecioProductosConBeneficio();
+				String beneficioOtorgado = compraActual.getBeneficio();
+				reporte = reporte + establecimiento + " | " + nombreDeProductos + " | " + precioSinBeneficio + " | " + 
+						precioConBeneficio + " | " + beneficioOtorgado + " \r\n" ;
+			} else {
+				throw new ExpecionClienteNoUtilizoTarjeta();
+			}
+		}
+		return reporte;
 	}
 
 }
