@@ -10,7 +10,7 @@ import org.junit.Before;
 
 public class IntegrationTest {
 	
-	private Club club;
+	private ClubBeneficios club;
 	private Cliente carlos;
 	private Cliente juan;
 	private Tarjeta tarjetaClassic;
@@ -33,7 +33,7 @@ public class IntegrationTest {
 		this.juan = new Cliente("Juan", "juan@gmail");
 		this.tarjetaPremium = Tarjeta.PREMIUM;
 		this.juan.setTarjeta(this.tarjetaPremium);
-		this.club = new Club();
+		this.club = new ClubBeneficios();
 		this.heladeriaA = new Establecimiento("Heladeria A");
 		this.club.agregarEstablecimiento(this.heladeriaA);
 		this.descuento10Classic = new BeneficioDescuentoPorcentaje("descuento", this.tarjetaClassic);
@@ -109,7 +109,7 @@ public class IntegrationTest {
 	
 	@Test
 	public void getDescuentoEnMarzoDeberiaSerQuince(){
-		Club club = new Club();
+		ClubBeneficios club = new ClubBeneficios();
 		Establecimiento mcDonal = new Establecimiento("Mc Donals");
 		club.agregarEstablecimiento(mcDonal);
 		Sucursal s1 = new Sucursal("S1");
@@ -138,7 +138,7 @@ public class IntegrationTest {
 	
 	@Test
 	public void deberiaDevolver3LaCantidadDeBeneficiosOtorgadosEneroPorLibreria(){
-		Club club = new Club();
+		ClubBeneficios club = new ClubBeneficios();
 		Establecimiento libreria = new Establecimiento("El Altillo");
 		club.agregarEstablecimiento(libreria);
 		Sucursal sucursalElAltillo = new Sucursal("El Altillo Sucursal");
@@ -180,7 +180,7 @@ public class IntegrationTest {
 		//	este segundo libro le resultar gratis. O sea que Mateo se lleva estos dos libros por $100 
 		//	(el beneficio 2x1 tomo como referencia el  precio del libro más alto)
 		
-		Club club = new Club();
+		ClubBeneficios club = new ClubBeneficios();
 		Establecimiento libreria = new Establecimiento("El Altillo");
 		club.agregarEstablecimiento(libreria);
 		Sucursal sucursalElAltillo = new Sucursal("El Altillo Sucursal");

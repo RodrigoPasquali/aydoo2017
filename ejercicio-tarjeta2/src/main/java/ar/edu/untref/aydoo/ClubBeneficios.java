@@ -7,12 +7,12 @@ import org.w3c.dom.ls.LSInput;
 
 import Excepciones.ExcepcionClienteNoUtilizoTarjeta;
 
-public class Club {
+public class ClubBeneficios {
 	
 	private List<Cliente> listaClientes;
 	private List<Establecimiento> listaEstablecimiento;
 
-	public Club() {
+	public ClubBeneficios() {
 		this.listaEstablecimiento = new LinkedList<Establecimiento>();
 		this.listaClientes = new LinkedList<Cliente>();
 	}

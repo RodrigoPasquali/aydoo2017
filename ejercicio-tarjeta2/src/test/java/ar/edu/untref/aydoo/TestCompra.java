@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import Excepciones.ExcepcionBeneficioInvalido;
 import Excepciones.ExcepcionDosProductosPorCompra;
+import Excepciones.ExcepcionPocentajeDescuentoInvalido;
 
 import static org.junit.Assert.assertEquals;
 
@@ -123,7 +124,7 @@ public class TestCompra {
 	}
 	
 	@Test
-	public void deberiaDevolverExpecionDosProductosPorCompraCuandoSeAgregan3ProductosALaCompra() {
+	public void deberiaDevolverExcepcionDosProductosPorCompraCuandoSeAgregan3ProductosALaCompra() throws ExcepcionDosProductosPorCompra {
 		Producto hamburguesa = new Producto("Hamburgusa", 100);
 		Producto papas = new Producto("Papas", 50);
 		Producto gaseosa = new Producto("Gaseosa", 70);
@@ -140,5 +141,5 @@ public class TestCompra {
 
 	    }
 	}
-	
+
 }
