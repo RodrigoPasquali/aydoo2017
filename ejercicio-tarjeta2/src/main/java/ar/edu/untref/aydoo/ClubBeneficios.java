@@ -3,8 +3,6 @@ package ar.edu.untref.aydoo;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.w3c.dom.ls.LSInput;
-
 import Excepciones.ExcepcionClienteNoUtilizoTarjeta;
 
 public class ClubBeneficios {
@@ -21,7 +19,8 @@ public class ClubBeneficios {
 		this.listaEstablecimiento.add(establciemiento);
 	}
 	
-	public void agregarCliente(Cliente cliente) {
+	public void suscribirClienteATarjeta(Cliente cliente, Tarjeta tarjeta) {
+		cliente.setTarjeta(tarjeta);
 		this.listaClientes.add(cliente);
 	}
 	

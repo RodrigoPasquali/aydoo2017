@@ -29,11 +29,11 @@ public class IntegrationTest {
 	public void inicializar() {
 		this.carlos = new Cliente("Carlos", "car@gmail");
 		this.tarjetaClassic = Tarjeta.CLASSIC;
-		this.carlos.setTarjeta(this.tarjetaClassic);
 		this.juan = new Cliente("Juan", "juan@gmail");
 		this.tarjetaPremium = Tarjeta.PREMIUM;
-		this.juan.setTarjeta(this.tarjetaPremium);
 		this.club = new ClubBeneficios();
+		this.club.suscribirClienteATarjeta(carlos, tarjetaClassic);
+		this.club.suscribirClienteATarjeta(juan, tarjetaPremium);
 		this.heladeriaA = new Establecimiento("Heladeria A");
 		this.club.agregarEstablecimiento(this.heladeriaA);
 		this.descuento10Classic = new BeneficioDescuentoPorcentaje("descuento", this.tarjetaClassic);
@@ -320,7 +320,7 @@ public class IntegrationTest {
 		//	 	tarjeta en la heladería
 		
 		Cliente pablo = new Cliente("Pablo", "pablo@gmail");
-		this.club.agregarCliente(pablo);
+		this.club.suscribirClienteATarjeta(pablo, this.tarjetaClassic);
 		
 		try {
 			this.club.generarReporteDeAhorrosDeClienteEnMes(pablo, enero);

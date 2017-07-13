@@ -1,16 +1,12 @@
 package ar.edu.untref.aydoo;
 
 import org.junit.Test;
-
 import Excepciones.ExcepcionPocentajeDescuentoInvalido;
 import Excepciones.ExcepcionBeneficioInvalido;
 import Excepciones.ExcepcionFaltaProducto;
-
 import static org.junit.Assert.assertEquals;
-
 import java.util.LinkedList;
 import java.util.List;
-import java.util.concurrent.LinkedBlockingDeque;
 
 public class TestBeneficio {
 	

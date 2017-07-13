@@ -1,11 +1,7 @@
 package ar.edu.untref.aydoo;
 
 import org.junit.Test;
-
-import Excepciones.ExcepcionBeneficioInvalido;
 import Excepciones.ExcepcionDosProductosPorCompra;
-import Excepciones.ExcepcionPocentajeDescuentoInvalido;
-
 import static org.junit.Assert.assertEquals;
 
 public class TestCompra {
