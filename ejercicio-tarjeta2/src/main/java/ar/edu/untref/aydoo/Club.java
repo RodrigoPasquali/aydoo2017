@@ -72,21 +72,6 @@ public class Club {
 		return mailDeFelcitacion;
 	}
 	
-	/*
-	private List<Producto> ordenarAscendenteListaDeProductosSegunPrecio(List<Producto> listaProductos) {
-		Producto producto1 = listaProductos.get(0);
-		Producto prodcuto2 = listaProductos.get(1);
-		List<Producto> listaOrdenada = new LinkedList<Producto>();
-		listaOrdenada.add(0, producto1);
-		listaOrdenada.add(1, prodcuto2);
-		if(producto1.getPrecio() > prodcuto2.getPrecio()) {
-			listaOrdenada.add(0, prodcuto2);
-			listaOrdenada.add(1, producto1);
-		}
-		return listaOrdenada;
-	}
-	*/
-	
 	private String getNombreProductos(List<Producto> productos) {
 		String nombreProductos = "";
 		for(int i = 0; i < productos.size(); i++) {
