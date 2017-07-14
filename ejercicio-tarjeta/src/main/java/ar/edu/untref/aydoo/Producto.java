@@ -1,28 +1,21 @@
 package ar.edu.untref.aydoo;
 
-/**
- * Created by nicopaez on 4/12/17.
- */
 public class Producto {
-    public String getNombre() {
-        return nombre;
-    }
 
-    public Establecimiento getEstablecimiento() {
-        return establecimiento;
-    }
+	private double precioProducto;
+	private String nombreProducto;
 
-    private final String nombre;
-    private final Establecimiento establecimiento;
-    private int precio;
+	public Producto(String nombre, double precio) {
+		this.precioProducto = precio;
+		this.nombreProducto = nombre;
+	}
+	
+	public double getPrecio() {
+		return this.precioProducto;
+	}
+	
+	public String getNombre() {
+		return this.nombreProducto;
+	}
 
-    public Producto(String nombre, int precioUnitario, Establecimiento establecimiento) {
-        this.precio = precioUnitario;
-        this.nombre = nombre;
-        this.establecimiento = establecimiento;
-    }
-
-    public int getPrecio() {
-        return precio;
-    }
 }

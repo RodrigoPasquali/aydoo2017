@@ -1,43 +1,48 @@
 package ar.edu.untref.aydoo;
 
-/**
- * Created by nicopaez on 4/12/17.
- */
+import java.util.LinkedList;
+import java.util.List;
+
 public class Sucursal {
-    private final String nombre;
-    private int cantidadBeneficiosOtorgados;
-    private Establecimiento establecimiento;
-	private Regalo regaloObtenido;
+	
+	private String nombreSucursal;
+	private Establecimiento establecimientoAlQuePertenece;
+	private List<Compra> listaDeVentas;
 
-    public Sucursal(String nombre, Establecimiento establecimiento) {
-        this.establecimiento = establecimiento;
-        this.nombre = nombre;
-    }
-    
-    public String getNombre() {
-        return nombre;
-    }
-
-    public int getCantidadBeneficiosOtorgados() {
-        return cantidadBeneficiosOtorgados;
-    }
-
-    /*
-    public double aplicarDescuento(int valorBruto, Tarjeta tarjeta) {
-        DescuentoParaTarjetaPremium descuento = establecimiento.getDescuentoPremium();
-        return  descuento.aplicarDescuento(valorBruto);
-    }
-    */
-
-    public void registrarCompra() {
-        cantidadBeneficiosOtorgados++;
-    }
-
-	public void setRegalo(Regalo regalo) {
-		this.regaloObtenido = regalo;
+	public Sucursal(String nombre) {
+		this.nombreSucursal = nombre;
+		this.listaDeVentas = new LinkedList<Compra>();
 	}
 	
-	public Regalo getRegalo(){
-		return this.regaloObtenido;
+	public void esUnaSucursalDe(Establecimiento estableciemiento) {
+		this.establecimientoAlQuePertenece = estableciemiento;
 	}
+	
+	public Establecimiento getEstablecimientoAlQuePertenece() {
+		return this.establecimientoAlQuePertenece;
+	}
+	
+	public void agregarVenta(Compra compra) {
+		this.listaDeVentas.add(compra);
+	}
+	
+	public List<Compra> getListaDeVentas() {
+		return this.listaDeVentas;
+	}
+	
+	public int getCantidadDeVentasEnMes(Mes mes) {
+		int ventasEnElMes = 0;
+		for(int i = 0; i < getListaDeVentas().size(); i++) {
+			Mes mesActual = getListaDeVentas().get(i).getMes();
+			if(mes.equals(mesActual)){
+				ventasEnElMes++;
+			}
+		}
+		return ventasEnElMes;
+	}
+
+	public String getNombre() {
+		return this.nombreSucursal;
+	}
+
 }

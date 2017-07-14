@@ -3,77 +3,67 @@ package ar.edu.untref.aydoo;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * Created by nicopaez on 4/12/17.
- */
 public class Establecimiento {
-    private final String nombre;
-    //private DescuentoParaTarjetaPremium descuentoPremium;
-    private DescuentoParaTarjetaPremium descuentoTarjetaPremium;
-    private DescuentoParaTarjetaClassic	descuentoTartetaClassic;
-	private List<Sucursal> listaSucursales = new LinkedList<Sucursal>();
-	private Tarjeta tarjetaClassic;
-	private Tarjeta tarjetaPremium;
-	private Sucursal sucursalConMasBeneficiosOtorgados;
-	private int beneficiosOtorgados;
-	private MailDeFelicitaciones mailDeFelicitaciones;
-
-    public Establecimiento(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setDescuentoPremium(DescuentoParaTarjetaPremium descuento){
-        this.descuentoTarjetaPremium = descuento;
-    }
-
-    public DescuentoParaTarjetaPremium getDescuentoPremium(){
-        return descuentoTarjetaPremium;
-    }
-    
-    public void setDescuentoClassic(DescuentoParaTarjetaClassic descuento){
-    	this.descuentoTartetaClassic = descuento;
-    }
-    
-    public DescuentoParaTarjetaClassic getDescuentoParaTarjetaClassic(){
-    	return descuentoTartetaClassic;
-    }
-     
-    public String getNombre() {
-        return nombre;
-    }
-    
-    public void agregarSucursales(Sucursal sucursal){
-    	this.listaSucursales.add(sucursal);
-    }
-    
-    public List<Sucursal> getListaDeSucursales(){
-    	return this.listaSucursales;
-    }
-    
-    public Sucursal getSucursalQueOtorgoMasBeneficios(){
-    	this.sucursalConMasBeneficiosOtorgados = this.listaSucursales.get(0);
-    	for (int i = 1; i < this.listaSucursales.size(); i++){
-    		if(this.sucursalConMasBeneficiosOtorgados.getCantidadBeneficiosOtorgados() < this.listaSucursales.get(i).getCantidadBeneficiosOtorgados()){
-    			this.sucursalConMasBeneficiosOtorgados = this.listaSucursales.get(i);
-    		}
-    	}
-    	return this.sucursalConMasBeneficiosOtorgados;
-    }
-    
-    public int getCantidadDeBeneficiosOtorgados(){
-    	this.beneficiosOtorgados = 0;
-    	for(int i = 0; i < this.listaSucursales.size(); i++){
-    		this.beneficiosOtorgados = this.listaSucursales.get(i).getCantidadBeneficiosOtorgados() + this.beneficiosOtorgados;
-    	}
-    	return this.beneficiosOtorgados;
-    }
-    
-    public void setMailDeFelicitaciones(MailDeFelicitaciones mail){
-    	this.mailDeFelicitaciones = mail;
-    }
-    
-    public MailDeFelicitaciones getMailDeFelicitacion(){
-    	return this.mailDeFelicitaciones;
-    }
-
+	
+	private String nombreEstablecimiento;
+	private List<Sucursal> listaDeSucursales;
+	private List<Beneficio> listaDeBeneficios;
+	
+	public Establecimiento(String nombre) {
+		this.nombreEstablecimiento = nombre;
+		this.listaDeSucursales = new LinkedList<Sucursal>();
+		this.listaDeBeneficios = new LinkedList<Beneficio>();
+	}
+	
+	public String getNombre() {
+		return this.nombreEstablecimiento;
+	}
+	
+	public void agregarSucursal(Sucursal sucursal) {
+		this.listaDeSucursales.add(sucursal);
+	}
+	
+	public void agregarBeneficio(Beneficio beneficio) { 
+		this.listaDeBeneficios.add(beneficio);
+	}
+	
+	public List<Sucursal> getSucursales() {
+		return this.listaDeSucursales;
+	}
+	
+	public List<Beneficio> getBeneficiosParaTarjeta(Tarjeta tarjeta) {
+		List<Beneficio> listaDeBeneficiosConTarjetaSeleccionada = new LinkedList<Beneficio>();
+		int i = 0;
+		int j = 0;
+		while(i < this.listaDeBeneficios.size()) {
+			Beneficio beneficioActual = this.listaDeBeneficios.get(i);
+			if(tarjeta.equals(beneficioActual.getTarjeta())) {
+				listaDeBeneficiosConTarjetaSeleccionada.add(j, beneficioActual);
+				j++;
+			}
+			i++;
+		}
+		return listaDeBeneficiosConTarjetaSeleccionada;
+	}
+	
+	public int getCantidadBeneficioOtorgadosEnMes(Mes mes) {
+		int cantidadBeneficios = 0;
+		for(int i = 0; i < getSucursales().size(); i++) {
+			Sucursal sucursalActual = getSucursales().get(i);
+			cantidadBeneficios = cantidadBeneficios + sucursalActual.getCantidadDeVentasEnMes(mes);
+		}
+		return cantidadBeneficios;
+	}
+	
+	public Sucursal getSucursalQueAtendioMasClientesEnMes(Mes mes) {
+		Sucursal sucursalQueMasAtendio = getSucursales().get(0);
+		for(int i = 1; i < getSucursales().size(); i++) {
+			Sucursal sucursalActual = getSucursales().get(i);
+			if(sucursalQueMasAtendio.getCantidadDeVentasEnMes(mes) < sucursalActual.getCantidadDeVentasEnMes(mes)) {
+				sucursalQueMasAtendio = sucursalActual;
+			}
+		}
+		return sucursalQueMasAtendio;
+	}
+	
 }
