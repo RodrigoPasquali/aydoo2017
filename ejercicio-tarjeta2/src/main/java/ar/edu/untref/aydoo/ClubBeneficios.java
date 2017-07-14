@@ -82,11 +82,13 @@ public class ClubBeneficios {
 	
 	public String generarReporteDeAhorrosDeClienteEnMes(Cliente cliente, Mes mes) {
 		List<Compra> listaDeCompras = cliente.getListaDeCompras();
+		int cantidadDeVentas = 0;
 		String reporte = "...Reporte de ahorros obtenidos por " + cliente.getNombre() + " con la tarjeta del club en el mes de " + mes + "... \r\n"
 				+ "Establecimiento | Producto Comprado  | Precio Habitual | Precio Con Beneficio | Beneficio \r\n";
 		for(int i = 0; i < listaDeCompras.size(); i++) {
 			Compra compraActual = listaDeCompras.get(i);
 			if(compraActual.getMes().equals(mes)) {
+				cantidadDeVentas++;
 				String establecimiento = compraActual.getSucursal().getEstablecimientoAlQuePertenece().getNombre();
 				List<Producto> listaProductos = compraActual.getListaProductosComprados();
 				String nombreDeProductos = getNombreProductos(listaProductos);
@@ -95,11 +97,13 @@ public class ClubBeneficios {
 				String beneficioOtorgado = compraActual.getBeneficio();
 				reporte = reporte + establecimiento + " | " + nombreDeProductos + " | " + precioSinBeneficio + " | " + 
 						precioConBeneficio + " | " + beneficioOtorgado + " \r\n" ;
-			} else {
-				throw new ExcepcionClienteNoUtilizoTarjeta();
 			}
 		}
-		return reporte;
+		if(cantidadDeVentas == 0) {
+			throw new ExcepcionClienteNoUtilizoTarjeta();
+		} else {
+			return reporte;
+		}
 	}
 
 }
